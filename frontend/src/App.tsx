@@ -1,11 +1,23 @@
+import React from 'react';
+import Hero  from './components/Hero';
+import Navbar from './components/Navbar';
+import About from './components/About';
+import Features from './components/Features';
+import Franchise from './components/Franchise';
+import Footer from './components/Footer';
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <h1 className="text-5xl font-bold text-cyan-400">
-        EV Dock 🚗⚡
-      </h1>
+    <div className="min-h-screen flex flex-col">
+      <Navbar/>
+      <Hero />
+      <About />
+      <Features />
+      <Franchise />
+      <Footer />
+
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
