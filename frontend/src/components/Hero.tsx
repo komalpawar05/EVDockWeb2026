@@ -27,7 +27,7 @@ const Hero = () => {
         }}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-slate-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-900/70 to-slate-900/40" />
       </motion.div>
 
       {/* Glow */}
@@ -72,7 +72,7 @@ const Hero = () => {
             className="mt-8 text-5xl font-black leading-tight text-white md:text-6xl lg:text-7xl"
           >
             Fast.
-            <span className="block text-blue-400">
+            <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#E04578] bg-clip-text text-transparent">
               Reliable.
             </span>
             Future Ready.
