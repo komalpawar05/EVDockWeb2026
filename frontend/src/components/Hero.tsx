@@ -1,155 +1,181 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroImg from "../assets/img-1.png";
-
 import {
   ArrowRight,
-  BatteryCharging,
-  MapPin,
-  ShieldCheck,
-  Smartphone,
-  Zap,
-  Star,
   Play,
 } from "lucide-react";
 
+import Herobg from "../assets/Hero_img PM.png";
+
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-24">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-40 -left-32 h-[420px] w-[420px] rounded-full bg-blue-100 blur-[120px] opacity-70" />
-        <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-cyan-100 blur-[120px] opacity-60" />
+    <section className="relative min-h-screen overflow-hidden pt-30 lg:mp-0 ">
 
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
+      {/* Animated Background */}
+      <motion.div
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.08 }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear",
+        }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${Herobg})`,
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-900/70 to-slate-900/40" />
+      </motion.div>
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-20 px-6 lg:flex-row">
-        {/* LEFT */}
+      {/* Glow */}
+      <div className="absolute left-0 top-1/3 h-80 w-80 rounded-full bg-blue-500/20 blur-[120px]" />
+      <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-cyan-500/20 blur-[120px]" />
 
-       <motion.div
-          initial={{ opacity: 0, x: -60 }}
+      {/* Content */}
+      <div className="relative z-10 container mx-auto flex min-h-screen items-center px-6 lg:px-12">
+
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1"
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
+          className="max-w-2xl"
         >
+
           {/* Badge */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-5 py-2 text-sm font-semibold text-blue-700 shadow-md backdrop-blur-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.2,
+              duration: 1,
+            }}
+            className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-2 text-sm font-medium text-blue-400"
           >
-            <Zap size={18} className="text-blue-600" />
-            India's Next-Generation EV Charging Network
+            <span className="h-2 w-2 rounded-full bg-blue-400"></span>
+            New Feature Available
           </motion.div>
 
           {/* Heading */}
-          <h1 className="mt-8 text-5xl font-black leading-tight text-gray-900 md:text-7xl">
-            Powering
-            <span className="block bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-600 bg-clip-text text-transparent">
-              India's EV Future
+          <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.4,
+              duration: 1,
+            }}
+            className="mt-8 text-5xl font-black leading-tight text-white md:text-6xl lg:text-7xl"
+          >
+            Fast.
+            <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#E04578] bg-clip-text text-transparent">
+              Reliable.
             </span>
-            One Charge at a Time
-          </h1>
+            Future Ready.
+          </motion.h1>
 
           {/* Description */}
-          <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
-            Experience ultra-fast DC charging, live station availability, secure digital
-            payments, and seamless charging across India's growing EV infrastructure.
-            Drive farther with confidence using EV Dock.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 0.8,
+              duration: 1,
+            }}
+            className="mt-8 max-w-xl text-lg leading-8 text-slate-300"
+          >
+            Charge your EV anytime with ultra-fast charging stations,
+            real-time availability, secure payments, nationwide coverage,
+            and a seamless charging experience.
+          </motion.p>
 
           {/* Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4">
-            <button className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 px-8 py-4 font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              Find Charging Station
-              <ArrowRight
-                size={20}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </button>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 1.2,
+            }}
+            className="mt-10 flex flex-wrap gap-5"
+          >
 
-            <button className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white/80 px-8 py-4 font-semibold text-gray-700 shadow-md backdrop-blur-lg transition-all duration-300 hover:border-blue-500 hover:text-blue-600">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-700"
+            >
+              Find Charger
+              <ArrowRight size={20} />
+            </motion.button>
+
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur hover:bg-white/10"
+            >
               <Play size={18} />
               Watch Demo
-            </button>
-          </div>
+            </motion.button>
 
-          {/* Trust */}
-          <div className="mt-12 flex flex-wrap items-center gap-8">
-            <div className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 shadow-sm backdrop-blur">
-              <ShieldCheck className="text-green-500" />
-              <span className="font-medium text-gray-700">
-                100% Secure Payments
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 shadow-sm backdrop-blur">
-              <Star className="fill-yellow-400 text-yellow-400" />
-              <span className="font-medium text-gray-700">
-                Trusted by EV Drivers
-              </span>
-            </div>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="mt-14 grid grid-cols-3 gap-8 border-t border-gray-200 pt-10">
-            <div>
-              <h2 className="text-4xl font-extrabold text-blue-600">250+</h2>
-              <p className="mt-2 text-gray-600">Charging Stations</p>
-            </div>
-
-            <div>
-              <h2 className="text-4xl font-extrabold text-blue-600">25K+</h2>
-              <p className="mt-2 text-gray-600">EV Drivers Served</p>
-            </div>
-
-            <div>
-              <h2 className="text-4xl font-extrabold text-blue-600">99.9%</h2>
-              <p className="mt-2 text-gray-600">Network Uptime</p>
-            </div>
-          </div>
-        </motion.div>
-        {/* RIGHT */}
-
-        <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative flex flex-1 items-center justify-center"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 1.6,
+            }}
+            className="mt-16 mb-16 grid grid-cols-3 gap-10"
           >
-            {/* Background Glow */}
-            <div className="absolute h-[600px] w-[600px] rounded-full bg-gradient-to-r from-blue-100 via-cyan-100 to-blue-50 blur-[140px]" />
 
-            {/* Decorative Circle */}
-            <div className="absolute h-[520px] w-[520px] rounded-full border border-blue-100" />
+            <div>
+              <h2 className="text-3xl font-bold text-blue-400">
+                1200+
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Charging Stations
+              </p>
+            </div>
 
-            {/* Main Image */}
-            <motion.img
-              src={HeroImg}
-              alt="EV Dock"
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, 1, 0, -1, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-              }}
-              className="relative z-20 w-full max-w-[620px] drop-shadow-[0_35px_60px_rgba(0,0,0,0.18)]"
-            />
-              {/* Floating Dots */}
-              <div className="absolute right-20 bottom-20 h-5 w-5 rounded-full bg-blue-400 animate-ping" />
-              <div className="absolute left-16 bottom-32 h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
-              <div className="absolute top-20 right-24 h-4 w-4 rounded-full bg-blue-300 animate-bounce" />
-            </motion.div>
-          </div>
+            <div>
+              <h2 className="text-3xl font-bold text-blue-400">
+                99%
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Uptime
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold text-blue-400">
+                24/7
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Support
+              </p>
+            </div>
+
+          </motion.div>
+
+        </motion.div>
+
+      </div>
+
+     
+
     </section>
   );
 };

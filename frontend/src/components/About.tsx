@@ -5,6 +5,10 @@ import {
   ShieldCheck,
   MapPinned,
   Zap,
+  Car,
+  Home,
+  ArrowRight,
+  Wifi,
 } from "lucide-react";
 
 const About = () => {
@@ -32,7 +36,7 @@ const About = () => {
   // ];
 
   return (
-    <section className="relative py-32 overflow-hidden bg-[#0F172A]">
+   <section className="relative overflow-hidden bg-[#0F172A] py-24 lg:py-32">
 
       {/* Glow Effects */}
       <div className="absolute inset-0 overflow-hidden">
@@ -65,14 +69,14 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center max-w-5xl mx-auto mt-10"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
             Building India's
             <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#E04578] bg-clip-text text-transparent">
               Smart EV Future
             </span>
           </h2>
 
-          <p className="mt-8 text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">
+          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg leading-8 text-slate-300">
             EV Dock is transforming electric mobility through intelligent,
             reliable and accessible EV charging infrastructure. We help
             drivers charge smarter with real-time station availability,
@@ -80,30 +84,8 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Stats */}
-        {/* <div className="grid md:grid-cols-3 gap-6 mt-16">
-
-          {stats.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -8 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[30px] p-8 text-center"
-            >
-              <h3 className="text-5xl font-black bg-gradient-to-r from-[#6FA8FF] to-[#B57EDC] bg-clip-text text-transparent">
-                {item.number}
-              </h3>
-
-              <p className="mt-3 text-slate-400">
-                {item.label}
-              </p>
-            </motion.div>
-          ))}
-
-        </div>
-
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mt-20">
-
           {features.map((item, index) => (
             <motion.div
               key={index}
@@ -111,7 +93,7 @@ const About = () => {
                 y: -10,
                 scale: 1.02,
               }}
-              className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 transition-all duration-500"
+             className="group rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 backdrop-blur-xl hover:border-[#6FA8FF]/50 hover:shadow-[0_0_40px_rgba(111,168,255,.25)] transition-all duration-500"
             >
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] flex items-center justify-center text-white shadow-lg">
                 {item.icon}
