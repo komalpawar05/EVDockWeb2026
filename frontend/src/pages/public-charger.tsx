@@ -23,25 +23,30 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/Common/BackToTop";
+import SectionHeading from "../components/Common/SectionHeading";
 
 const chargers = [
   {
     power: "30",
+    tag: "Urban",
     title: "Compact DC",
     description: "Ideal for hotels, cafés and urban destinations.",
   },
   {
     power: "60",
+    tag: "Popular",
     title: "Business DC",
     description: "Built for commercial properties and public locations.",
   },
   {
     power: "80",
+    tag: "Fastest",
     title: "High Performance",
     description: "Designed for high-traffic locations and EV fleets.",
   },
   {
     power: "200",
+    tag: "Premium",
     title: "Ultra Fast",
     description: "Made for highways, buses, trucks and charging hubs.",
   },
@@ -115,6 +120,7 @@ const PublicCharger: React.FC = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <div className="absolute left-[-180px] top-20 h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px]" />
+
           <div className="absolute right-[-120px] top-[-100px] h-[600px] w-[600px] rounded-full bg-violet-600/20 blur-[130px]" />
 
           <div
@@ -136,30 +142,32 @@ const PublicCharger: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+
               <span className="text-[11px] font-bold tracking-[0.2em] text-blue-200">
                 PUBLIC EV CHARGING
               </span>
             </div>
 
-            <h1 className="mt-7 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-[68px]">
+            <h1 className="mt-7 max-w-2xl text-5xl font-black leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-[68px]">
               Turn your location into
-              <span className="block bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent">
                 an EV destination.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-8 text-slate-400 md:text-lg">
               Deploy high-performance DC charging infrastructure for
               businesses, highways, fleets and public destinations with
               EV Dock.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <button
                 type="button"
                 className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-slate-950 shadow-2xl shadow-blue-950/30 transition hover:-translate-y-1 hover:bg-blue-50"
               >
                 Install a Charger
+
                 <ArrowRight
                   size={17}
                   className="transition-transform group-hover:translate-x-1"
@@ -171,6 +179,7 @@ const PublicCharger: React.FC = () => {
                 className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-6 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:border-white/30 hover:bg-white/10"
               >
                 Become a Partner
+
                 <ArrowUpRight size={17} />
               </button>
             </div>
@@ -181,6 +190,7 @@ const PublicCharger: React.FC = () => {
                 <p className="text-2xl font-bold text-white md:text-3xl">
                   30–200
                 </p>
+
                 <p className="mt-1 text-[11px] text-slate-500">
                   POWER kW
                 </p>
@@ -190,6 +200,7 @@ const PublicCharger: React.FC = () => {
                 <p className="text-2xl font-bold text-white md:text-3xl">
                   DC
                 </p>
+
                 <p className="mt-1 text-[11px] text-slate-500">
                   FAST CHARGING
                 </p>
@@ -199,6 +210,7 @@ const PublicCharger: React.FC = () => {
                 <p className="text-2xl font-bold text-white md:text-3xl">
                   24/7
                 </p>
+
                 <p className="mt-1 text-[11px] text-slate-500">
                   READY TO CHARGE
                 </p>
@@ -253,11 +265,14 @@ const PublicCharger: React.FC = () => {
 
               <p className="mt-1 text-2xl font-black text-white">
                 30–200
-                <span className="ml-1 text-sm text-cyan-300">kW</span>
+                <span className="ml-1 text-sm text-cyan-300">
+                  kW
+                </span>
               </p>
 
               <div className="mt-2 flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
+
                 <span className="text-[10px] text-slate-400">
                   DC Fast Charging
                 </span>
@@ -280,12 +295,16 @@ const PublicCharger: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+
                       <span className="text-[10px] font-bold tracking-[0.2em] text-white">
                         EV DOCK
                       </span>
                     </div>
 
-                    <Zap size={17} className="text-cyan-300" />
+                    <Zap
+                      size={17}
+                      className="text-cyan-300"
+                    />
                   </div>
 
                   {/* Screen */}
@@ -347,13 +366,17 @@ const PublicCharger: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-400/10">
-                  <PlugZap size={18} className="text-emerald-300" />
+                  <PlugZap
+                    size={18}
+                    className="text-emerald-300"
+                  />
                 </div>
 
                 <div>
                   <p className="text-[9px] uppercase tracking-wider text-slate-500">
                     Network Ready
                   </p>
+
                   <p className="text-xs font-bold text-white">
                     Smart Charging
                   </p>
@@ -378,12 +401,15 @@ const PublicCharger: React.FC = () => {
             <div
               key={label}
               className={`px-5 py-7 text-center ${
-                index !== 0 ? "border-l border-slate-100" : ""
+                index !== 0
+                  ? "border-l border-slate-100"
+                  : ""
               }`}
             >
               <p className="text-lg font-black text-slate-900">
                 {value}
               </p>
+
               <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                 {label}
               </p>
@@ -401,18 +427,15 @@ const PublicCharger: React.FC = () => {
         <div className="relative mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">
-              <p className="text-[11px] font-black uppercase tracking-[0.22em] text-blue-600">
-                CHARGING RANGE
-              </p>
-
-              <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-950 md:text-5xl">
-                Power for every destination.
-              </h2>
-
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-500">
-                Choose the right charging capacity based on your location,
-                traffic, vehicle type and business model.
-              </p>
+              <SectionHeading
+                eyebrow="CHARGING RANGE"
+                title="Power for"
+                highlight="every destination."
+                description="Choose the right charging capacity based on your location, traffic, vehicle type and business model."
+                titleClassName="text-slate-950"
+                highlightClassName="bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent"
+                descriptionClassName="text-slate-500"
+              />
             </div>
 
             <button
@@ -420,9 +443,10 @@ const PublicCharger: React.FC = () => {
               className="group inline-flex items-center gap-2 self-start text-sm font-bold text-blue-600 md:self-auto"
             >
               Explore all chargers
+
               <ChevronRight
                 size={17}
-                className="transition-transform group-hover:translate-x-1"
+                className="text-blue-600 transition-transform group-hover:translate-x-1"
               />
             </button>
           </div>
@@ -433,18 +457,27 @@ const PublicCharger: React.FC = () => {
                 key={charger.power}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.08 }}
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+                transition={{
+                  delay: index * 0.08,
+                }}
                 whileHover={{ y: -8 }}
                 className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-[0_25px_60px_rgba(37,99,235,0.12)]"
               >
-              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-indigo-100 blur-2xl transition-all duration-300 group-hover:bg-indigo-200"/>
+                <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-indigo-100 blur-2xl transition-all duration-300 group-hover:bg-indigo-200" />
 
                 <div className="relative flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 transition-all duration-300 group-hover:bg-indigo-400">
-                  <PlugZap size={22} className="text-white hover:text-blue-600" />
-                </div>
-                  <span className="text-white transition-colors duration-300">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 transition-all duration-300 group-hover:bg-indigo-400">
+                    <PlugZap
+                      size={22}
+                      className="text-white"
+                    />
+                  </div>
+
+                  <span className="rounded-full bg-indigo-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-600">
                     {charger.tag}
                   </span>
                 </div>
@@ -454,6 +487,7 @@ const PublicCharger: React.FC = () => {
                     <span className="text-5xl font-black tracking-[-0.06em] text-slate-950">
                       {charger.power}
                     </span>
+
                     <span className="ml-1 text-sm font-bold text-blue-600">
                       kW
                     </span>
@@ -486,22 +520,16 @@ const PublicCharger: React.FC = () => {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-cyan-300">
-              WHY EV DOCK
-            </p>
-
-            <h2 className="mt-4 max-w-xl text-3xl font-bold leading-tight tracking-[-0.03em] text-white md:text-5xl">
-              More than a charger.
-              <span className="block text-blue-300">
-                A complete charging ecosystem.
-              </span>
-            </h2>
-
-            <p className="mt-6 max-w-xl text-base leading-8 text-slate-400">
-              EV Dock combines charging infrastructure, connected technology
-              and business-ready solutions to help you build a smarter EV
-              destination.
-            </p>
+            <SectionHeading
+              centered
+              eyebrow="WHY EV DOCK"
+              title="More than a charger."
+              titleClassName="text-white"
+              highlight="A complete charging ecosystem."
+              highlightClassName="bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
+              description="EV Dock combines charging infrastructure, connected technology and business-ready solutions to help you build a smarter EV destination."
+              descriptionClassName="text-slate-400"
+            />
 
             <button
               type="button"
@@ -519,14 +547,27 @@ const PublicCharger: React.FC = () => {
               return (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    delay: index * 0.08,
+                  }}
                   className="rounded-[24px] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl"
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10">
-                    <Icon size={21} className="text-cyan-300" />
+                    <Icon
+                      size={21}
+                      className="text-cyan-300"
+                    />
                   </div>
 
                   <h3 className="mt-5 font-bold text-white">
@@ -548,19 +589,16 @@ const PublicCharger: React.FC = () => {
       ====================================================== */}
       <section className="px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-blue-600">
-              SIMPLE PROCESS
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-950 md:text-5xl">
-              From location to charging network.
-            </h2>
-
-            <p className="mt-5 leading-7 text-slate-500">
-              A simple path to bringing EV charging to your property.
-            </p>
-          </div>
+          <SectionHeading
+            centered
+            eyebrow="SIMPLE PROCESS"
+            title="From location to"
+            highlight="charging network."
+            description="A simple path to bringing EV charging to your property."
+            titleClassName="text-slate-950"
+            highlightClassName="bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent"
+            descriptionClassName="text-slate-500"
+          />
 
           <div className="relative mt-16 grid gap-8 md:grid-cols-3">
             {/* Connecting line */}
@@ -583,7 +621,10 @@ const PublicCharger: React.FC = () => {
                 text: "Launch your charging destination and serve EV customers.",
               },
             ].map((step) => (
-              <div key={step.number} className="relative text-center">
+              <div
+                key={step.number}
+                className="relative text-center"
+              >
                 <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-100 bg-white text-sm font-black text-blue-600 shadow-lg shadow-blue-100/50">
                   {step.number}
                 </div>
@@ -629,10 +670,21 @@ const PublicCharger: React.FC = () => {
               return (
                 <motion.div
                   key={location.title}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.06 }}
+                  initial={{
+                    opacity: 0,
+                    y: 25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    delay: index * 0.06,
+                  }}
                   whileHover={{ y: -6 }}
                   className="group rounded-[26px] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
                 >
@@ -660,6 +712,7 @@ const PublicCharger: React.FC = () => {
 
                   <div className="mt-6 flex items-center gap-1 text-xs font-bold text-blue-600">
                     Explore Solution
+
                     <ArrowRight
                       size={14}
                       className="transition-transform group-hover:translate-x-1"
@@ -679,6 +732,7 @@ const PublicCharger: React.FC = () => {
         <div className="mx-auto max-w-7xl">
           <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-[#1557d6] via-[#2563eb] to-[#6938d8] p-8 shadow-[0_30px_100px_rgba(37,99,235,0.25)] md:p-14">
             <div className="absolute right-[-100px] top-[-130px] h-[400px] w-[400px] rounded-full bg-white/10 blur-3xl" />
+
             <div className="absolute bottom-[-150px] left-[30%] h-[400px] w-[400px] rounded-full bg-violet-300/10 blur-3xl" />
 
             <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_auto]">
@@ -690,6 +744,7 @@ const PublicCharger: React.FC = () => {
 
                 <h2 className="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-[-0.03em] text-white md:text-5xl">
                   Have a location?
+
                   <span className="block text-blue-100">
                     Let's make it EV ready.
                   </span>
@@ -730,11 +785,15 @@ const PublicCharger: React.FC = () => {
       <section className="px-5 pb-28 text-center md:px-10">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
-            <Zap size={29} className="text-blue-600" />
+            <Zap
+              size={29}
+              className="text-blue-600"
+            />
           </div>
 
           <h2 className="mt-7 text-3xl font-bold tracking-[-0.03em] text-slate-950 md:text-5xl">
             Your location could become
+
             <span className="block text-blue-600">
               the next EV destination.
             </span>
@@ -750,6 +809,7 @@ const PublicCharger: React.FC = () => {
             className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-200 transition hover:-translate-y-1 hover:bg-blue-700"
           >
             Start Your EV Charging Project
+
             <ArrowUpRight size={17} />
           </button>
         </div>

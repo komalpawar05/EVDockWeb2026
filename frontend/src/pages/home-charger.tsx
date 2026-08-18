@@ -195,9 +195,7 @@ const ChargerVisual = () => {
           <div className="flex h-full flex-col rounded-[32px] border border-white/5 bg-gradient-to-b from-slate-900 to-black p-5">
 
             {/* Header */}
-
             <div className="flex items-center justify-between">
-
               <div>
 
                 <p className="text-[8px] font-bold uppercase tracking-[0.3em] text-slate-500">
@@ -601,7 +599,7 @@ const ACHomeCharger: React.FC = () => {
 
                 <button
                   type="button"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-slate-950 shadow-2xl shadow-blue-950/30 transition hover:-translate-y-1 hover:bg-blue-50"
                 >
 
                   Explore Chargers
@@ -721,13 +719,16 @@ const ACHomeCharger: React.FC = () => {
         <section className="px-5 py-24 md:px-10 md:py-32">
 
           <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-
-            <div>
-
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">
-                EV CHARGING
-              </p>
-
+            <div>                    
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
+                <Zap
+                  size={12}
+                  className="text-blue-600"
+                />
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
+                  EV CHARGING
+                </span>
+            </div>
               <h2 className="mt-5 text-4xl font-black leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
 
                 One platform.
@@ -922,42 +923,34 @@ const ACHomeCharger: React.FC = () => {
           <div className="relative mx-auto max-w-7xl">
 
             {/* Header */}
+          <div className="flex flex-col items-center justify-center gap-6 text-center">
 
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
 
-              <div>
+              <Zap
+                size={12}
+                className="text-blue-600"
+              />
 
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
-
-                  <Zap
-                    size={12}
-                    className="text-blue-600"
-                  />
-
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
-                    EV CHARGER RANGE
-                  </span>
-
-                </div>
-
-                <h2 className="mt-5 max-w-2xl text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                  Choose the right
-
-                  <span className="ml-2 bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
-                    charger.
-                  </span>
-
-                </h2>
-
-              </div>
-
-              <p className="max-w-md text-sm leading-7 text-slate-500">
-                Explore home, smart, dual-connector and hybrid charging
-                solutions designed for different EV charging requirements.
-              </p>
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
+                EV CHARGER RANGE
+              </span>
 
             </div>
+
+            <h2 className="max-w-2xl text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
+              Choose the right{" "}
+              <span className="bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
+                charger.
+              </span>
+            </h2>
+
+            <p className="max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
+              Explore home, smart, dual-connector and hybrid charging
+              solutions designed for different EV charging requirements.
+            </p>
+
+          </div>
 
             {/* Cards */}
 
@@ -988,11 +981,18 @@ const ACHomeCharger: React.FC = () => {
           <div className="mx-auto max-w-7xl">
 
             <div className="mx-auto max-w-3xl text-center">
-
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">
-                SMART FEATURES
-              </p>
-
+              <div>                    
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
+                  <Zap
+                    size={12}
+                    className="text-blue-600"
+                  />
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
+                    SMART FEATURES
+                  </span>
+              </div>
+            </div>
+              
               <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
 
                 More than a charger.
@@ -1093,11 +1093,15 @@ const ACHomeCharger: React.FC = () => {
               {/* Content */}
 
               <div>
-
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-300">
-                  SIMPLE INSTALLATION
-                </p>
-
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
+                  <Zap
+                    size={12}
+                    className="text-blue-600"
+                  />
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
+                    SIMPLE INSTALLATION
+                  </span>
+              </div>
                 <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
 
                   From charger selection
@@ -1198,126 +1202,330 @@ const ACHomeCharger: React.FC = () => {
             WHY EV DOCK
         ====================================================== */}
 
-        <section className="px-5 py-24 md:px-10 md:py-32">
+        <section className="relative overflow-hidden bg-white px-5 py-24 md:px-10 md:py-32">
 
-          <div className="mx-auto max-w-7xl">
+            {/* Ambient Background */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/40 blur-[150px]" />
 
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="pointer-events-none absolute left-0 top-0 h-[350px] w-[350px] rounded-full bg-violet-100/40 blur-[120px]" />
 
-              <div className="rounded-[30px] border border-slate-200 bg-slate-50 p-7 md:col-span-2 md:p-9">
+            <div className="pointer-events-none absolute bottom-0 right-0 h-[350px] w-[350px] rounded-full bg-blue-100/40 blur-[120px]" />
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100">
+            <div className="relative mx-auto max-w-7xl">
 
-                  <Gauge className="h-6 w-6 text-[#1E5FA8]" />
+            {/* Header */}
+            <div className="mx-auto max-w-3xl text-center">
 
-                </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
+                <Zap
+                  size={12}
+                  className="text-blue-600"
+                />   
 
-                <h3 className="mt-6 text-2xl font-black text-slate-950">
-                  Charging solutions for every requirement.
-                </h3>
-
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-                  From home AC charging to dual CCS2 and hybrid solutions,
-                  EV Dock gives you the flexibility to choose a charger
-                  according to your vehicle, location and usage.
-                </p>
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
+                  Intelligent EV Infrastructure
+                </span>
 
               </div>
 
-              <div className="rounded-[30px] bg-gradient-to-br from-[#1E5FA8] to-[#7A3FAF] p-7 text-white md:p-9">
+              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-black md:text-5xl">
 
-                <Sparkles className="h-6 w-6 text-blue-100" />
+                One ecosystem.
 
-                <h3 className="mt-6 text-2xl font-black">
-                  Smart by design.
-                </h3>
+                <span className="block bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
+                  Every charging need.
+                </span>
 
-                <p className="mt-3 text-sm leading-7 text-blue-100/80">
-                  A clean, connected charging experience designed around your
-                  EV and charging needs.
-                </p>
+              </h2>
+
+              <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
+                From everyday home charging to high-power commercial infrastructure,
+                EV Dock connects powerful hardware with intelligent technology.
+              </p>
+
+            </div>
+
+             {/* Technology Layout */}
+            <div className="relative mt-20">
+
+              {/* Central Connector */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-200 to-transparent lg:block" />
+
+              <div className="grid gap-5 lg:grid-cols-12">
+
+                {/* LEFT COLUMN */}
+                <div className="space-y-5 lg:col-span-3">
+
+                  {/* AC */}
+                  <div className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
+
+                    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-blue-100/60 blur-3xl transition-all group-hover:bg-blue-200" />
+
+                    <div className="relative">
+
+                      <div className="flex items-center justify-between">
+
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50">
+                          <Gauge className="h-5 w-5 text-[#1E5FA8]" />
+                        </div>
+
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                          01
+                        </span>
+
+                      </div>
+
+                      <h3 className="mt-6 text-xl font-black text-slate-950">
+                        AC Charging
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-6 text-slate-500">
+                        Reliable everyday charging for homes,
+                        offices and destinations.
+                      </p>
+
+                      <div className="mt-5 flex items-center gap-2 text-xs font-bold text-[#1E5FA8]">
+                        Everyday charging
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* SMART */}
+                  <div className="group rounded-[28px] bg-slate-950 p-6 text-white shadow-xl">
+
+                    <div className="flex items-center justify-between">
+
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10">
+                        <Sparkles className="h-5 w-5 text-blue-300" />
+                      </div>
+
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
+                        02
+                      </span>
+
+                    </div>
+
+                    <h3 className="mt-6 text-xl font-black">
+                      Smart Technology
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-white/50">
+                      Connected charging intelligence
+                      built into every experience.
+                    </p>
+
+                  </div>
+
+                </div>
+
+                {/* CENTER FEATURE */}
+                <div className="relative flex min-h-[480px] items-center justify-center overflow-hidden rounded-[36px] bg-gradient-to-br from-[#0F172A] via-[#1E5FA8] to-[#7A3FAF] p-8 text-white shadow-2xl lg:col-span-6">
+
+                  {/* Glow */}
+                  <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-[100px]" />
+
+                  {/* Ring */}
+                  <div className="absolute h-[310px] w-[310px] rounded-full border border-white/10" />
+                  <div className="absolute h-[220px] w-[220px] rounded-full border border-white/10" />
+
+                  <div className="relative z-10 text-center">
+
+                    {/* Charging Icon */}
+                    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-[28px] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl">
+
+                      <Zap className="h-11 w-11 text-white" />
+
+                    </div>
+
+                    <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.25em] text-blue-200">
+                      EV Dock Technology
+                    </p>
+
+                    <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] md:text-4xl">
+                      Charge smarter.
+                    </h3>
+
+                    <p className="mx-auto mt-4 max-w-sm text-sm leading-6 text-white/60">
+                      Hardware, software and connectivity working
+                      together as one intelligent charging ecosystem.
+                    </p>
+
+                    {/* Status */}
+                    <div className="mx-auto mt-8 flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 backdrop-blur">
+
+                      <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]" />
+
+                      <span className="text-xs font-medium text-white/80">
+                        Charging ecosystem active
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* RIGHT COLUMN */}
+                <div className="space-y-5 lg:col-span-3">
+
+                  {/* DC */}
+                  <div className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl">
+
+                    <div className="absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-violet-100/60 blur-3xl" />
+
+                    <div className="relative">
+
+                      <div className="flex items-center justify-between">
+
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-50">
+
+                          <Zap className="h-5 w-5 text-[#7A3FAF]" />
+
+                        </div>
+
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                          03
+                        </span>
+
+                      </div>
+
+                      <h3 className="mt-6 text-xl font-black text-slate-950">
+                        DC Fast Charging
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-6 text-slate-500">
+                        High-power charging designed for
+                        highways, fleets and businesses.
+                      </p>
+
+                      <div className="mt-5 flex items-center gap-2 text-xs font-bold text-[#7A3FAF]">
+                        High-power charging
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* NETWORK */}
+                  <div className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+
+                    <div className="flex items-center justify-between">
+
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
+                        <Gauge className="h-5 w-5 text-slate-700" />
+                      </div>
+
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                        04
+                      </span>
+
+                    </div>
+
+                    <h3 className="mt-6 text-xl font-black text-slate-950">
+                      Connected Network
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                      Monitor, manage and scale your charging
+                      infrastructure from one platform.
+                    </p>
+
+                  </div>
+
+                </div>
 
               </div>
 
             </div>
-
-          </div>
-
+         </div>
         </section>
 
         {/* =====================================================
             FINAL CTA
         ====================================================== */}
 
-        <section className="px-5 pb-24 md:px-10 md:pb-32">
+       <section className="px-5 pb-16 md:px-10 md:pb-20">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-[#0F172A]">
 
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[40px] bg-gradient-to-br from-[#0F172A] via-[#1E5FA8] to-[#7A3FAF] px-7 py-20 text-center md:px-16">
+          {/* Glow */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-600/20 blur-[90px]" />
 
-            <div className="absolute left-[-120px] top-[-150px] h-96 w-96 rounded-full bg-blue-400/20 blur-[100px]" />
+          <div className="pointer-events-none absolute -bottom-20 left-20 h-48 w-48 rounded-full bg-violet-600/20 blur-[90px]" />
 
-            <div className="absolute bottom-[-160px] right-[-100px] h-96 w-96 rounded-full bg-pink-400/20 blur-[100px]" />
+          {/* Content */}
+          <div className="relative flex flex-col gap-7 px-6 py-9 md:flex-row md:items-center md:justify-between md:px-10 md:py-10">
 
-            <div className="relative">
+            {/* Left */}
+            <div className="max-w-2xl">
 
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
+              <div className="mb-3 flex items-center gap-2">
 
-                <Zap className="h-7 w-7 text-white" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/15 ring-1 ring-blue-400/20">
+                  <Zap className="h-4 w-4 text-blue-300" />
+                </div>
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-blue-300">
+                  EV Dock
+                </span>
 
               </div>
 
-              <p className="mt-7 text-[10px] font-black uppercase tracking-[0.22em] text-blue-100">
-                EV DOCK CHARGING SOLUTIONS
-              </p>
+              <h2 className="text-3xl font-black leading-tight tracking-[-0.04em] text-white md:text-4xl">
 
-              <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
+                Charge smarter.
 
-                Find the right charger
-
-                <span className="block text-blue-100">
-                  for your EV.
+                <span className="ml-2 bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent">
+                  Go further.
                 </span>
 
               </h2>
 
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-blue-100/80 md:text-lg">
-                Choose from AC, CCS2 and hybrid charging solutions designed
-                for homes, workplaces, fleets and commercial locations.
+              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-400">
+                Smart AC, DC and fast charging solutions for
+                modern electric mobility.
               </p>
 
-              <div className="mt-9 flex flex-wrap justify-center gap-3">
+            </div>
 
-                <button
-                  type="button"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50"
-                >
 
-                  Explore Chargers
+            {/* Right Buttons */}
+            <div className="flex shrink-0 flex-wrap gap-2">
 
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+              <button
+                type="button"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-bold text-slate-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
+              >
 
-                </button>
+                Explore Chargers
 
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/15"
-                >
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-1"
+                />
 
-                  Talk to an Expert
+              </button>
 
-                  <ArrowUpRight size={16} />
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-xs font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
+              >
 
-                </button>
+                Talk to Expert
 
-              </div>
+                <ArrowUpRight size={14} />
+
+              </button>
 
             </div>
 
           </div>
 
-        </section>
+        </div>
+      </section>
 
       </main>
 
