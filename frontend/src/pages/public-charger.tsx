@@ -18,6 +18,7 @@ import {
   Gauge,
   CircleDollarSign,
   Network,
+  Section,
 } from "lucide-react";
 
 import Navbar from "../components/Navbar";
@@ -388,126 +389,122 @@ const PublicCharger: React.FC = () => {
       </section>
 
       {/* =====================================================
-          TRUST STRIP
-      ====================================================== */}
-      <section className="border-b border-slate-100 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
-          {[
-            ["30–200 kW", "Charging Range"],
-            ["DC Fast", "Technology"],
-            ["24/7", "Availability"],
-            ["Scalable", "Infrastructure"],
-          ].map(([value, label], index) => (
-            <div
-              key={label}
-              className={`px-5 py-7 text-center ${
-                index !== 0
-                  ? "border-l border-slate-100"
-                  : ""
-              }`}
-            >
-              <p className="text-lg font-black text-slate-900">
-                {value}
-              </p>
-
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* =====================================================
           CHARGER RANGE
       ====================================================== */}
-      <section className="relative overflow-hidden px-5 py-24 md:px-10 md:py-32">
-        <div className="absolute right-[-180px] top-20 h-[400px] w-[400px] rounded-full bg-blue-50 blur-3xl" />
+      <section className="relative overflow-hidden bg-white px-5 py-16 md:px-10 md:py-20">
+        {/* Background */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-0 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-blue-50/70 blur-[120px]" />
+
+          <div
+            className="absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage:
+                "radial-gradient(#1e5fa8 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+        </div>
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-2xl">
+
+          {/* Header */}
+          <div className="mx-auto max-w-3xl text-center">
               <SectionHeading
-                eyebrow="CHARGING RANGE"
-                title="Power for"
-                highlight="every destination."
-                description="Choose the right charging capacity based on your location, traffic, vehicle type and business model."
-                titleClassName="text-slate-950"
-                highlightClassName="bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent"
-                descriptionClassName="text-slate-500"
+                eyebrow="CHARGER RANGE"
+                title="Power that fits"
+                highlight="your destination."
+                description="Flexible charging capacities designed for different locations, traffic levels and vehicle requirements."
               />
-            </div>
-
-            <button
-              type="button"
-              className="group inline-flex items-center gap-2 self-start text-sm font-bold text-blue-600 md:self-auto"
-            >
-              Explore all chargers
-
-              <ChevronRight
-                size={17}
-                className="text-blue-600 transition-transform group-hover:translate-x-1"
-              />
-            </button>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {chargers.map((charger, index) => (
-              <motion.div
-                key={charger.power}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
-                transition={{
-                  delay: index * 0.08,
-                }}
-                whileHover={{ y: -8 }}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-200 hover:shadow-[0_25px_60px_rgba(37,99,235,0.12)]"
-              >
-                <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-indigo-100 blur-2xl transition-all duration-300 group-hover:bg-indigo-200" />
+          {/* Charging spectrum */}
+          <div className="relative mt-14">
 
-                <div className="relative flex items-start justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 transition-all duration-300 group-hover:bg-indigo-400">
-                    <PlugZap
-                      size={22}
-                      className="text-white"
-                    />
+            {/* Main line */}
+            <div className="absolute left-0 right-0 top-[48px] hidden h-[2px] bg-gradient-to-r from-blue-100 via-blue-500 to-violet-500 lg:block" />
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {chargers.map((charger, index) => (
+                <motion.div
+                  key={charger.power}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.08,
+                  }}
+                  className="group relative"
+                >
+                  {/* Connector */}
+                  <div className="relative z-10 mx-auto flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-white bg-slate-950 shadow-[0_10px_30px_rgba(15,23,42,0.18)] transition-all duration-500 group-hover:scale-105 group-hover:bg-blue-600 group-hover:shadow-[0_15px_35px_rgba(37,99,235,0.3)]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.06]">
+                      <PlugZap
+                        size={22}
+                        strokeWidth={1.8}
+                        className="text-blue-400 transition-colors group-hover:text-white"
+                      />
+                    </div>
                   </div>
 
-                  <span className="rounded-full bg-indigo-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-600">
-                    {charger.tag}
-                  </span>
-                </div>
+                  {/* Content */}
+                  <div className="mt-6 rounded-[24px] border border-slate-200 bg-white p-6 text-center shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-200 group-hover:shadow-[0_20px_45px_rgba(37,99,235,0.1)]">
 
-                <div className="relative mt-8">
-                  <div className="flex items-baseline">
-                    <span className="text-5xl font-black tracking-[-0.06em] text-slate-950">
-                      {charger.power}
+                    {/* Tag */}
+                    <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.15em] text-blue-600">
+                      {charger.tag}
                     </span>
 
-                    <span className="ml-1 text-sm font-bold text-blue-600">
-                      kW
+                    {/* Power */}
+                    <div className="mt-5 flex items-baseline justify-center">
+                      <span className="text-5xl font-black tracking-[-0.07em] text-slate-950">
+                        {charger.power}
+                      </span>
+
+                      <span className="ml-1 text-sm font-bold text-blue-600">
+                        kW
+                      </span>
+                    </div>
+
+                    <h3 className="mt-2 text-base font-bold text-slate-900">
+                      {charger.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-5 text-slate-500">
+                      {charger.description}
+                    </p>
+
+                    <div className="mt-5 flex items-center justify-center gap-2">
+                      <CheckCircle2
+                        size={15}
+                        className="text-emerald-500"
+                      />
+
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                        Business Ready
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Step */}
+                  <div className="mt-4 text-center">
+                    <span className="text-[10px] font-black tracking-[0.2em] text-slate-300">
+                      0{index + 1}
                     </span>
                   </div>
-
-                  <h3 className="mt-3 font-bold text-slate-900">
-                    {charger.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-slate-500">
-                    {charger.description}
-                  </p>
-
-                  <div className="mt-7 flex items-center gap-2 text-xs font-bold text-emerald-600">
-                    <CheckCircle2 size={15} />
-                    Business Ready
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -521,7 +518,6 @@ const PublicCharger: React.FC = () => {
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div>
             <SectionHeading
-              centered
               eyebrow="WHY EV DOCK"
               title="More than a charger."
               titleClassName="text-white"
@@ -587,8 +583,16 @@ const PublicCharger: React.FC = () => {
       {/* =====================================================
           HOW IT WORKS
       ====================================================== */}
-      <section className="px-5 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative overflow-hidden bg-white px-5 py-16 md:px-10 md:py-20">
+        {/* Background glow */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/4 top-20 h-72 w-72 rounded-full bg-blue-500/5 blur-[100px]" />
+          <div className="absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-violet-500/5 blur-[100px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl">
+
+          {/* Heading */}
           <SectionHeading
             centered
             eyebrow="SIMPLE PROCESS"
@@ -600,44 +604,83 @@ const PublicCharger: React.FC = () => {
             descriptionClassName="text-slate-500"
           />
 
-          <div className="relative mt-16 grid gap-8 md:grid-cols-3">
+          {/* Process */}
+          <div className="relative mt-12 md:mt-14">
+
             {/* Connecting line */}
-            <div className="absolute left-[16.6%] right-[16.6%] top-8 hidden h-px bg-gradient-to-r from-blue-100 via-blue-300 to-blue-100 md:block" />
+            <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-[31px] hidden h-[2px] bg-gradient-to-r from-blue-100 via-blue-400 to-violet-300 md:block" />
 
-            {[
-              {
-                number: "01",
-                title: "Choose Your Location",
-                text: "Tell us about your property, traffic and charging requirements.",
-              },
-              {
-                number: "02",
-                title: "Deploy Infrastructure",
-                text: "EV Dock helps configure the right charger and installation setup.",
-              },
-              {
-                number: "03",
-                title: "Start Charging",
-                text: "Launch your charging destination and serve EV customers.",
-              },
-            ].map((step) => (
-              <div
-                key={step.number}
-                className="relative text-center"
-              >
-                <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-100 bg-white text-sm font-black text-blue-600 shadow-lg shadow-blue-100/50">
-                  {step.number}
-                </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {[
+                {
+                  number: "01",
+                  title: "Choose Your Location",
+                  text: "Tell us about your property, traffic and charging requirements.",
+                },
+                {
+                  number: "02",
+                  title: "Deploy Infrastructure",
+                  text: "EV Dock helps configure the right charger and installation setup.",
+                },
+                {
+                  number: "03",
+                  title: "Start Charging",
+                  text: "Launch your charging destination and serve EV customers.",
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  initial={{
+                    opacity: 0,
+                    y: 25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.08,
+                  }}
+                  whileHover={{
+                    y: -6,
+                  }}
+                  className="group relative"
+                >
+                  {/* Number */}
+                  <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#0B1220] text-sm font-black text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-violet-600 group-hover:shadow-[0_15px_35px_rgba(37,99,235,0.3)]">
+                    {step.number}
 
-                <h3 className="mt-6 font-bold text-slate-900">
-                  {step.title}
-                </h3>
+                    {/* Glow dot */}
+                    <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-white bg-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </div>
 
-                <p className="mx-auto mt-3 max-w-xs text-sm leading-6 text-slate-500">
-                  {step.text}
-                </p>
-              </div>
-            ))}
+                  {/* Card */}
+                  <div className="mt-5 rounded-[24px] border border-slate-200 bg-slate-50 p-6 text-center transition-all duration-300 group-hover:border-blue-200 group-hover:bg-white group-hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]">
+                    
+                    {/* Small label */}
+                    <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-600">
+                      Step {step.number}
+                    </div>
+
+                    <h3 className="text-lg font-bold tracking-tight text-slate-900">
+                      {step.title}
+                    </h3>
+
+                    <p className="mx-auto mt-3 max-w-xs text-sm leading-6 text-slate-500">
+                      {step.text}
+                    </p>
+
+                    {/* Bottom accent */}
+                    <div className="mx-auto mt-5 h-1 w-8 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 transition-all duration-300 group-hover:w-16" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -647,21 +690,13 @@ const PublicCharger: React.FC = () => {
       ====================================================== */}
       <section className="bg-slate-50 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-blue-600">
-              WHERE TO INSTALL
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] text-slate-950 md:text-5xl">
-              Built for every kind of destination.
-            </h2>
-
-            <p className="mt-5 leading-7 text-slate-500">
-              Whether you operate a hotel, restaurant, highway location,
-              commercial property or fleet, EV Dock can fit your charging
-              requirements.
-            </p>
-          </div>
+          <SectionHeading
+            centered
+            eyebrow="WHERE TO INSTALL"
+            title="Built for"
+            highlight="every kind of destination."
+            description="Whether you operate a hotel, restaurant, highway location, commercial property or fleet, EV Dock can fit your charging requirements."
+            />
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((location, index) => {
@@ -728,93 +763,146 @@ const PublicCharger: React.FC = () => {
       {/* =====================================================
           PARTNERSHIP CTA
       ====================================================== */}
-      <section className="px-5 py-24 md:px-10 md:py-32">
+      <section className="px-5 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-[#1557d6] via-[#2563eb] to-[#6938d8] p-8 shadow-[0_30px_100px_rgba(37,99,235,0.25)] md:p-14">
-            <div className="absolute right-[-100px] top-[-130px] h-[400px] w-[400px] rounded-full bg-white/10 blur-3xl" />
 
-            <div className="absolute bottom-[-150px] left-[30%] h-[400px] w-[400px] rounded-full bg-violet-300/10 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[32px] border border-slate-800 bg-[#080F1D]">
 
-            <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_auto]">
+            {/* Glow */}
+            <div className="absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-blue-600/20 blur-[120px]" />
+            <div className="absolute -bottom-32 left-1/3 h-[380px] w-[380px] rounded-full bg-violet-600/15 blur-[110px]" />
+
+            {/* Grid */}
+            <div
+              className="absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                backgroundSize: "42px 42px",
+              }}
+            />
+
+            <div className="relative grid items-center gap-14 p-7 md:p-12 lg:grid-cols-[1.15fr_0.85fr] lg:p-16">
+
+              {/* LEFT */}
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold tracking-[0.18em] text-blue-100">
-                  <BatteryCharging size={15} />
-                  BUSINESS PARTNERSHIP
+
+                {/* Eyebrow */}
+                <div className="mb-7 flex items-center gap-3">
+                  <span className="h-px w-8 bg-blue-500" />
+
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-blue-400">
+                    EV Dock Partnership
+                  </span>
                 </div>
 
-                <h2 className="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-[-0.03em] text-white md:text-5xl">
-                  Have a location?
+                {/* Heading */}
+                <h2 className="max-w-3xl text-[42px] font-semibold leading-[0.98] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl lg:text-[68px]">
 
-                  <span className="block text-blue-100">
-                    Let's make it EV ready.
+                  Power the
+                  <br />
+
+                  <span className="text-slate-500">
+                    next generation
                   </span>
+
+                  <br />
+
+                  <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
+                    of mobility.
+                  </span>
+
                 </h2>
 
-                <p className="mt-5 max-w-2xl text-sm leading-7 text-blue-100 md:text-base">
-                  Partner with EV Dock to deploy reliable EV charging across
-                  hotels, restaurants, highways, commercial properties,
-                  parking operators and fleet locations.
+                {/* Description */}
+                <p className="mt-7 max-w-xl text-sm leading-7 text-slate-400 md:text-base">
+                  Turn your property into a smart EV charging destination.
+                  Partner with EV Dock and help create a connected charging
+                  network built for the future.
                 </p>
+
+                {/* CTA */}
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    Become a Partner
+                    <ArrowUpRight
+                      size={17}
+                      className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/[0.09]"
+                  >
+                    Explore Solutions
+                    <ArrowRight size={17} />
+                  </button>
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-blue-700 shadow-xl transition hover:-translate-y-1"
-                >
-                  Partner With EV Dock
-                  <ArrowUpRight size={17} />
-                </button>
+              {/* RIGHT */}
+              <div className="relative">
 
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:bg-white/15"
-                >
-                  Get Started
-                  <ArrowRight size={17} />
-                </button>
+                <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl">
+
+                  <div className="flex items-center justify-between">
+
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
+                      <BatteryCharging size={22} />
+                    </div>
+
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Partner Network
+                    </span>
+
+                  </div>
+
+                  <div className="mt-8">
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                      Built for
+                    </p>
+
+                    <div className="mt-4 space-y-3">
+
+                      <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span className="text-sm text-slate-300">
+                          Hotels & Restaurants
+                        </span>
+                        <ArrowUpRight size={15} className="text-blue-400" />
+                      </div>
+
+                      <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span className="text-sm text-slate-300">
+                          Commercial Spaces
+                        </span>
+                        <ArrowUpRight size={15} className="text-cyan-400" />
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-slate-300">
+                          Fleets & Parking
+                        </span>
+                        <ArrowUpRight size={15} className="text-violet-400" />
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Decorative circle */}
+                <div className="absolute -bottom-8 -right-8 h-28 w-28 rounded-full border border-blue-400/10 bg-blue-500/10 blur-xl" />
+
               </div>
+
             </div>
           </div>
         </div>
       </section>
-
-      {/* =====================================================
-          FINAL CTA
-      ====================================================== */}
-      <section className="px-5 pb-28 text-center md:px-10">
-        <div className="mx-auto max-w-3xl">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
-            <Zap
-              size={29}
-              className="text-blue-600"
-            />
-          </div>
-
-          <h2 className="mt-7 text-3xl font-bold tracking-[-0.03em] text-slate-950 md:text-5xl">
-            Your location could become
-
-            <span className="block text-blue-600">
-              the next EV destination.
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-xl leading-7 text-slate-500">
-            Bring fast, connected and business-ready EV charging to your
-            location with EV Dock.
-          </p>
-
-          <button
-            type="button"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-200 transition hover:-translate-y-1 hover:bg-blue-700"
-          >
-            Start Your EV Charging Project
-
-            <ArrowUpRight size={17} />
-          </button>
-        </div>
-      </section>
-
       <Footer />
       <BackToTop />
     </div>

@@ -20,6 +20,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/Common/BackToTop";
+import SectionHeading from "../components/Common/SectionHeading";
 
 /* =========================================================
    EV CHARGER RANGE
@@ -923,33 +924,13 @@ const ACHomeCharger: React.FC = () => {
           <div className="relative mx-auto max-w-7xl">
 
             {/* Header */}
-          <div className="flex flex-col items-center justify-center gap-6 text-center">
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
-
-              <Zap
-                size={12}
-                className="text-blue-600"
-              />
-
-              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
-                EV CHARGER RANGE
-              </span>
-
-            </div>
-
-            <h2 className="max-w-2xl text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-              Choose the right{" "}
-              <span className="bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
-                charger.
-              </span>
-            </h2>
-
-            <p className="max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
-              Explore home, smart, dual-connector and hybrid charging
-              solutions designed for different EV charging requirements.
-            </p>
-
+          <div className="flex flex-col items-center justify-center gap-6 text-center">            
+              <SectionHeading
+              eyebrow=" EV CHARGER RANGE"
+              title="Choose the "
+              highlight="right charger."
+              description="Explore home, smart, dual-connector and hybrid charging solutions designed for different EV charging requirements."
+            />
           </div>
 
             {/* Cards */}
