@@ -67,16 +67,16 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           (dark ? "text-white" : "text-slate-950")
         }`}
       >
-        {title}
+        {title}{" "}
 
         {highlight && (
           <span
-            className={`block ${
+            className={
               highlightClassName ||
               (dark
                 ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
                 : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
-            }`}
+            }
           >
             {highlight}
           </span>
