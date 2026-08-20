@@ -15,6 +15,7 @@ import HomeCharger from "./pages/home-charger";
 import PartnerwithUs from "./pages/partner";
 import CMS from "./pages/cms";
 import MobileApp from "./pages/mobile-app";
+import ContactUs from "./pages/contact-us"
 
 import { Scroll } from "lucide-react";
 import ScrollToTop from "./components/Common/ScrollToTop";
@@ -49,10 +50,10 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
-
+        
         {/* Public DC Charger */}
         <Route path="/public-charger" element={<PublicCharger />}
-     />
+        />
         {/* AC Home Charger */}
         <Route path="/home-charger" element={<HomeCharger />}
         />
@@ -65,6 +66,9 @@ function App() {
         {/* Mobile App */}
         <Route path="/mobile-app" element={<MobileApp />}
         />
+        {/* Contact Us */}
+        <Route path="/contact-us" element={<ContactUs/>}
+      />
       </Routes>
     </BrowserRouter>
   );

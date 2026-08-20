@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Activity,
@@ -25,6 +26,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SectionHeading from "../components/Common/SectionHeading";
 
 /* =========================================================
    AUDIENCE
@@ -577,67 +579,18 @@ const CMS: React.FC = () => {
         </section>
 
         {/* =====================================================
-            STATS
-        ====================================================== */}
-
-        <section className="border-b border-slate-100 bg-white py-8">
-
-          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
-
-            {[
-              ["248", "Chargers"],
-              ["186", "Online"],
-              ["12.8", "MWh Today"],
-              ["99.2%", "Network Health"],
-            ].map(([value, label]) => (
-
-              <div
-                key={label}
-                className="text-center"
-              >
-
-                <p className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
-                  {value}
-                </p>
-
-                <p className="mt-1 text-xs font-medium text-slate-400">
-                  {label}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </section>
-
-        {/* =====================================================
             INTRO
         ====================================================== */}
 
         <section className="bg-white py-24 md:py-28">
 
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-
-            <div>
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E5FA8]">
-                WHY EV DOCK CMS
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                One control center
-
-                <span className="block text-[#1E5FA8]">
-                  for your entire network.
-                </span>
-
-              </h2>
-
-            </div>
-
+            <SectionHeading
+              eyebrow="WHY EV DOCK CMS"
+              title="One control center"
+              highlight="for your entire network."
+              centered={false}
+            />
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
               As your charging network grows, operational visibility becomes
               critical. EV Dock CMS brings chargers, sessions, performance,
@@ -652,7 +605,7 @@ const CMS: React.FC = () => {
             KEY FEATURES
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-white py-24 md:py-32">
+        <section className="relative overflow-hidden bg-slate-50 py-24 md:py-32">
 
           <div className="pointer-events-none absolute left-[-250px] top-20 h-[500px] w-[500px] rounded-full bg-blue-100/50 blur-[130px]" />
 
@@ -660,36 +613,16 @@ const CMS: React.FC = () => {
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-            <div className="mx-auto max-w-3xl text-center">
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2">
-
-                <Zap className="h-3.5 w-3.5 text-[#1E5FA8]" />
-
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#1E5FA8]">
-                  KEY FEATURES
-                </span>
-
-              </div>
-
-              <h2 className="mt-6 text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                Everything you need to
-
-                <span className="block bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
-                  run a smarter EV network.
-                </span>
-
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-500 md:text-lg">
-                From charger operations and revenue to payments, users,
+            <div className="mx-auto max-w-3xl text-center">            
+              <SectionHeading
+                eyebrow="KEY FEATURES"
+                title="Everything you need to"
+                highlight="run a smarter EV network."
+                description="From charger operations and revenue to payments, users,
                 interoperability and analytics — EV Dock CMS brings your
-                charging ecosystem together.
-              </p>
-
+                charging ecosystem together."
+                />
             </div>
-
             <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
               {keyFeatures.map((feature, index) => {
@@ -842,8 +775,7 @@ const CMS: React.FC = () => {
             MONITOR
         ====================================================== */}
 
-        <section className="bg-slate-50 py-24 md:py-32">
-
+        <section className="bg-white py-24 md:py-32">
           <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
 
             <motion.div
@@ -939,27 +871,14 @@ const CMS: React.FC = () => {
               </div>
 
             </motion.div>
-
             <div>
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E5FA8]">
-                01 / MONITOR
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                Know what's happening
-
-                <span className="block text-[#1E5FA8]">
-                  across every charger.
-                </span>
-
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                Get a live view of your infrastructure and quickly understand
-                which chargers are available, active, offline or need attention.
-              </p>
+            <SectionHeading
+            eyebrow="01 / MONITOR"
+            title="Know what's happening"
+            highlight="across every charger."
+            description="Get a live view of your infrastructure and quickly understand which chargers are available, active, offline or need attention."
+            centered={false}  
+            />
 
               <div className="mt-8 space-y-4">
 
@@ -1024,33 +943,16 @@ const CMS: React.FC = () => {
                   once: true,
                 }}
               >
-
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/10 px-4 py-2">
-
-                  <BatteryCharging className="h-3.5 w-3.5 text-blue-300" />
-
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">
-                    02 / MANAGE
-                  </span>
-
-                </div>
-
-                <h2 className="mt-6 max-w-xl text-4xl font-black leading-[1.05] tracking-[-0.04em] text-white md:text-5xl">
-
-                  Manage every charging
-
-                  <span className="block bg-gradient-to-r from-blue-300 via-violet-300 to-pink-300 bg-clip-text text-transparent">
-                    session with confidence.
-                  </span>
-
-                </h2>
-
-                <p className="mt-6 max-w-xl text-base leading-8 text-slate-400 md:text-lg">
-                  Keep complete visibility over active sessions, charger
+                <SectionHeading
+                eyebrow="02 / MANAGE"
+                title="Manage every charging"
+                highlight="session with confidence."
+                titleClassName="text-white"
+                description=" Keep complete visibility over active sessions, charger
                   activity, energy consumption and charging progress from a
-                  single control center.
-                </p>
-
+                  single control center."
+                  centered={false}
+                />
                 <div className="mt-9 space-y-3">
 
                   {[
@@ -1530,26 +1432,14 @@ const CMS: React.FC = () => {
             {/* Content */}
 
             <div>
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#4B4FAE]">
-                03 / ANALYZE
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                Turn charging activity
-
-                <span className="block text-[#4B4FAE]">
-                  into useful insights.
-                </span>
-
-              </h2>
-
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Understand how your network performs through clear operational
-                data, trends and performance indicators.
-              </p>
-
+              <SectionHeading
+              eyebrow="03 / ANALYZE"
+              title="Turn charging activity"
+              highlight="into useful insights."
+              description=" Understand how your network performs through clear operational
+                data, trends and performance indicators."
+              centered={false}  
+              />
               <div className="mt-8 space-y-5">
 
                 {[
@@ -1615,28 +1505,15 @@ const CMS: React.FC = () => {
         <section className="bg-slate-50 py-24 md:py-32">
 
           <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
-
+           
             <div>
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C93C8F]">
-                04 / ACT
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                Spot issues before
-
-                <span className="block text-[#C93C8F]">
-                  they become downtime.
-                </span>
-
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                Bring important operational events to your attention so your
-                team can identify problems and respond faster.
-              </p>
-
+              <SectionHeading
+                eyebrow=" 04 / ACT"
+                title="Spot issues before"
+                highlight="they become downtime."
+                highlightClassName="block text-[#C93C8F]"
+                description="Bring important operational events to your attention so your team can identify problems and respond faster."
+              />
               <div className="mt-8 space-y-4">
 
                 {[
@@ -1780,28 +1657,13 @@ const CMS: React.FC = () => {
         <section className="bg-white py-24 md:py-32">
 
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
             <div className="mx-auto max-w-3xl text-center">
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E5FA8]">
-                BUILT FOR THE EV ECOSYSTEM
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                One CMS.
-
-                <span className="block text-[#1E5FA8]">
-                  Multiple ways to grow.
-                </span>
-
-              </h2>
-
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Designed to give every part of your charging business better
-                visibility and control.
-              </p>
-
+              <SectionHeading
+                eyebrow="BUILT FOR THE EV ECOSYSTEM"
+                title=" One CMS."
+                highlight="Multiple ways to grow."
+                description="Designed to give every part of your charging business better visibility and control."
+              />
             </div>
 
             <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -1878,28 +1740,16 @@ const CMS: React.FC = () => {
           <div className="absolute left-1/2 top-[-200px] h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-600/15 blur-[140px]" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-
+            
             <div className="mx-auto max-w-3xl text-center">
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300">
-                ONE CONNECTED PLATFORM
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl">
-
-                Four capabilities.
-
-                <span className="block text-blue-300">
-                  One network.
-                </span>
-
-              </h2>
-
-              <p className="mt-5 text-lg leading-8 text-slate-400">
-                Everything your charging operation needs to monitor,
-                manage, analyze and act.
-              </p>
-
+            <SectionHeading
+            eyebrow="ONE CONNECTED PLATFORM"
+            title="Four capabilities."
+            titleClassName="text-white"
+            highlight="One network."
+            description="Everything your charging operation needs to monitor,
+                manage, analyze and act."
+            />    
             </div>
 
             <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1946,60 +1796,41 @@ const CMS: React.FC = () => {
 
         </section>
 
-        {/* =====================================================
-            FINAL CTA
-        ====================================================== */}
+        <section className="px-5 py-16 md:px-10 md:py-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0F172A] via-[#1E5FA8] to-[#4B4FAE] px-6 py-10 md:px-10 md:py-12">
 
-        <section className="px-6 py-20 lg:px-8">
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-400/20 blur-[80px]" />
 
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[40px] bg-gradient-to-br from-[#0F172A] via-[#1E5FA8] to-[#7A3FAF] px-7 py-20 text-center md:px-16">
+            <div className="relative flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
 
-            <div className="absolute left-[-100px] top-[-150px] h-96 w-96 rounded-full bg-blue-400/20 blur-[100px]" />
+              <div className="max-w-2xl">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
+                  EV DOCK PLATFORM
+                </p>
 
-            <div className="absolute bottom-[-150px] right-[-100px] h-96 w-96 rounded-full bg-pink-400/20 blur-[100px]" />
+                <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
+                  Power your charging network.
+                </h2>
 
-            <div className="relative">
-
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
-
-                <ShieldCheck className="h-7 w-7 text-white" />
-
+                <p className="mt-3 max-w-xl text-sm leading-6 text-blue-100/75">
+                  Connect, manage and grow your EV charging infrastructure with EV Dock.
+                </p>
               </div>
 
-              <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-blue-100">
-                EV DOCK CMS
-              </p>
-
-              <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white md:text-6xl">
-
-                Your chargers are connected.
-
-                <span className="block text-blue-100">
-                  Now take control.
-                </span>
-
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-100/80">
-                Bring monitoring, management, analytics and operational
-                visibility together with EV Dock CMS.
-              </p>
-
-              <button className="group mt-9 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50">
-
-                Request a CMS Demo
+              <Link
+                to="/contact-us"
+                className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50"
+              >
+                Get Started
 
                 <ArrowRight
+                  size={15}
                   className="transition-transform group-hover:translate-x-1"
-                  size={16}
                 />
-
-              </button>
+              </Link>
 
             </div>
-
           </div>
-
         </section>
 
       </main>

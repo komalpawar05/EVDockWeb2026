@@ -526,14 +526,6 @@ const PublicCharger: React.FC = () => {
               description="EV Dock combines charging infrastructure, connected technology and business-ready solutions to help you build a smarter EV destination."
               descriptionClassName="text-slate-400"
             />
-
-            <button
-              type="button"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-slate-950 transition hover:bg-blue-50"
-            >
-              Explore EV Dock
-              <ArrowRight size={17} />
-            </button>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -697,11 +689,9 @@ const PublicCharger: React.FC = () => {
             highlight="every kind of destination."
             description="Whether you operate a hotel, restaurant, highway location, commercial property or fleet, EV Dock can fit your charging requirements."
             />
-
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((location, index) => {
               const Icon = location.icon;
-
               return (
                 <motion.div
                   key={location.title}
@@ -765,9 +755,7 @@ const PublicCharger: React.FC = () => {
       ====================================================== */}
       <section className="px-5 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-7xl">
-
           <div className="relative overflow-hidden rounded-[32px] border border-slate-800 bg-[#080F1D]">
-
             {/* Glow */}
             <div className="absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-blue-600/20 blur-[120px]" />
             <div className="absolute -bottom-32 left-1/3 h-[380px] w-[380px] rounded-full bg-violet-600/15 blur-[110px]" />
