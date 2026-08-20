@@ -720,66 +720,13 @@ const ACHomeCharger: React.FC = () => {
         <section className="px-5 py-24 md:px-10 md:py-32">
 
           <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>                    
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
-                <Zap
-                  size={12}
-                  className="text-blue-600"
-                />
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
-                  EV CHARGING
-                </span>
-            </div>
-              <h2 className="mt-5 text-4xl font-black leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
-
-                One platform.
-
-                <span className="block bg-gradient-to-r from-[#1E5FA8] to-[#7A3FAF] bg-clip-text text-transparent">
-                  Multiple charging solutions.
-                </span>
-
-              </h2>
-
-              <p className="mt-6 max-w-xl text-base leading-8 text-slate-500 md:text-lg">
-                From compact home charging to dual-connector and hybrid
-                solutions, EV Dock provides flexible charging options for
-                different EV requirements and locations.
-              </p>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-
-                {[
-                  "Type-2 AC charging",
-                  "Dual CCS2 charging",
-                  "Hybrid charging options",
-                  "Smart connected experience",
-                ].map((item) => (
-
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4"
-                  >
-
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100">
-
-                      <Check
-                        size={14}
-                        className="text-blue-600"
-                      />
-
-                    </div>
-
-                    <p className="text-xs font-bold text-slate-700">
-                      {item}
-                    </p>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
+            <SectionHeading
+              eyebrow="EV CHARGING"
+              title="One platform."
+              
+              highlight="Multiple charging solutions."
+              description="From compact home charging to dual-connector and hybrid solutions, EV Dock provides flexible charging options for different EV requirements and locations."
+            />
 
             {/* Charging Dashboard */}
 
@@ -1196,34 +1143,12 @@ const ACHomeCharger: React.FC = () => {
 
             {/* Header */}
             <div className="mx-auto max-w-3xl text-center">
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
-                <Zap
-                  size={12}
-                  className="text-blue-600"
-                />   
-
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
-                  Intelligent EV Infrastructure
-                </span>
-
-              </div>
-
-              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-black md:text-5xl">
-
-                One ecosystem.
-
-                <span className="block bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent">
-                  Every charging need.
-                </span>
-
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
-                From everyday home charging to high-power commercial infrastructure,
-                EV Dock connects powerful hardware with intelligent technology.
-              </p>
-
+            <SectionHeading
+              eyebrow="Intelligent EV Infrastructure"
+              title="One ecosystem"
+              highlight="Every charging need."
+              description="From everyday home charging to high-power commercial infrastructure, EV Dock connects powerful hardware with intelligent technology."
+              />
             </div>
 
              {/* Technology Layout */}
