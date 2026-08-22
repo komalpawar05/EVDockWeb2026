@@ -1021,30 +1021,16 @@ const ACHomeCharger: React.FC = () => {
               {/* Content */}
 
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
-                  <Zap
-                    size={12}
-                    className="text-blue-600"
+                
+                  <SectionHeading
+                  eyebrow="SIMPLE INSTALLATION"
+                  title="From charger selection"
+                  titleClassName="text-white"
+                  highlight="to your first charge."
+                  description="From selecting the right charger to installation, EV Dock
+                  makes your EV charging journey simple."
                   />
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600">
-                    SIMPLE INSTALLATION
-                  </span>
-              </div>
-                <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-
-                  From charger selection
-
-                  <span className="block text-blue-300">
-                    to your first charge.
-                  </span>
-
-                </h2>
-
-                <p className="mt-6 max-w-lg text-base leading-8 text-slate-400">
-                  From selecting the right charger to installation, EV Dock
-                  makes your EV charging journey simple.
-                </p>
-
+                 
                 <button
                   type="button"
                   className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-50"

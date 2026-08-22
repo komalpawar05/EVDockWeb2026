@@ -333,7 +333,6 @@ const ContactUs: React.FC = () => {
 
                 </div>
 
-
                 <div className="flex items-center gap-4">
 
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-sm">
@@ -375,7 +374,6 @@ const ContactUs: React.FC = () => {
 
             </div>
 
-
             {/* Form */}
 
             <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-8">
@@ -386,15 +384,12 @@ const ContactUs: React.FC = () => {
                   <label className="text-xs font-bold text-slate-700">
                     Full Name
                   </label>
-
                   <input
                     type="text"
                     placeholder="Your name"
                     className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#1E5FA8] focus:ring-4 focus:ring-blue-500/10"
                   />
                 </div>
-
-
                 <div>
                   <label className="text-xs font-bold text-slate-700">
                     Company
@@ -406,8 +401,6 @@ const ContactUs: React.FC = () => {
                     className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#1E5FA8] focus:ring-4 focus:ring-blue-500/10"
                   />
                 </div>
-
-
                 <div>
                   <label className="text-xs font-bold text-slate-700">
                     Email Address

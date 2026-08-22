@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
     {
       title: "EV Dock Network",
       description: "Connect multiple charging networks",
-      href: "/#network",
+      href: "/evnetwork",
       icon: Network,
     },
     {

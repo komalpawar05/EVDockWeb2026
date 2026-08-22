@@ -15,7 +15,8 @@ import HomeCharger from "./pages/home-charger";
 import PartnerwithUs from "./pages/partner";
 import CMS from "./pages/cms";
 import MobileApp from "./pages/mobile-app";
-import ContactUs from "./pages/contact-us"
+import EVNetwork from "./pages/evnetwork";
+import ContactUs from "./pages/contact-us";
 
 import { Scroll } from "lucide-react";
 import ScrollToTop from "./components/Common/ScrollToTop";
@@ -65,6 +66,9 @@ function App() {
         />
         {/* Mobile App */}
         <Route path="/mobile-app" element={<MobileApp />}
+        />
+        {/* EV Network */}
+        <Route path="/evnetwork" element={<EVNetwork/>}
         />
         {/* Contact Us */}
         <Route path="/contact-us" element={<ContactUs/>}
