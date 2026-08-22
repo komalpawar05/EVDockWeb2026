@@ -7,11 +7,9 @@ interface SectionHeadingProps {
   highlight?: string;
   description?: string;
 
-  // Alignment
   centered?: boolean;
-
-  // Theme
   dark?: boolean;
+  stacked?: boolean;
 
   // Custom styling
   containerClassName?: string;
@@ -29,6 +27,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
   centered = false,
   dark = false,
+  stacked = true,
 
   containerClassName = "",
   titleClassName,
@@ -61,27 +60,33 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       )}
 
       {/* Heading */}
-    <h2
-      className={`mt-4 text-4xl font-black tracking-[-0.04em] md:text-5xl ${
-        titleClassName ||
-        (dark ? "text-white" : "text-slate-950")
-      }`}
-    >
-      <span className="block">{title}</span>
-
-      {highlight && (
-        <span
-          className={
-            highlightClassName ||
-            (dark
-              ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
-              : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
-          }
-        >
-          {highlight}
+      <h2
+        className={`mt-4 text-4xl font-black tracking-[-0.04em] md:text-5xl ${
+          titleClassName ||
+          (dark ? "text-white" : "text-slate-950")
+        }`}
+      >
+        <span className={stacked ? "block" : "inline"}>
+          {title}
         </span>
-      )}
-    </h2>
+
+        {highlight && (
+          <>
+            {!stacked && " "}
+
+            <span
+              className={
+                highlightClassName ||
+                (dark
+                  ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
+                  : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
+              }
+            >
+              {highlight}
+            </span>
+          </>
+        )}
+      </h2>
 
       {/* Description */}
       {description && (
