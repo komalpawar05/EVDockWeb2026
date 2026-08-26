@@ -436,7 +436,7 @@ const Navbar: React.FC = () => {
 
             {/* ABOUT */}
             <Link
-              to="/#about"
+              to="/about"
               className={`rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
                 scrolled
                   ? "text-slate-700 hover:bg-blue-50 hover:text-blue-600"

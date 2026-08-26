@@ -1,9 +1,8 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import AboutSection from "./components/AboutSection";
 import Offer from "./components/Offer";
 import Features from "./components/Features";
 import Franchise from "./components/Franchise";
@@ -12,17 +11,19 @@ import Footer from "./components/Footer";
 
 import PublicCharger from "./pages/public-charger";
 import HomeCharger from "./pages/home-charger";
+import About from "./pages/about";
 import PartnerwithUs from "./pages/partner";
 import CMS from "./pages/cms";
 import MobileApp from "./pages/mobile-app";
 import EVNetwork from "./pages/evnetwork";
 import ContactUs from "./pages/contact-us";
-
-import { Scroll } from "lucide-react";
+import PrivacyPolicy from "./pages/privacy-policy";
+import TermsConditions from "./pages/terms-conditions";
+import GeneralTerms from "./pages/general-terms";
+import DataPolicy from "./pages/data-policy";
+import RefundPolicy from "./pages/refund-cancellation";
 import ScrollToTop from "./components/Common/ScrollToTop";
 import BackToTop from "./components/Common/BackToTop";
-
-
 
 function Home() {
   return (
@@ -31,13 +32,12 @@ function Home() {
 
       <main>
         <Hero />
-        <About />
+        <AboutSection />
         <Offer />
         <Features />
         <Franchise />
         <Appsection />
-      </main>
-
+       </main>
       <Footer />
       <BackToTop />
     </div>
@@ -51,6 +51,9 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
+
+         {/* About */}
+         <Route path="/about" element={<About/>} />
         
         {/* Public DC Charger */}
         <Route path="/public-charger" element={<PublicCharger />}
@@ -72,8 +75,24 @@ function App() {
         />
         {/* Contact Us */}
         <Route path="/contact-us" element={<ContactUs/>}
-      />
-      </Routes>
+        />
+
+          {/* Privacy-Policy */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}
+          />
+          {/* TermsConditions  */}
+          <Route path="/terms-conditions" element={<TermsConditions />}
+          />
+          {/* Data-Policy */}
+          <Route path="/data-policy" element={<DataPolicy/>}
+          />
+          {/* Refund Policy */}
+          <Route path="/refund-cancellation" element={<RefundPolicy/>}
+          />
+          {/* General-Terms */}
+          <Route path="/general-terms" element={<GeneralTerms/>}
+          />
+          </Routes>
     </BrowserRouter>
   );
 }
