@@ -16,6 +16,7 @@ import PartnerwithUs from "./pages/partner";
 import CMS from "./pages/cms";
 import MobileApp from "./pages/mobile-app";
 import EVNetwork from "./pages/evnetwork";
+import WhiteLabel from "./pages/white-label";
 import ContactUs from "./pages/contact-us";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsConditions from "./pages/terms-conditions";
@@ -77,22 +78,26 @@ function App() {
         <Route path="/contact-us" element={<ContactUs/>}
         />
 
-          {/* Privacy-Policy */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy/>}
-          />
-          {/* TermsConditions  */}
-          <Route path="/terms-conditions" element={<TermsConditions />}
-          />
-          {/* Data-Policy */}
-          <Route path="/data-policy" element={<DataPolicy/>}
-          />
-          {/* Refund Policy */}
-          <Route path="/refund-cancellation" element={<RefundPolicy/>}
-          />
-          {/* General-Terms */}
-          <Route path="/general-terms" element={<GeneralTerms/>}
-          />
-          </Routes>
+        {/* White Label  */}
+        <Route path="/white-label" element={<WhiteLabel/>}
+        />
+
+        {/* Privacy-Policy */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}
+        />
+        {/* TermsConditions  */}
+        <Route path="/terms-conditions" element={<TermsConditions />}
+        />
+        {/* Data-Policy */}
+        <Route path="/data-policy" element={<DataPolicy/>}
+        />
+        {/* Refund Policy */}
+        <Route path="/refund-cancellation" element={<RefundPolicy/>}
+        />
+        {/* General-Terms */}
+        <Route path="/general-terms" element={<GeneralTerms/>}
+        />
+        </Routes>
     </BrowserRouter>
   );
 }
