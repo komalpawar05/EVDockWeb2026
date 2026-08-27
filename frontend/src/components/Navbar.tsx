@@ -132,9 +132,9 @@ const Navbar: React.FC = () => {
 
   const solutions: MenuItem[] = [
     {
-      title: "EV Drivers",
-      description: "Find and use charging stations easily",
-      href: "/#drivers",
+      title: "White-Label Solutions",
+      description: "Launch your EV charging business under your brand",
+      href: "/white-label",
       icon: Users,
     },
     {
