@@ -1,23 +1,23 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import {
   Activity,
   AlertTriangle,
   ArrowRight,
   BarChart3,
   BatteryCharging,
-  Check,
   CheckCircle2,
   CircleDollarSign,
   CreditCard,
   Gauge,
-  Globe2,
   LayoutDashboard,
+  MapPin,
+  Network,
   PlugZap,
-  Radio,
   RefreshCw,
-  ServerCog,
   ShieldCheck,
   Users,
   Wallet,
@@ -27,402 +27,405 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SectionHeading from "../components/Common/SectionHeading";
+import CMSDashboard from "../components/Common/CMSDashboard";
 
 /* =========================================================
-   AUDIENCE
+   CMS CAPABILITIES
 ========================================================= */
 
-const audiences = [
-  {
-    icon: Radio,
-    title: "CPOs",
-    subtitle: "Charging Point Operators",
-    text: "Monitor network performance, charger health and charging activity from one connected control center.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Franchise Owners",
-    subtitle: "EV Charging Franchise",
-    text: "Manage multiple charging locations with clear operational and performance visibility.",
-  },
+const cmsCapabilities = [
   {
     icon: PlugZap,
-    title: "Charger Owners",
-    subtitle: "EV Charging Infrastructure",
-    text: "Stay informed about charger availability, sessions, usage and station health.",
-  },
-];
-
-/* =========================================================
-   KEY FEATURES
-========================================================= */
-
-const keyFeatures = [
-  {
-    icon: Activity,
-    number: "01",
-    title: "Real-Time Charger Control",
-    description:
-      "Monitor charger availability, live status, performance and network activity from one centralized platform.",
+    title: "Charger Management",
+    text: "Monitor charger availability, connectivity, status and operational performance from one centralized dashboard.",
     gradient: "from-[#1E5FA8] to-[#2F74C9]",
   },
   {
-    icon: CircleDollarSign,
-    number: "02",
-    title: "Revenue & Pricing",
-    description:
-      "Track station earnings, pricing activity, transactions and revenue performance across your network.",
+    icon: MapPin,
+    title: "Station Management",
+    text: "Manage charging locations, connectors, station information and network configuration in one place.",
     gradient: "from-[#2F74C9] to-[#4B4FAE]",
   },
   {
-    icon: AlertTriangle,
-    number: "03",
-    title: "Issues & Complaints",
-    description:
-      "Identify charger problems, operational issues and customer complaints so your team can respond faster.",
+    icon: BatteryCharging,
+    title: "Charging Sessions",
+    text: "Track active sessions, energy delivery, charging progress and session history in real time.",
+    gradient: "from-[#4B4FAE] to-[#7A3FAF]",
+  },
+  {
+    icon: CircleDollarSign,
+    title: "Pricing & Revenue",
+    text: "Manage charging prices and monitor revenue performance across stations and charging activity.",
+    gradient: "from-[#7A3FAF] to-[#C93C8F]",
+  },
+  {
+    icon: CreditCard,
+    title: "Payments & Invoicing",
+    text: "Keep payments, transactions, invoices, offers and customer billing information organized.",
     gradient: "from-[#C93C8F] to-[#E04578]",
   },
   {
     icon: Users,
-    number: "04",
-    title: "Users & Access",
-    description:
-      "Manage users, administrators, roles, permissions and access levels across your charging ecosystem.",
-    gradient: "from-[#4B4FAE] to-[#7A3FAF]",
-  },
-  {
-    icon: BarChart3,
-    number: "05",
-    title: "Reports & Alerts",
-    description:
-      "Turn network activity into useful reports while receiving timely notifications for important events.",
+    title: "Users & Permissions",
+    text: "Manage administrators, teams, roles and access permissions across your charging operation.",
     gradient: "from-[#1E5FA8] to-[#7A3FAF]",
   },
   {
-    icon: RefreshCw,
-    number: "06",
-    title: "T+1 Settlement",
-    description:
-      "Simplify transaction settlement with a next-business-day payout workflow for eligible charging transactions.",
-    gradient: "from-[#7A3FAF] to-[#C93C8F]",
+    icon: BarChart3,
+    title: "Reports & Analytics",
+    text: "Understand utilization, energy, sessions, revenue and operational performance through clear reports.",
+    gradient: "from-[#2F74C9] to-[#7A3FAF]",
   },
   {
-    icon: LayoutDashboard,
-    number: "07",
-    title: "Dynamic Dashboards",
-    description:
-      "Visualize network health, utilization, revenue, sessions and operational KPIs through flexible dashboards.",
-    gradient: "from-[#1E5FA8] to-[#4B4FAE]",
+    icon: AlertTriangle,
+    title: "Alerts & Issues",
+    text: "Identify charger problems, offline equipment and operational issues so your team can respond quickly.",
+    gradient: "from-[#C93C8F] to-[#E04578]",
   },
   {
-    icon: ServerCog,
-    number: "08",
-    title: "OCPP & OCPI Ready",
-    description:
-      "Support standardized charging communication and interoperability across connected charging ecosystems.",
+    icon: Network,
+    title: "OCPP & OCPI Connectivity",
+    text: "Connect charging infrastructure and partner networks through standardized EV charging communication.",
     gradient: "from-[#4B4FAE] to-[#7A3FAF]",
-  },
-  {
-    icon: CreditCard,
-    number: "09",
-    title: "Payments & Invoicing",
-    description:
-      "Manage payments, promotional offers, coupons, invoices and transaction records from one platform.",
-    gradient: "from-[#C93C8F] to-[#7A3FAF]",
   },
 ];
 
 /* =========================================================
-   DASHBOARD PREVIEW
+   FEATURE VISUAL
 ========================================================= */
 
-const DashboardPreview = () => {
-  return (
-    <div className="relative">
+const FeatureVisual = ({
+  type,
+}: {
+  type: "monitor" | "manage" | "analyze" | "act";
+}) => {
+  if (type === "monitor") {
+    return (
+      <div className="rounded-[24px] border border-slate-200 bg-white p-4 shadow-[0_25px_70px_rgba(15,23,42,.08)] sm:p-5">
 
-      {/* Glow */}
+        <div className="flex items-center justify-between">
 
-      <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
+          <div>
+            <p className="text-xs font-black text-slate-900">
+              Charger Status
+            </p>
 
-      <div className="absolute -right-10 top-20 h-48 w-48 rounded-full bg-violet-500/20 blur-[100px]" />
-
-      {/* Dashboard */}
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.92,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.9,
-          ease: "easeOut",
-        }}
-        className="relative z-10 overflow-hidden rounded-[28px] border border-white/10 bg-white shadow-[0_40px_100px_rgba(0,0,0,0.45)]"
-      >
-
-        {/* Top bar */}
-
-        <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-
-          <div className="flex items-center gap-3">
-
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#1E5FA8] to-[#7A3FAF]">
-              <Zap className="h-5 w-5 text-white" />
-            </div>
-
-            <div>
-
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                EV DOCK
-              </p>
-
-              <p className="text-sm font-bold text-slate-900">
-                Charging Management
-              </p>
-
-            </div>
-
+            <p className="mt-1 text-[8px] text-slate-400">
+              Live network overview
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5">
+          <Activity className="h-4 w-4 text-[#1E5FA8]" />
 
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        </div>
 
-            <span className="text-[9px] font-bold text-emerald-600">
-              NETWORK ONLINE
-            </span>
+        <div className="mt-5 grid grid-cols-2 gap-2">
+
+          {[
+            ["186", "Online", "bg-emerald-500"],
+            ["42", "Charging", "bg-blue-500"],
+            ["20", "Attention", "bg-pink-500"],
+            ["62", "Available", "bg-violet-500"],
+          ].map(([value, label, dot]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-slate-100 p-3"
+            >
+
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${dot}`}
+                />
+
+                <span className="text-[7px] text-slate-400">
+                  {label}
+                </span>
+              </div>
+
+              <p className="mt-2 text-lg font-black text-slate-900">
+                {value}
+              </p>
+
+            </div>
+          ))}
+
+        </div>
+
+        <div className="mt-3 rounded-xl bg-[#07111F] p-4">
+
+          <div className="flex items-center justify-between">
+
+            <div>
+              <p className="text-[7px] uppercase tracking-[0.16em] text-slate-500">
+                Network Health
+              </p>
+
+              <p className="mt-1 text-2xl font-black text-white">
+                99.2%
+              </p>
+            </div>
+
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-400/10">
+              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            </div>
 
           </div>
 
         </div>
 
-        <div className="grid grid-cols-[150px_1fr]">
+      </div>
+    );
+  }
 
-          {/* Sidebar */}
+  if (type === "manage") {
+    return (
+      <div className="rounded-[24px] border border-white/10 bg-[#0D1828] p-4 shadow-[0_30px_80px_rgba(0,0,0,.35)] sm:p-5">
 
-          <div className="hidden border-r border-slate-100 bg-slate-50 p-4 sm:block">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
 
-            <p className="mb-5 text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400">
-              Control Center
-            </p>
+          <div className="flex items-center gap-2.5">
 
-            {[
-              [LayoutDashboard, "Overview", true],
-              [PlugZap, "Chargers", false],
-              [BatteryCharging, "Sessions", false],
-              [BarChart3, "Analytics", false],
-              [AlertTriangle, "Alerts", false],
-              [Users, "Users", false],
-            ].map(([Icon, label, active]) => {
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-400/10">
+              <BatteryCharging className="h-4 w-4 text-blue-300" />
+            </div>
 
-              const ItemIcon = Icon as React.ElementType;
+            <div>
+              <p className="text-xs font-black text-white">
+                Charging Sessions
+              </p>
 
-              return (
-                <div
-                  key={label as string}
-                  className={`mb-1 flex items-center gap-2 rounded-lg px-3 py-2.5 text-[10px] font-semibold ${
-                    active
-                      ? "bg-blue-50 text-[#1E5FA8]"
-                      : "text-slate-400"
-                  }`}
-                >
-                  <ItemIcon size={14} />
-                  {label as string}
-                </div>
-              );
-            })}
+              <p className="mt-0.5 text-[7px] text-slate-500">
+                Live network activity
+              </p>
+            </div>
 
           </div>
 
-          {/* Main */}
+          <span className="rounded-full bg-emerald-400/10 px-2 py-1 text-[6px] font-black text-emerald-300">
+            LIVE
+          </span>
 
-          <div className="min-w-0 bg-white p-4 sm:p-6">
+        </div>
 
-            <div className="flex items-center justify-between">
+        <div className="mt-4 grid grid-cols-3 gap-2">
 
-              <div>
+          {[
+            ["42", "Active"],
+            ["12.8", "MWh"],
+            ["68%", "Progress"],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-3"
+            >
+              <p className="text-[7px] text-slate-500">
+                {label}
+              </p>
 
-                <p className="text-sm font-bold text-slate-900">
-                  Network Overview
-                </p>
-
-                <p className="mt-1 text-[9px] text-slate-400">
-                  Real-time charging infrastructure
-                </p>
-
-              </div>
-
-              <div className="rounded-xl bg-blue-50 p-2.5">
-                <Activity className="h-4 w-4 text-[#1E5FA8]" />
-              </div>
-
+              <p className="mt-1 text-lg font-black text-white">
+                {value}
+              </p>
             </div>
+          ))}
 
-            {/* Stats */}
+        </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-3 space-y-2">
 
-              {[
-                ["248", "Chargers"],
-                ["186", "Online"],
-                ["42", "Charging"],
-                ["12.8", "MWh Today"],
-              ].map(([value, label]) => (
-
-                <div
-                  key={label}
-                  className="rounded-xl border border-slate-100 bg-slate-50 p-3"
-                >
-
-                  <div className="mb-2 h-1 w-6 rounded-full bg-gradient-to-r from-[#1E5FA8] to-[#7A3FAF]" />
-
-                  <p className="text-lg font-black text-slate-900">
-                    {value}
-                  </p>
-
-                  <p className="mt-0.5 text-[9px] text-slate-400">
-                    {label}
-                  </p>
-
-                </div>
-
-              ))}
-
-            </div>
-
-            {/* Chart */}
-
-            <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-4">
+          {[
+            ["EV-1024", "Station 08", 82],
+            ["EV-1025", "Station 14", 64],
+            ["EV-1026", "Station 21", 100],
+          ].map(([id, station, progress]) => (
+            <div
+              key={id}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-3"
+            >
 
               <div className="flex items-center justify-between">
 
                 <div>
-
-                  <p className="text-xs font-bold text-slate-900">
-                    Charging Activity
+                  <p className="text-[8px] font-bold text-white">
+                    {id}
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-400">
-                    Network activity
+                  <p className="mt-0.5 text-[6px] text-slate-500">
+                    {station}
                   </p>
-
                 </div>
 
-                <BarChart3 className="h-4 w-4 text-[#4B4FAE]" />
+                <span className="text-[7px] font-bold text-blue-300">
+                  {progress}%
+                </span>
 
               </div>
 
-              <div className="mt-6 flex h-28 items-end gap-1.5">
-
-                {[35, 50, 42, 65, 52, 76, 60, 88, 70, 92, 80, 100].map(
-                  (height, index) => (
-
-                    <motion.div
-                      key={index}
-                      initial={{
-                        height: 0,
-                      }}
-                      animate={{
-                        height: `${height}%`,
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        delay: index * 0.04,
-                      }}
-                      className="flex-1 rounded-t-md bg-gradient-to-t from-[#1E5FA8] via-[#4B4FAE] to-[#B57EDC]"
-                    />
-
-                  )
-                )}
-
-              </div>
-
-            </div>
-
-            {/* Bottom status */}
-
-            <div className="mt-4 grid grid-cols-3 gap-2">
-
-              {[
-                ["186", "Online", "bg-emerald-500"],
-                ["42", "Charging", "bg-blue-500"],
-                ["20", "Attention", "bg-pink-500"],
-              ].map(([value, label, dot]) => (
-
+              <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
                 <div
-                  key={label}
-                  className="rounded-xl border border-slate-100 p-3"
-                >
-
-                  <div className="flex items-center gap-1.5">
-
-                    <span
-                      className={`h-1.5 w-1.5 rounded-full ${dot}`}
-                    />
-
-                    <span className="text-[9px] text-slate-400">
-                      {label}
-                    </span>
-
-                  </div>
-
-                  <p className="mt-1 text-sm font-black text-slate-800">
-                    {value}
-                  </p>
-
-                </div>
-
-              ))}
+                  style={{
+                    width: `${progress}%`,
+                  }}
+                  className="h-full rounded-full bg-gradient-to-r from-[#1E5FA8] to-[#B57EDC]"
+                />
+              </div>
 
             </div>
+          ))}
+
+        </div>
+
+      </div>
+    );
+  }
+
+  if (type === "analyze") {
+    return (
+      <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4 shadow-[0_25px_70px_rgba(15,23,42,.08)] sm:p-5">
+
+        <div className="rounded-2xl bg-white p-5">
+
+          <div className="flex items-center justify-between">
+
+            <div>
+              <p className="text-xs font-black text-slate-900">
+                Network Performance
+              </p>
+
+              <p className="mt-1 text-[7px] text-slate-400">
+                Energy & utilization trends
+              </p>
+            </div>
+
+            <BarChart3 className="h-4 w-4 text-[#4B4FAE]" />
+
+          </div>
+
+          <div className="mt-8 flex h-32 items-end gap-1.5">
+
+            {[30, 44, 38, 58, 52, 70, 62, 80, 72, 94, 82, 100].map(
+              (height, index) => (
+                <motion.div
+                  key={index}
+                  initial={{
+                    height: 0,
+                  }}
+                  whileInView={{
+                    height: `${height}%`,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.04,
+                  }}
+                  className="flex-1 rounded-t-md bg-gradient-to-t from-[#1E5FA8] via-[#4B4FAE] to-[#B57EDC]"
+                />
+              )
+            )}
+
+          </div>
+
+          <div className="mt-5 grid grid-cols-3 gap-2">
+
+            {[
+              ["12.8 MWh", "Energy"],
+              ["78%", "Utilization"],
+              ["4,286", "Sessions"],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="rounded-xl bg-slate-50 p-3"
+              >
+                <p className="text-[7px] text-slate-400">
+                  {label}
+                </p>
+
+                <p className="mt-1 text-sm font-black text-slate-900">
+                  {value}
+                </p>
+              </div>
+            ))}
 
           </div>
 
         </div>
 
-      </motion.div>
+      </div>
+    );
+  }
 
-      {/* Floating card */}
+  return (
+    <div className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_25px_70px_rgba(15,23,42,.08)]">
 
-      <motion.div
-        animate={{
-          y: [0, -8, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute -bottom-5 -left-4 z-20 hidden rounded-2xl border border-slate-100 bg-white p-4 shadow-2xl sm:block"
-      >
+      <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+
+        <div>
+          <p className="text-xs font-black text-slate-900">
+            Network Alerts
+          </p>
+
+          <p className="mt-1 text-[7px] text-slate-400">
+            Attention required
+          </p>
+        </div>
+
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-pink-50">
+          <AlertTriangle className="h-4 w-4 text-[#C93C8F]" />
+        </div>
+
+      </div>
+
+      <div className="mt-4 rounded-xl border border-pink-100 bg-pink-50/50 p-4">
 
         <div className="flex items-center gap-3">
 
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50">
-            <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
+            <AlertTriangle className="h-4 w-4 text-[#C93C8F]" />
           </div>
 
           <div>
-
-            <p className="text-[9px] text-slate-400">
-              Network Health
+            <p className="text-xs font-black text-slate-900">
+              Charger #EV-042
             </p>
 
-            <p className="mt-1 text-xs font-black text-slate-900">
-              99.2% Available
+            <p className="mt-1 text-[8px] text-slate-500">
+              Connection interrupted
             </p>
-
           </div>
 
         </div>
 
-      </motion.div>
+        <div className="mt-4 grid grid-cols-2 gap-2">
+
+          <div className="rounded-lg bg-white p-3">
+            <p className="text-[7px] text-slate-400">
+              Location
+            </p>
+
+            <p className="mt-1 text-[9px] font-bold text-slate-800">
+              Station 08
+            </p>
+          </div>
+
+          <div className="rounded-lg bg-white p-3">
+            <p className="text-[7px] text-slate-400">
+              Status
+            </p>
+
+            <p className="mt-1 text-[9px] font-bold text-[#C93C8F]">
+              Needs Attention
+            </p>
+          </div>
+
+        </div>
+
+        <button className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-slate-950 py-2.5 text-[9px] font-bold text-white transition hover:bg-[#C93C8F]">
+          View Charger
+          <ArrowRight className="h-3 w-3" />
+        </button>
+
+      </div>
 
     </div>
   );
@@ -431,7 +434,6 @@ const DashboardPreview = () => {
 /* =========================================================
    CMS PAGE
 ========================================================= */
-
 const CMS: React.FC = () => {
 
   return (
@@ -444,20 +446,20 @@ const CMS: React.FC = () => {
             HERO
         ====================================================== */}
 
-        <section className="relative min-h-screen overflow-hidden bg-[#07111F] pt-24">
+        <section className="relative overflow-hidden bg-[#07111F] pt-24 md:pt-28">
 
-          {/* Background glow */}
+          {/* GLOWS */}
 
-          <div className="absolute left-[-200px] top-[-200px] h-[650px] w-[650px] rounded-full bg-blue-600/20 blur-[150px]" />
+          <div className="pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-[#1E5FA8]/20 blur-[130px]" />
 
-          <div className="absolute right-[-200px] top-0 h-[650px] w-[650px] rounded-full bg-violet-600/20 blur-[150px]" />
+          <div className="pointer-events-none absolute -right-40 top-10 h-[520px] w-[520px] rounded-full bg-[#7A3FAF]/20 blur-[130px]" />
 
-          <div className="absolute bottom-[-300px] left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-pink-600/10 blur-[150px]" />
+          <div className="pointer-events-none absolute bottom-[-250px] left-1/2 h-[450px] w-[600px] -translate-x-1/2 rounded-full bg-[#C93C8F]/10 blur-[130px]" />
 
-          {/* Grid */}
+          {/* GRID */}
 
           <div
-            className="absolute inset-0 opacity-[0.035]"
+            className="pointer-events-none absolute inset-0 opacity-[0.025]"
             style={{
               backgroundImage:
                 "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg,#fff 1px,transparent 1px)",
@@ -465,112 +467,426 @@ const CMS: React.FC = () => {
             }}
           />
 
-          <div className="relative mx-auto flex min-h-[calc(100vh-96px)] max-w-7xl items-center px-6 py-16 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-6 pb-20 lg:px-8 lg:pb-24">
 
-            <div className="grid w-full items-center gap-16 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="grid items-center gap-12 lg:grid-cols-[.82fr_1.18fr] lg:gap-16">
 
-              {/* Hero content */}
+              {/* HERO CONTENT */}
 
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: -40,
+                  x: -30,
                 }}
                 animate={{
                   opacity: 1,
                   x: 0,
                 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.7,
                 }}
-                className="relative z-10"
               >
 
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur-xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2">
 
-                  <span className="relative flex h-2.5 w-2.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
 
-                    <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-
-                    <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400" />
-
+                    <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
                   </span>
 
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
-                    EV Dock CMS
+                  <span className="text-[8px] font-black uppercase tracking-[0.18em] text-blue-200">
+                    EV DOCK CMS
                   </span>
 
                 </div>
 
-                <h1 className="mt-7 max-w-2xl text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-white md:text-6xl lg:text-[70px]">
+                <h1 className="mt-6 text-4xl font-black leading-[1.03] tracking-[-0.05em] text-white sm:text-5xl lg:text-[60px]">
 
-                  Control your EV network.
+                  Run your EV network.
 
-                  <span className="block bg-gradient-to-r from-blue-300 via-violet-300 to-pink-300 bg-clip-text text-transparent">
-                    From one powerful platform.
+                  <span className="block bg-gradient-to-r from-[#5EA7F5] via-[#9B7BEA] to-[#E27BB7] bg-clip-text text-transparent">
+                    From one control center.
                   </span>
 
                 </h1>
 
-                <p className="mt-7 max-w-xl text-lg leading-8 text-slate-400 md:text-xl">
-                  Monitor chargers, manage sessions, understand performance
-                  and respond to operational issues — all from one connected
-                  EV charging control center.
+                <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+                  EV Dock CMS gives charging operators one connected place
+                  to monitor chargers, manage sessions, understand network
+                  performance and respond to operational issues.
                 </p>
 
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-7 flex flex-wrap gap-3">
 
-                  <button className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-50">
-
-                    Explore CMS
+                  <Link
+                    to="/contact-us"
+                    className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-1"
+                  >
+                    Request a Demo
 
                     <ArrowRight
-                      size={16}
+                      size={15}
                       className="transition-transform group-hover:translate-x-1"
                     />
+                  </Link>
 
-                  </button>
-
-                  <button className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur-xl transition hover:bg-white/10">
-                    Request a Demo
-                  </button>
+                  <a
+                    href="#capabilities"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-6 py-3 text-sm font-bold text-white transition hover:bg-white/[0.09]"
+                  >
+                    Explore CMS
+                  </a>
 
                 </div>
 
-                <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {/* SMALL VALUE STRIP */}
+
+                <div className="mt-9 grid grid-cols-3 border-t border-white/10 pt-6">
+
+                  <div>
+                    <p className="text-xs font-black text-white">
+                      Monitor
+                    </p>
+
+                    <p className="mt-1 text-[8px] text-slate-500">
+                      Network health
+                    </p>
+                  </div>
+
+                  <div className="border-l border-white/10 pl-4">
+                    <p className="text-xs font-black text-white">
+                      Manage
+                    </p>
+
+                    <p className="mt-1 text-[8px] text-slate-500">
+                      Charging activity
+                    </p>
+                  </div>
+
+                  <div className="border-l border-white/10 pl-4">
+                    <p className="text-xs font-black text-white">
+                      Analyze
+                    </p>
+
+                    <p className="mt-1 text-[8px] text-slate-500">
+                      Business performance
+                    </p>
+                  </div>
+
+                </div>
+
+              </motion.div>
+
+              {/* DASHBOARD */}
+
+              <CMSDashboard />
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* =====================================================
+            CMS INTRO
+        ====================================================== */}
+
+        <section className="bg-white py-20 md:py-24">
+
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[.75fr_1.25fr] lg:px-8">
+
+            <SectionHeading
+              eyebrow="WHY EV DOCK CMS"
+              title="Everything your team needs."
+              highlight="Nothing you don't."
+              centered={false}
+            />
+
+            <div>
+
+              <p className="max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
+                Managing an EV charging network means keeping track of
+                infrastructure, charging sessions, customers, payments and
+                performance at the same time. EV Dock CMS brings those
+                operational workflows together into one focused control
+                center.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+
+                {[
+                  "Real-time operations",
+                  "Network visibility",
+                  "Business analytics",
+                  "Role-based access",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2"
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+
+                    <span className="text-[9px] font-bold text-slate-600">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            OPERATE
+        ====================================================== */}
+
+        <section className="bg-slate-50 py-20 md:py-24">
+
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+            <div className="mx-auto max-w-2xl text-center">
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5">
+                <Activity className="h-3 w-3 text-[#1E5FA8]" />
+
+                <span className="text-[8px] font-black uppercase tracking-[0.18em] text-[#1E5FA8]">
+                  HOW YOUR TEAM WORKS
+                </span>
+              </div>
+
+              <h2 className="mt-5 text-3xl font-black tracking-[-0.04em] text-slate-950 sm:text-4xl">
+                From network status
+
+                <span className="block bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#C93C8F] bg-clip-text text-transparent">
+                  to business decisions.
+                </span>
+              </h2>
+
+              <p className="mt-4 text-sm leading-7 text-slate-500">
+                A focused workflow for the people operating your charging
+                network every day.
+              </p>
+
+            </div>
+
+            {/* MONITOR */}
+
+            <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
+
+              <FeatureVisual type="monitor" />
+
+              <div>
+
+                <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#1E5FA8]">
+                  01 / MONITOR
+                </p>
+
+                <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950">
+                  Know what's happening across every charger.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  Get a live view of your charging infrastructure and quickly
+                  understand which chargers are online, charging, available
+                  or need attention.
+                </p>
+
+                <div className="mt-6 space-y-3">
 
                   {[
-                    [Activity, "Monitor"],
-                    [BatteryCharging, "Manage"],
-                    [BarChart3, "Analyze"],
-                    [AlertTriangle, "Act"],
-                  ].map(([Icon, label]) => {
+                    "Live charger availability",
+                    "Station status",
+                    "Network health",
+                    "Operational visibility",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2.5"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
 
-                    const ItemIcon = Icon as React.ElementType;
+                      <span className="text-xs font-bold text-slate-700">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* MANAGE */}
+
+            <div className="mt-20 grid items-center gap-10 lg:grid-cols-2">
+
+              <div className="order-2 lg:order-1">
+
+                <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#7A3FAF]">
+                  02 / MANAGE
+                </p>
+
+                <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950">
+                  Keep every charging session visible.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  Track active sessions, energy delivery and charging
+                  progress from a single operational view, helping your team
+                  stay on top of network activity.
+                </p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+
+                  {[
+                    {
+                      icon: BatteryCharging,
+                      title: "Live Sessions",
+                    },
+                    {
+                      icon: Zap,
+                      title: "Energy Delivery",
+                    },
+                    {
+                      icon: Wallet,
+                      title: "Revenue Data",
+                    },
+                    {
+                      icon: RefreshCw,
+                      title: "Centralized Control",
+                    },
+                  ].map((item) => {
+                    const Icon = item.icon;
 
                     return (
                       <div
-                        key={label as string}
-                        className="rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-xl"
+                        key={item.title}
+                        className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3"
                       >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-50">
+                          <Icon className="h-3.5 w-3.5 text-[#7A3FAF]" />
+                        </div>
 
-                        <ItemIcon className="h-4 w-4 text-blue-300" />
-
-                        <p className="mt-2 text-[9px] font-bold uppercase tracking-wider text-slate-300">
-                          {label as string}
-                        </p>
-
+                        <span className="text-[10px] font-bold text-slate-700">
+                          {item.title}
+                        </span>
                       </div>
                     );
                   })}
 
                 </div>
 
-              </motion.div>
+              </div>
 
-              {/* Dashboard */}
+              <div className="order-1 lg:order-2">
 
-              <DashboardPreview />
+                <FeatureVisual type="manage" />
+
+              </div>
+
+            </div>
+
+            {/* ANALYZE */}
+
+            <div className="mt-20 grid items-center gap-10 lg:grid-cols-[1.15fr_.85fr]">
+
+              <FeatureVisual type="analyze" />
+
+              <div>
+
+                <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#4B4FAE]">
+                  03 / ANALYZE
+                </p>
+
+                <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950">
+                  Turn charging activity into useful insights.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  Understand how your network performs through clear
+                  operational data, utilization trends, energy usage and
+                  commercial performance.
+                </p>
+
+                <div className="mt-6 space-y-3">
+
+                  {[
+                    "Energy consumption",
+                    "Charger utilization",
+                    "Charging sessions",
+                    "Revenue performance",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2.5"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-[#4B4FAE]" />
+
+                      <span className="text-xs font-bold text-slate-700">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* ACT */}
+
+            <div className="mt-20 grid items-center gap-10 lg:grid-cols-2">
+
+              <div className="order-2 lg:order-1">
+
+                <p className="text-[9px] font-black uppercase tracking-[0.18em] text-[#C93C8F]">
+                  04 / ACT
+                </p>
+
+                <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950">
+                  Spot issues before they become downtime.
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  Bring important operational events to your attention so
+                  your team can identify charger problems and respond faster.
+                </p>
+
+                <div className="mt-6 space-y-3">
+
+                  {[
+                    "Operational alerts",
+                    "Charger error visibility",
+                    "Offline charger detection",
+                    "Faster response",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2.5"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-[#C93C8F]" />
+
+                      <span className="text-xs font-bold text-slate-700">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
+
+              </div>
+
+              <div className="order-1 lg:order-2">
+
+                <FeatureVisual type="act" />
+
+              </div>
 
             </div>
 
@@ -579,54 +895,34 @@ const CMS: React.FC = () => {
         </section>
 
         {/* =====================================================
-            INTRO
+            CAPABILITIES
         ====================================================== */}
 
-        <section className="bg-white py-24 md:py-28">
+        <section
+          id="capabilities"
+          className="relative overflow-hidden bg-white py-20 md:py-28"
+        >
 
-          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-            <SectionHeading
-              eyebrow="WHY EV DOCK CMS"
-              title="One control center"
-              highlight="for your entire network."
-              centered={false}
-            />
-            <p className="max-w-2xl text-lg leading-8 text-slate-600">
-              As your charging network grows, operational visibility becomes
-              critical. EV Dock CMS brings chargers, sessions, performance,
-              alerts and network information into one connected experience.
-            </p>
+          <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-blue-50 blur-[110px]" />
 
-          </div>
-
-        </section>
-
-        {/* =====================================================
-            KEY FEATURES
-        ====================================================== */}
-
-        <section className="relative overflow-hidden bg-slate-50 py-24 md:py-32">
-
-          <div className="pointer-events-none absolute left-[-250px] top-20 h-[500px] w-[500px] rounded-full bg-blue-100/50 blur-[130px]" />
-
-          <div className="pointer-events-none absolute bottom-0 right-[-250px] h-[500px] w-[500px] rounded-full bg-violet-100/50 blur-[130px]" />
+          <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-violet-50 blur-[110px]" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-            <div className="mx-auto max-w-3xl text-center">            
+            <div className="mx-auto max-w-3xl text-center">
+
               <SectionHeading
-                eyebrow="KEY FEATURES"
-                title="Everything you need to"
-                highlight="run a smarter EV network."
-                description="From charger operations and revenue to payments, users,
-                interoperability and analytics — EV Dock CMS brings your
-                charging ecosystem together."
-                />
+                eyebrow="CMS CAPABILITIES"
+                title="Everything your charging operation needs."
+                highlight="In one connected CMS."
+                description="Manage infrastructure, customers, sessions, payments, analytics and network connectivity from one operational platform."
+              />
+
             </div>
-            <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
-              {keyFeatures.map((feature, index) => {
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
+              {cmsCapabilities.map((feature, index) => {
                 const Icon = feature.icon;
 
                 return (
@@ -634,7 +930,7 @@ const CMS: React.FC = () => {
                     key={feature.title}
                     initial={{
                       opacity: 0,
-                      y: 25,
+                      y: 20,
                     }}
                     whileInView={{
                       opacity: 1,
@@ -642,54 +938,36 @@ const CMS: React.FC = () => {
                     }}
                     viewport={{
                       once: true,
-                      margin: "-80px",
                     }}
                     transition={{
                       duration: 0.5,
-                      delay: index * 0.05,
+                      delay: index * 0.04,
                     }}
                     whileHover={{
-                      y: -6,
+                      y: -5,
                     }}
-                    className="group relative overflow-hidden rounded-[26px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:border-slate-300 hover:shadow-[0_25px_70px_rgba(15,23,42,0.10)]"
+                    className="group relative overflow-hidden rounded-[22px] border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-xl"
                   >
 
                     <div
-                      className={`absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 blur-[70px] transition-opacity duration-500 group-hover:opacity-20`}
+                      className={`absolute -right-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br ${feature.gradient} opacity-0 blur-[50px] transition duration-500 group-hover:opacity-20`}
                     />
 
-                    <div className="relative flex items-center justify-between">
+                    <div className="relative">
 
                       <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-lg`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-md`}
                       >
-                        <Icon className="h-5 w-5 text-white" />
+                        <Icon className="h-4.5 w-4.5 text-white" />
                       </div>
 
-                      <span className="text-4xl font-black text-slate-100">
-                        {feature.number}
-                      </span>
+                      <h3 className="mt-5 text-sm font-black text-slate-950">
+                        {feature.title}
+                      </h3>
 
-                    </div>
-
-                    <h3 className="relative mt-7 text-lg font-black text-slate-950">
-                      {feature.title}
-                    </h3>
-
-                    <p className="relative mt-3 text-sm leading-7 text-slate-500">
-                      {feature.description}
-                    </p>
-
-                    <div className="relative mt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.15em] text-slate-400 transition-colors group-hover:text-[#1E5FA8]">
-
-                      <span>
-                        EV Dock Platform
-                      </span>
-
-                      <ArrowRight
-                        size={13}
-                        className="transition-transform group-hover:translate-x-1"
-                      />
+                      <p className="mt-2 text-xs leading-6 text-slate-500">
+                        {feature.text}
+                      </p>
 
                     </div>
 
@@ -699,977 +977,212 @@ const CMS: React.FC = () => {
 
             </div>
 
-            <div className="mt-10 overflow-hidden rounded-[26px] border border-slate-200 bg-slate-50">
-
-              <div className="grid divide-y divide-slate-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-
-                <div className="flex items-center gap-4 p-6">
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100">
-                    <ShieldCheck className="h-5 w-5 text-[#1E5FA8]" />
-                  </div>
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Secure Operations
-                    </p>
-
-                    <p className="mt-1 text-xs text-slate-400">
-                      Role-based platform access
-                    </p>
-
-                  </div>
-
-                </div>
-
-                <div className="flex items-center gap-4 p-6">
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100">
-                    <Globe2 className="h-5 w-5 text-[#7A3FAF]" />
-                  </div>
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Connected Ecosystem
-                    </p>
-
-                    <p className="mt-1 text-xs text-slate-400">
-                      Built for interoperable networks
-                    </p>
-
-                  </div>
-
-                </div>
-
-                <div className="flex items-center gap-4 p-6">
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-100">
-                    <BarChart3 className="h-5 w-5 text-[#C93C8F]" />
-                  </div>
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Actionable Insights
-                    </p>
-
-                    <p className="mt-1 text-xs text-slate-400">
-                      Data-driven network decisions
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
           </div>
 
         </section>
 
         {/* =====================================================
-            MONITOR
+            BUSINESS VALUE
         ====================================================== */}
 
-        <section className="bg-white py-24 md:py-32">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
+        <section className="bg-[#07111F] py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -30,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
+            {/* CENTERED SECTION HEADING */}
+            <div className="mx-auto max-w-3xl text-center">
+              <SectionHeading
+                eyebrow="BUILT FOR OPERATIONS"
+                title="Make better decisions"
+                titleClassName="text-white"
+                highlight="with better visibility."
+                description="EV Dock CMS connects operational information with the business data your team needs to run a reliable and scalable charging network."
+                align="center"
+              />
+            </div>
 
-              <div className="rounded-[32px] border border-slate-200 bg-white p-5 shadow-[0_30px_80px_rgba(15,23,42,0.10)]">
+            {/* ONE ROW / TWO COLUMNS */}
+            <div className="mt-14 grid gap-8 lg:grid-cols-2">
 
-                <div className="flex items-center justify-between">
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Charger Status
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-slate-400">
-                      Live network overview
-                    </p>
-
-                  </div>
-
-                  <Activity className="h-5 w-5 text-[#1E5FA8]" />
-
-                </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-3">
-
-                  {[
-                    ["186", "Online", "bg-emerald-500"],
-                    ["42", "Charging", "bg-blue-500"],
-                    ["20", "Attention", "bg-pink-500"],
-                    ["62", "Available", "bg-violet-500"],
-                  ].map(([value, label, dot]) => (
-
-                    <div
-                      key={label}
-                      className="rounded-2xl border border-slate-100 p-5"
-                    >
-
-                      <div className="flex items-center gap-2">
-
-                        <span
-                          className={`h-2 w-2 rounded-full ${dot}`}
-                        />
-
-                        <span className="text-[10px] font-semibold text-slate-400">
-                          {label}
-                        </span>
-
-                      </div>
-
-                      <p className="mt-3 text-2xl font-black text-slate-900">
-                        {value}
-                      </p>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-                <div className="mt-4 rounded-2xl bg-[#07111F] p-6">
-
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
-                    Network Health
+              {/* COLUMN 1 — OPERATIONAL BENEFITS */}
+              <div className="rounded-3xl border border-white/10 bg-white/[0.025] p-6 md:p-7">
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-300">
+                    Operational Intelligence
                   </p>
 
-                  <div className="mt-3 flex items-end justify-between">
-
-                    <p className="text-4xl font-black text-white">
-                      99.2%
-                    </p>
-
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-400/10">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-                    </div>
-
-                  </div>
-
+                  <h3 className="mt-2 text-xl font-bold text-white">
+                    Everything your team needs to operate better
+                  </h3>
                 </div>
 
-              </div>
-
-            </motion.div>
-            <div>
-            <SectionHeading
-            eyebrow="01 / MONITOR"
-            title="Know what's happening"
-            highlight="across every charger."
-            description="Get a live view of your infrastructure and quickly understand which chargers are available, active, offline or need attention."
-            centered={false}  
-            />
-
-              <div className="mt-8 space-y-4">
-
-                {[
-                  "Live charger availability",
-                  "Station status",
-                  "Network health",
-                  "Charger activity",
-                ].map((item) => (
-
-                  <div
-                    key={item}
-                    className="flex items-center gap-3"
-                  >
-
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-50">
-                      <Check className="h-3.5 w-3.5 text-[#1E5FA8]" />
-                    </div>
-
-                    <span className="text-sm font-semibold text-slate-700">
-                      {item}
-                    </span>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-        {/* =====================================================
-            MANAGE
-        ====================================================== */}
-
-        <section className="relative overflow-hidden bg-[#07111F] py-24 md:py-32">
-
-          <div className="pointer-events-none absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-600/10 blur-[140px]" />
-
-          <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[140px]" />
-
-          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-
-            <div className="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
-
-              {/* Content */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -35,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-              >
-                <SectionHeading
-                eyebrow="02 / MANAGE"
-                title="Manage every charging"
-                highlight="session with confidence."
-                titleClassName="text-white"
-                description=" Keep complete visibility over active sessions, charger
-                  activity, energy consumption and charging progress from a
-                  single control center."
-                  centered={false}
-                />
-                <div className="mt-9 space-y-3">
-
+                <div className="space-y-3">
                   {[
                     {
-                      icon: BatteryCharging,
-                      title: "Live Charging Sessions",
-                      text: "Track active sessions in real time.",
+                      icon: Activity,
+                      title: "Improve Network Visibility",
+                      text: "Understand the status of your infrastructure in real time.",
                     },
                     {
                       icon: Gauge,
-                      title: "Charging Progress",
-                      text: "Understand energy delivery and session progress.",
+                      title: "Improve Utilization",
+                      text: "Identify charging patterns and network performance.",
                     },
                     {
-                      icon: Wallet,
-                      title: "Session & Revenue Data",
-                      text: "Connect charging activity with commercial data.",
+                      icon: CircleDollarSign,
+                      title: "Understand Revenue",
+                      text: "Connect charging activity with commercial performance.",
                     },
                     {
-                      icon: RefreshCw,
-                      title: "Centralized Control",
-                      text: "Manage network activity from one platform.",
+                      icon: ShieldCheck,
+                      title: "Control Access",
+                      text: "Give the right teams the right level of platform access.",
                     },
                   ].map((item) => {
-
                     const Icon = item.icon;
 
                     return (
                       <motion.div
                         key={item.title}
-                        whileHover={{
-                          x: 5,
-                        }}
-                        className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
+                        className="group flex gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition-all duration-300 hover:border-blue-400/30 hover:bg-white/[0.06]"
                       >
-
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#1E5FA8] to-[#7A3FAF]">
-
-                          <Icon className="h-5 w-5 text-white" />
-
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-400/10">
+                          <Icon className="h-4 w-4 text-blue-300" />
                         </div>
 
                         <div>
-
                           <p className="text-sm font-bold text-white">
                             {item.title}
                           </p>
 
-                          <p className="mt-1 text-xs leading-5 text-slate-500">
+                          <p className="mt-1 text-xs leading-5 text-slate-400">
                             {item.text}
                           </p>
-
                         </div>
-
-                        <ArrowRight
-                          size={15}
-                          className="ml-auto text-slate-600 transition group-hover:translate-x-1 group-hover:text-blue-300"
-                        />
-
                       </motion.div>
                     );
                   })}
-
                 </div>
-
-              </motion.div>
-
-              {/* Session dashboard */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: 35,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-              >
-
-                <div className="relative">
-
-                  <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
-
-                  <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0D1828] p-4 shadow-[0_40px_100px_rgba(0,0,0,0.45)] md:p-5">
-
-                    {/* Header */}
-
-                    <div className="flex items-center justify-between border-b border-white/10 pb-5">
-
-                      <div className="flex items-center gap-3">
-
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#1E5FA8] to-[#7A3FAF]">
-
-                          <BatteryCharging className="h-5 w-5 text-white" />
-
-                        </div>
-
-                        <div>
-
-                          <p className="text-sm font-bold text-white">
-                            Charging Sessions
-                          </p>
-
-                          <p className="mt-1 text-[9px] text-slate-500">
-                            Live network activity
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      <div className="flex items-center gap-2 rounded-full border border-emerald-400/10 bg-emerald-400/10 px-3 py-1.5">
-
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-
-                        <span className="text-[8px] font-bold text-emerald-300">
-                          LIVE
-                        </span>
-
-                      </div>
-
-                    </div>
-
-                    {/* Summary */}
-
-                    <div className="mt-5 grid grid-cols-3 gap-3">
-
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-
-                        <p className="text-[9px] text-slate-500">
-                          Active
-                        </p>
-
-                        <p className="mt-2 text-2xl font-black text-white">
-                          42
-                        </p>
-
-                        <p className="mt-1 text-[8px] font-bold text-emerald-400">
-                          +12% today
-                        </p>
-
-                      </div>
-
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-
-                        <p className="text-[9px] text-slate-500">
-                          Energy
-                        </p>
-
-                        <p className="mt-2 text-2xl font-black text-white">
-                          12.8
-                        </p>
-
-                        <p className="mt-1 text-[8px] text-slate-500">
-                          MWh delivered
-                        </p>
-
-                      </div>
-
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-
-                        <p className="text-[9px] text-slate-500">
-                          Average
-                        </p>
-
-                        <p className="mt-2 text-2xl font-black text-white">
-                          68%
-                        </p>
-
-                        <p className="mt-1 text-[8px] text-slate-500">
-                          Session progress
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                    {/* Sessions */}
-
-                    <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-
-                      <div className="mb-4 flex items-center justify-between">
-
-                        <p className="text-xs font-bold text-white">
-                          Active Sessions
-                        </p>
-
-                        <button className="text-[9px] font-bold text-blue-300">
-                          View All
-                        </button>
-
-                      </div>
-
-                      <div className="space-y-3">
-
-                        {[
-                          {
-                            id: "EV-1024",
-                            station: "Station 08",
-                            energy: "18.4 kWh",
-                            progress: 82,
-                            status: "Charging",
-                          },
-                          {
-                            id: "EV-1025",
-                            station: "Station 14",
-                            energy: "12.8 kWh",
-                            progress: 64,
-                            status: "Charging",
-                          },
-                          {
-                            id: "EV-1026",
-                            station: "Station 21",
-                            energy: "24.2 kWh",
-                            progress: 100,
-                            status: "Completed",
-                          },
-                          {
-                            id: "EV-1027",
-                            station: "Station 05",
-                            energy: "8.6 kWh",
-                            progress: 41,
-                            status: "Charging",
-                          },
-                        ].map((session, index) => (
-
-                          <motion.div
-                            key={session.id}
-                            initial={{
-                              opacity: 0,
-                              y: 10,
-                            }}
-                            whileInView={{
-                              opacity: 1,
-                              y: 0,
-                            }}
-                            viewport={{
-                              once: true,
-                            }}
-                            transition={{
-                              delay: index * 0.08,
-                            }}
-                            className="rounded-xl border border-white/10 bg-white/[0.035] p-3"
-                          >
-
-                            <div className="flex items-center justify-between">
-
-                              <div className="flex items-center gap-3">
-
-                                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-400/10">
-
-                                  <PlugZap className="h-4 w-4 text-blue-300" />
-
-                                </div>
-
-                                <div>
-
-                                  <p className="text-[11px] font-bold text-white">
-                                    {session.id}
-                                  </p>
-
-                                  <p className="mt-0.5 text-[8px] text-slate-500">
-                                    {session.station} • {session.energy}
-                                  </p>
-
-                                </div>
-
-                              </div>
-
-                              <span
-                                className={`rounded-full px-2.5 py-1 text-[8px] font-bold ${
-                                  session.status === "Completed"
-                                    ? "bg-emerald-400/10 text-emerald-300"
-                                    : "bg-blue-400/10 text-blue-300"
-                                }`}
-                              >
-                                {session.status}
-                              </span>
-
-                            </div>
-
-                            <div className="mt-3 flex items-center gap-3">
-
-                              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-
-                                <motion.div
-                                  initial={{
-                                    width: 0,
-                                  }}
-                                  whileInView={{
-                                    width: `${session.progress}%`,
-                                  }}
-                                  viewport={{
-                                    once: true,
-                                  }}
-                                  transition={{
-                                    duration: 1,
-                                    delay: index * 0.08,
-                                  }}
-                                  className="h-full rounded-full bg-gradient-to-r from-[#2F74C9] via-[#4B4FAE] to-[#B57EDC]"
-                                />
-
-                              </div>
-
-                              <span className="w-8 text-right text-[8px] font-bold text-slate-400">
-                                {session.progress}%
-                              </span>
-
-                            </div>
-
-                          </motion.div>
-
-                        ))}
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  {/* Floating status */}
-
-                  <motion.div
-                    animate={{
-                      y: [0, -8, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-[#111F31] p-4 shadow-2xl sm:block"
-                  >
-
-                    <div className="flex items-center gap-3">
-
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400/10">
-
-                        <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-
-                      </div>
-
-                      <div>
-
-                        <p className="text-[9px] text-slate-500">
-                          Network Sessions
-                        </p>
-
-                        <p className="mt-1 text-xs font-black text-white">
-                          Running smoothly
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                  </motion.div>
-
-                </div>
-
-              </motion.div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-        {/* =====================================================
-            ANALYZE
-        ====================================================== */}
-
-        <section className="bg-white py-24 md:py-32">
-
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-
-            {/* Analytics */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -30,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="rounded-[32px] border border-slate-200 bg-slate-50 p-5 shadow-xl"
-            >
-
-              <div className="rounded-2xl bg-white p-6">
-
-                <div className="flex items-center justify-between">
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Network Performance
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-slate-400">
-                      Energy & utilization trends
-                    </p>
-
-                  </div>
-
-                  <BarChart3 className="h-5 w-5 text-[#4B4FAE]" />
-
-                </div>
-
-                <div className="mt-8 flex h-44 items-end gap-2">
-
-                  {[28, 42, 35, 55, 48, 68, 60, 78, 70, 92, 80, 100].map(
-                    (height, index) => (
-
-                      <motion.div
-                        key={index}
-                        initial={{
-                          height: 0,
-                        }}
-                        whileInView={{
-                          height: `${height}%`,
-                        }}
-                        viewport={{
-                          once: true,
-                        }}
-                        transition={{
-                          duration: 0.8,
-                          delay: index * 0.04,
-                        }}
-                        className="flex-1 rounded-t-lg bg-gradient-to-t from-[#1E5FA8] via-[#4B4FAE] to-[#B57EDC]"
-                      />
-
-                    )
-                  )}
-
-                </div>
-
-                <div className="mt-6 grid grid-cols-3 gap-3">
-
-                  {[
-                    ["12.8 MWh", "Energy"],
-                    ["78%", "Utilization"],
-                    ["4,286", "Sessions"],
-                  ].map(([value, label]) => (
-
-                    <div
-                      key={label}
-                      className="rounded-xl bg-slate-50 p-4"
-                    >
-
-                      <p className="text-[9px] text-slate-400">
-                        {label}
-                      </p>
-
-                      <p className="mt-1 text-lg font-black text-slate-900">
-                        {value}
-                      </p>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
               </div>
 
-            </motion.div>
+              {/* COLUMN 2 — BUSINESS METRICS */}
+              <div className="rounded-3xl border border-white/10 bg-white/[0.025] p-6 md:p-7">
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-300">
+                    Business Performance
+                  </p>
 
-            {/* Content */}
+                  <h3 className="mt-2 text-xl font-bold text-white">
+                    A complete view of your charging network
+                  </h3>
+                </div>
 
-            <div>
-              <SectionHeading
-              eyebrow="03 / ANALYZE"
-              title="Turn charging activity"
-              highlight="into useful insights."
-              description=" Understand how your network performs through clear operational
-                data, trends and performance indicators."
-              centered={false}  
-              />
-              <div className="mt-8 space-y-5">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    {
+                      value: "24/7",
+                      title: "Network Visibility",
+                      text: "Keep your operations team informed.",
+                      icon: Activity,
+                    },
+                    {
+                      value: "Live",
+                      title: "Charger Status",
+                      text: "See infrastructure activity in real time.",
+                      icon: Zap,
+                    },
+                    {
+                      value: "360°",
+                      title: "Business View",
+                      text: "Connect operational and commercial data.",
+                      icon: BarChart3,
+                    },
+                    {
+                      value: "1",
+                      title: "Control Center",
+                      text: "Manage your charging ecosystem centrally.",
+                      icon: LayoutDashboard,
+                    },
+                  ].map((item) => {
+                    const Icon = item.icon;
 
-                {[
-                  [
-                    BarChart3,
-                    "Energy Usage",
-                    "Understand energy delivered across your network.",
-                  ],
-                  [
-                    Gauge,
-                    "Charger Utilization",
-                    "Identify how effectively your chargers are being used.",
-                  ],
-                  [
-                    CircleDollarSign,
-                    "Revenue Activity",
-                    "See charging activity and commercial performance.",
-                  ],
-                ].map(([Icon, title, text]) => {
+                    return (
+                      <motion.div
+                        key={item.title}
+                        whileHover={{ y: -5 }}
+                        transition={{ duration: 0.25 }}
+                        className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:border-blue-400/30 hover:bg-white/[0.07]"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-400/10">
+                            <Icon className="h-4 w-4 text-blue-300" />
+                          </div>
 
-                  const ItemIcon = Icon as React.ElementType;
+                          <span className="text-2xl font-black text-white">
+                            {item.value}
+                          </span>
+                        </div>
 
-                  return (
-                    <div
-                      key={title as string}
-                      className="flex gap-4"
-                    >
-
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50">
-
-                        <ItemIcon className="h-5 w-5 text-[#4B4FAE]" />
-
-                      </div>
-
-                      <div>
-
-                        <h3 className="text-sm font-bold text-slate-900">
-                          {title as string}
+                        <h3 className="mt-5 text-sm font-bold text-white">
+                          {item.title}
                         </h3>
 
-                        <p className="mt-1 text-sm leading-6 text-slate-500">
-                          {text as string}
+                        <p className="mt-1.5 text-xs leading-5 text-slate-400">
+                          {item.text}
                         </p>
 
-                      </div>
-
-                    </div>
-                  );
-                })}
-
+                        <div className="mt-4 h-px w-8 bg-blue-400/40 transition-all duration-300 group-hover:w-14" />
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
 
             </div>
-
           </div>
-
         </section>
-
         {/* =====================================================
-            ACT
+            WHO IT IS FOR
         ====================================================== */}
 
-        <section className="bg-slate-50 py-24 md:py-32">
-
-          <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
-           
-            <div>
-              <SectionHeading
-                eyebrow=" 04 / ACT"
-                title="Spot issues before"
-                highlight="they become downtime."
-                highlightClassName="block text-[#C93C8F]"
-                description="Bring important operational events to your attention so your team can identify problems and respond faster."
-              />
-              <div className="mt-8 space-y-4">
-
-                {[
-                  "Operational alerts",
-                  "Charger error detection",
-                  "Offline charger visibility",
-                  "Faster response",
-                ].map((item) => (
-
-                  <div
-                    key={item}
-                    className="flex items-center gap-3"
-                  >
-
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-pink-50">
-                      <Check className="h-3.5 w-3.5 text-[#C93C8F]" />
-                    </div>
-
-                    <span className="text-sm font-semibold text-slate-700">
-                      {item}
-                    </span>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
-
-              <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.10)]">
-
-                <div className="flex items-center justify-between border-b border-slate-100 pb-5">
-
-                  <div>
-
-                    <p className="text-sm font-bold text-slate-900">
-                      Network Alerts
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-slate-400">
-                      Attention required
-                    </p>
-
-                  </div>
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-50">
-                    <AlertTriangle className="h-5 w-5 text-[#C93C8F]" />
-                  </div>
-
-                </div>
-
-                <div className="mt-5 rounded-2xl border border-pink-100 bg-pink-50/50 p-5">
-
-                  <div className="flex gap-4">
-
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-
-                      <AlertTriangle className="h-5 w-5 text-[#C93C8F]" />
-
-                    </div>
-
-                    <div>
-
-                      <p className="text-sm font-black text-slate-900">
-                        Charger #EV-042
-                      </p>
-
-                      <p className="mt-1 text-xs text-slate-500">
-                        Connection interrupted
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                  <div className="mt-5 grid grid-cols-2 gap-3">
-
-                    <div className="rounded-xl bg-white p-4">
-
-                      <p className="text-[9px] text-slate-400">
-                        Location
-                      </p>
-
-                      <p className="mt-1 text-xs font-bold text-slate-800">
-                        Station 08
-                      </p>
-
-                    </div>
-
-                    <div className="rounded-xl bg-white p-4">
-
-                      <p className="text-[9px] text-slate-400">
-                        Status
-                      </p>
-
-                      <p className="mt-1 text-xs font-bold text-[#C93C8F]">
-                        Needs Attention
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                  <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 py-3.5 text-xs font-bold text-white transition hover:bg-[#C93C8F]">
-
-                    View Charger
-
-                    <ArrowRight className="h-4 w-4" />
-
-                  </button>
-
-                </div>
-
-              </div>
-
-            </motion.div>
-
-          </div>
-
-        </section>
-
-        {/* =====================================================
-            AUDIENCE
-        ====================================================== */}
-
-        <section className="bg-white py-24 md:py-32">
+        <section className="bg-slate-50 py-20 md:py-24">
 
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
             <div className="mx-auto max-w-3xl text-center">
+
               <SectionHeading
-                eyebrow="BUILT FOR THE EV ECOSYSTEM"
-                title=" One CMS."
-                highlight="Multiple ways to grow."
-                description="Designed to give every part of your charging business better visibility and control."
+                eyebrow="BUILT FOR EV OPERATORS"
+                title="One CMS for"
+                highlight="different charging businesses."
+                description="Whether you operate charging stations, manage a growing network or own EV infrastructure, EV Dock CMS gives your team a centralized operational view."
               />
+
             </div>
 
-            <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
 
-              {audiences.map((item, index) => {
-
+              {[
+                {
+                  icon: Network,
+                  title: "CPOs",
+                  subtitle: "Charging Point Operators",
+                  text: "Monitor network performance, charger health, sessions, customers and revenue from one control center.",
+                },
+                {
+                  icon: LayoutDashboard,
+                  title: "Franchise Owners",
+                  subtitle: "EV Charging Franchise",
+                  text: "Manage multiple charging locations with consistent operational visibility and centralized reporting.",
+                },
+                {
+                  icon: PlugZap,
+                  title: "Charger Owners",
+                  subtitle: "EV Infrastructure",
+                  text: "Stay informed about charger availability, usage, sessions and station performance.",
+                },
+              ].map((item, index) => {
                 const Icon = item.icon;
 
                 return (
@@ -1690,34 +1203,32 @@ const CMS: React.FC = () => {
                       delay: index * 0.1,
                     }}
                     whileHover={{
-                      y: -6,
+                      y: -5,
                     }}
-                    className="group rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-100/30"
+                    className="rounded-[22px] border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-xl"
                   >
 
                     <div className="flex items-center justify-between">
 
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-[#1E5FA8] transition group-hover:bg-gradient-to-br group-hover:from-[#1E5FA8] group-hover:to-[#7A3FAF] group-hover:text-white">
-
-                        <Icon className="h-6 w-6" />
-
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#1E5FA8]">
+                        <Icon className="h-5 w-5" />
                       </div>
 
-                      <span className="text-5xl font-black text-slate-100">
+                      <span className="text-3xl font-black text-slate-100">
                         0{index + 1}
                       </span>
 
                     </div>
 
-                    <h3 className="mt-7 text-xl font-bold text-slate-950">
+                    <h3 className="mt-5 text-lg font-black text-slate-950">
                       {item.title}
                     </h3>
 
-                    <p className="mt-1 text-xs font-bold text-[#1E5FA8]">
+                    <p className="mt-1 text-[9px] font-black uppercase tracking-[0.12em] text-[#1E5FA8]">
                       {item.subtitle}
                     </p>
 
-                    <p className="mt-4 text-sm leading-7 text-slate-500">
+                    <p className="mt-3 text-xs leading-6 text-slate-500">
                       {item.text}
                     </p>
 
@@ -1732,96 +1243,47 @@ const CMS: React.FC = () => {
         </section>
 
         {/* =====================================================
-            PLATFORM
+            CTA
         ====================================================== */}
 
-        <section className="relative overflow-hidden bg-[#07111F] py-24 md:py-32">
+        <section className="px-5 py-16 md:px-8 md:py-20">
 
-          <div className="absolute left-1/2 top-[-200px] h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-600/15 blur-[140px]" />
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[30px] bg-gradient-to-r from-[#07111F] via-[#1E5FA8] to-[#4B4FAE]">
 
-          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-            
-            <div className="mx-auto max-w-3xl text-center">
-            <SectionHeading
-            eyebrow="ONE CONNECTED PLATFORM"
-            title="Four capabilities."
-            titleClassName="text-white"
-            highlight="One network."
-            description="Everything your charging operation needs to monitor,
-                manage, analyze and act."
-            />    
-            </div>
+            <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#C93C8F]/20 blur-[90px]" />
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="pointer-events-none absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-[#7A3FAF]/20 blur-[100px]" />
 
-              {[
-                [Activity, "MONITOR", "See every charger"],
-                [BatteryCharging, "MANAGE", "Follow every session"],
-                [BarChart3, "ANALYZE", "Understand performance"],
-                [AlertTriangle, "ACT", "Respond faster"],
-              ].map(([Icon, title, text]) => {
+            <div className="relative grid items-center gap-8 px-7 py-10 sm:px-10 md:py-14 lg:grid-cols-[1fr_auto] lg:px-14">
 
-                const ItemIcon = Icon as React.ElementType;
+              <div>
 
-                return (
-                  <motion.div
-                    key={title as string}
-                    whileHover={{
-                      y: -6,
-                    }}
-                    className="rounded-[24px] border border-white/10 bg-white/[0.05] p-7 text-center backdrop-blur-xl"
-                  >
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5">
 
-                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1E5FA8] to-[#7A3FAF]">
+                  <Zap className="h-3 w-3 text-blue-200" />
 
-                      <ItemIcon className="h-6 w-6 text-white" />
+                  <span className="text-[8px] font-black uppercase tracking-[0.18em] text-blue-100">
+                    EV DOCK CMS
+                  </span>
 
-                    </div>
+                </div>
 
-                    <p className="mt-6 text-xs font-bold tracking-[0.15em] text-white">
-                      {title as string}
-                    </p>
-
-                    <p className="mt-2 text-xs text-slate-400">
-                      {text as string}
-                    </p>
-
-                  </motion.div>
-                );
-              })}
-
-            </div>
-
-          </div>
-
-        </section>
-
-        <section className="px-5 py-16 md:px-10 md:py-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0F172A] via-[#1E5FA8] to-[#4B4FAE] px-6 py-10 md:px-10 md:py-12">
-
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-violet-400/20 blur-[80px]" />
-
-            <div className="relative flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
-
-              <div className="max-w-2xl">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
-                  EV DOCK PLATFORM
-                </p>
-
-                <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
-                  Power your charging network.
+                <h2 className="mt-5 max-w-2xl text-3xl font-black leading-tight tracking-[-0.04em] text-white sm:text-4xl">
+                  Ready to take control of your charging network?
                 </h2>
 
-                <p className="mt-3 max-w-xl text-sm leading-6 text-blue-100/75">
-                  Connect, manage and grow your EV charging infrastructure with EV Dock.
+                <p className="mt-4 max-w-xl text-sm leading-6 text-blue-100/75">
+                  Give your operations team the visibility and tools they
+                  need to manage a smarter EV charging network.
                 </p>
+
               </div>
 
               <Link
                 to="/contact-us"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-blue-50"
+                className="group inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-xl transition hover:-translate-y-1"
               >
-                Get Started
+                Request a Demo
 
                 <ArrowRight
                   size={15}
@@ -1830,7 +1292,9 @@ const CMS: React.FC = () => {
               </Link>
 
             </div>
+
           </div>
+
         </section>
 
       </main>
@@ -1841,3 +1305,4 @@ const CMS: React.FC = () => {
 };
 
 export default CMS;
+

@@ -18,6 +18,7 @@ import MobileApp from "./pages/mobile-app";
 import EVNetwork from "./pages/evnetwork";
 import WhiteLabel from "./pages/white-label";
 import ContactUs from "./pages/contact-us";
+import ChargerPage from  "./pages/chargerpage";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsConditions from "./pages/terms-conditions";
 import GeneralTerms from "./pages/general-terms";
@@ -80,6 +81,9 @@ function App() {
 
         {/* White Label  */}
         <Route path="/white-label" element={<WhiteLabel/>}
+        />
+        {/* ChargerPage */}
+        <Route path="/chargerpage" element={<ChargerPage/>}
         />
 
         {/* Privacy-Policy */}
