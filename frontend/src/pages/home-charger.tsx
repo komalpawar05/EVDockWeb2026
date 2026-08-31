@@ -678,42 +678,6 @@ const ACHomeCharger: React.FC = () => {
         </section>
 
         {/* =====================================================
-            TRUST STRIP
-        ====================================================== */}
-
-        <section className="border-b border-slate-100 bg-white">
-
-          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-slate-100 md:grid-cols-4">
-
-            {[
-              ["3.3–22 kW", "Power Options"],
-              ["Type-2", "AC Charging"],
-              ["Dual CCS2", "Multi-Vehicle"],
-              ["Hybrid", "Flexible Charging"],
-            ].map(([value, label]) => (
-
-              <div
-                key={label}
-                className="px-4 py-7 text-center"
-              >
-
-                <p className="text-lg font-black text-slate-900 md:text-xl">
-                  {value}
-                </p>
-
-                <p className="mt-1 text-[10px] font-medium text-slate-400">
-                  {label}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </section>
-
-        {/* =====================================================
             INTRO
         ====================================================== */}
 
