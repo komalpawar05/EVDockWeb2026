@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
 interface SectionHeadingProps {
@@ -10,6 +11,9 @@ interface SectionHeadingProps {
   centered?: boolean;
   dark?: boolean;
   stacked?: boolean;
+
+  // Animation
+  animate?: boolean;
 
   // Custom styling
   containerClassName?: string;
@@ -29,21 +33,73 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   dark = false,
   stacked = true,
 
+  animate = true,
+
   containerClassName = "",
   titleClassName,
   highlightClassName,
   descriptionClassName,
   eyebrowClassName,
 }) => {
-  return (
+  /* =========================================================
+     ANIMATION VARIANTS
+  ========================================================== */
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  /* =========================================================
+     CONTENT
+  ========================================================== */
+
+  const content = (
     <div
       className={`max-w-3xl ${
         centered ? "mx-auto text-center" : ""
       } ${containerClassName}`}
     >
-      {/* Badge */}
+
+      {/* =====================================================
+          EYEBROW
+      ====================================================== */}
+
       {eyebrow && (
-        <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-2">
+        <motion.div
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-2"
+        >
           <Zap
             size={12}
             className="text-blue-600"
@@ -56,16 +112,22 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           >
             {eyebrow}
           </span>
-        </div>
+        </motion.div>
       )}
 
-      {/* Heading */}
-      <h2
+
+      {/* =====================================================
+          HEADING
+      ====================================================== */}
+
+      <motion.h2
+        variants={itemVariants}
         className={`mt-4 text-4xl font-black tracking-[-0.04em] md:text-5xl ${
           titleClassName ||
           (dark ? "text-white" : "text-slate-950")
         }`}
       >
+
         <span className={stacked ? "block" : "inline"}>
           {title}
         </span>
@@ -86,11 +148,17 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
             </span>
           </>
         )}
-      </h2>
 
-      {/* Description */}
+      </motion.h2>
+
+
+      {/* =====================================================
+          DESCRIPTION
+      ====================================================== */}
+
       {description && (
-        <p
+        <motion.p
+          variants={itemVariants}
           className={`mt-4 max-w-2xl text-base leading-7 ${
             centered ? "mx-auto" : ""
           } ${
@@ -99,9 +167,33 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           }`}
         >
           {description}
-        </p>
+        </motion.p>
       )}
+
     </div>
+  );
+
+
+  /* =========================================================
+     ANIMATED / STATIC VERSION
+  ========================================================== */
+
+  if (!animate) {
+    return content;
+  }
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+    >
+      {content}
+    </motion.div>
   );
 };
 

@@ -991,12 +991,12 @@ const CMS: React.FC = () => {
             {/* CENTERED SECTION HEADING */}
             <div className="mx-auto max-w-3xl text-center">
               <SectionHeading
+                centered
                 eyebrow="BUILT FOR OPERATIONS"
                 title="Make better decisions"
                 titleClassName="text-white"
                 highlight="with better visibility."
                 description="EV Dock CMS connects operational information with the business data your team needs to run a reliable and scalable charging network."
-                align="center"
               />
             </div>
 
@@ -1158,7 +1158,6 @@ const CMS: React.FC = () => {
                 highlight="different charging businesses."
                 description="Whether you operate charging stations, manage a growing network or own EV infrastructure, EV Dock CMS gives your team a centralized operational view."
               />
-
             </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
