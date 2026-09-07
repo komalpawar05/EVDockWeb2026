@@ -27,11 +27,11 @@ import RefundPolicy from "./pages/refund-cancellation";
 import ScrollToTop from "./components/Common/ScrollToTop";
 import BackToTop from "./components/Common/BackToTop";
 
+
 function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-
       <main>
         <Hero />
         <AboutSection />

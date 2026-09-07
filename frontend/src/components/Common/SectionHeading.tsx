@@ -12,10 +12,8 @@ interface SectionHeadingProps {
   dark?: boolean;
   stacked?: boolean;
 
-  // Animation
   animate?: boolean;
 
-  // Custom styling
   containerClassName?: string;
   titleClassName?: string;
   highlightClassName?: string;
@@ -31,7 +29,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
   centered = false,
   dark = false,
-  stacked = true,
+  stacked = false,
 
   animate = true,
 
@@ -42,13 +40,13 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   eyebrowClassName,
 }) => {
   /* =========================================================
-     ANIMATION VARIANTS
+     ANIMATION
   ========================================================== */
 
   const containerVariants = {
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 24,
     },
 
     visible: {
@@ -56,9 +54,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       y: 0,
 
       transition: {
-        duration: 0.7,
+        duration: 0.65,
         ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.12,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -66,7 +64,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 16,
     },
 
     visible: {
@@ -74,7 +72,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       y: 0,
 
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -86,11 +84,10 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
   const content = (
     <div
-      className={`max-w-3xl ${
+      className={`w-full max-w-3xl ${
         centered ? "mx-auto text-center" : ""
       } ${containerClassName}`}
     >
-
       {/* =====================================================
           EYEBROW
       ====================================================== */}
@@ -98,15 +95,16 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       {eyebrow && (
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-2"
+          className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5"
         >
           <Zap
-            size={12}
+            size={11}
+            strokeWidth={2.5}
             className="text-blue-600"
           />
 
           <span
-            className={`text-[9px] font-black uppercase tracking-[0.2em] ${
+            className={`text-[9px] font-bold uppercase tracking-[0.18em] ${
               eyebrowClassName || "text-blue-600"
             }`}
           >
@@ -115,42 +113,62 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         </motion.div>
       )}
 
-
       {/* =====================================================
           HEADING
       ====================================================== */}
 
       <motion.h2
         variants={itemVariants}
-        className={`mt-4 text-4xl font-black tracking-[-0.04em] md:text-5xl ${
-          titleClassName ||
-          (dark ? "text-white" : "text-slate-950")
-        }`}
+        className={`
+          max-w-full
+          text-4xl
+          font-black
+          leading-[1.08]
+          tracking-[-0.04em]
+          md:text-5xl
+          ${centered ? "mx-auto" : ""}
+          ${titleClassName || (dark ? "text-white" : "text-slate-950")}
+        `}
       >
-
-        <span className={stacked ? "block" : "inline"}>
-          {title}
-        </span>
-
-        {highlight && (
+        {stacked ? (
           <>
-            {!stacked && " "}
+            <span className="block">{title}</span>
 
-            <span
-              className={
-                highlightClassName ||
-                (dark
-                  ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
-                  : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
-              }
-            >
-              {highlight}
-            </span>
+            {highlight && (
+              <span
+                className={
+                  highlightClassName ||
+                  (dark
+                    ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
+                    : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
+                }
+              >
+                {highlight}
+              </span>
+            )}
+          </>
+        ) : (
+          <>
+            <span>{title}</span>
+
+            {highlight && (
+              <>
+                {" "}
+                <span
+                  className={
+                    highlightClassName ||
+                    (dark
+                      ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
+                      : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
+                  }
+                >
+                  {highlight}
+                </span>
+              </>
+            )}
           </>
         )}
-
       </motion.h2>
-
 
       {/* =====================================================
           DESCRIPTION
@@ -159,23 +177,26 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       {description && (
         <motion.p
           variants={itemVariants}
-          className={`mt-4 max-w-2xl text-base leading-7 ${
-            centered ? "mx-auto" : ""
-          } ${
-            descriptionClassName ||
-            (dark ? "text-slate-400" : "text-slate-500")
-          }`}
+          className={`
+            mt-3
+            max-w-2xl
+            text-[15px]
+            leading-6
+            ${centered ? "mx-auto" : ""}
+            ${
+              descriptionClassName ||
+              (dark ? "text-slate-400" : "text-slate-500")
+            }
+          `}
         >
           {description}
         </motion.p>
       )}
-
     </div>
   );
 
-
   /* =========================================================
-     ANIMATED / STATIC VERSION
+     STATIC / ANIMATED
   ========================================================== */
 
   if (!animate) {
