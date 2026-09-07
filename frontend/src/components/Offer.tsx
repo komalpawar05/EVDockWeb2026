@@ -8,390 +8,657 @@ import {
   House,
   MapPin,
   PlugZap,
+  ShieldCheck,
   Zap,
 } from "lucide-react";
 import SectionHeading from "./Common/SectionHeading";
 
 const Offer: React.FC = () => {
   return (
-<section className="bg-white px-5 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-  <div className="mx-auto max-w-7xl">
+    <section className="bg-[#FAFAFA] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-6xl">
 
-    {/* ================= HEADER ================= */}
-    <div className="mb-8 text-center sm:mb-10">
-      <SectionHeading
-        centered
-        
-        eyebrow="WHAT WE OFFER"
-        title="Smart EV Charging"
-        highlight="Solutions"
-        description="Reliable charging solutions for public networks, homes, and everyday electric mobility."
-        
-      />
-    </div>
+        {/* =========================
+            SECTION HEADER
+        ========================== */}
+        <div className="mx-auto mb-10 max-w-lg text-center sm:mb-12">
+          <SectionHeading
+            centered
+            eyebrow="WHAT WE OFFER"
+            title="Power for"
+            highlight="every journey"
+            description="Charging solutions designed for life on the road and at home."
+          />
+        </div>
 
-    {/* ================= CARDS ================= */}
-    <div className="grid items-stretch gap-5 lg:grid-cols-2">
+        {/* =========================
+            CARDS
+        ========================== */}
+        <div className="grid gap-4 lg:grid-cols-2">
 
-      {/* =====================================================
-          PUBLIC DC CHARGER
-      ====================================================== */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ y: -4 }}
-        className="group relative flex h-full min-h-[620px] overflow-hidden rounded-[24px] border border-blue-200 bg-gradient-to-br from-[#E0F2FE] via-[#DBEAFE] to-[#BFDBFE] p-5 shadow-[0_10px_30px_rgba(37,99,235,0.10)] sm:p-6"
-      >
-        {/* Background Glow */}
-        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-400/20 blur-3xl transition-all duration-500 group-hover:bg-blue-500/25" />
+          {/* =========================
+              PUBLIC CHARGING
+          ========================== */}
+          <motion.article
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="
+              group relative overflow-hidden
+              rounded-[22px]
+              border border-slate-200
+              bg-white
+              shadow-[0_8px_30px_rgba(15,23,42,0.04)]
+              transition-all duration-500
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
+            {/* Accent */}
+            <div
+              className="
+                pointer-events-none absolute
+                -right-20 -top-20
+                h-40 w-40
+                rounded-full
+                bg-blue-100/50
+                blur-3xl
+                transition-all duration-700
+                group-hover:bg-blue-200/60
+              "
+            />
 
-        <div className="relative flex w-full flex-col">
+            <div className="relative p-5 sm:p-6">
 
-          {/* TOP */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-blue-100">
-                <PlugZap
-                  size={24}
-                  strokeWidth={1.8}
-                  className="text-blue-600"
-                />
-              </div>
+              {/* TOP ROW */}
+              <div className="flex items-center justify-between">
 
-              <div className="mt-4 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <div className="flex items-center gap-3">
 
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-600">
-                  Public Charging
-                </span>
-              </div>
-            </div>
+                  <div
+                    className="
+                      flex h-9 w-9 shrink-0 items-center justify-center
+                      rounded-xl
+                      bg-blue-50
+                      text-blue-600
+                    "
+                  >
+                    <PlugZap size={17} strokeWidth={1.8} />
+                  </div>
 
-            <Link
-              to="/public-charger"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 shadow-sm ring-1 ring-blue-100 transition-all duration-300 hover:bg-blue-600 hover:text-white"
-            >
-              <ArrowUpRight size={18} />
-            </Link>
-          </div>
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-900">
+                      Public Charging
+                    </p>
 
-          {/* TITLE */}
-          <div className="mt-4">
-            <h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[27px]">
-              Power up. Get moving.
-            </h3>
-
-            <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
-              Fast and reliable DC charging whenever you need power on the road.
-            </p>
-          </div>
-
-          {/* CONTENT */}
-          <div className="mt-5 grid grid-cols-[1.2fr_0.8fr] gap-3">
-
-            {/* CHARGER */}
-            <div className="relative flex min-h-[235px] items-center justify-center overflow-hidden rounded-2xl border border-blue-100 bg-white/80">
-
-              {/* Glow */}
-              <div className="absolute h-40 w-40 rounded-full bg-blue-100/70 blur-2xl" />
-
-              {/* Decorative */}
-              <div className="absolute left-4 top-4 h-2 w-2 rounded-full bg-blue-200" />
-              <div className="absolute bottom-5 right-5 h-1.5 w-1.5 rounded-full bg-cyan-300" />
-
-              {/* Charger */}
-              <motion.div
-                animate={{ y: [0, -7, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative z-10 flex h-36 w-[96px] items-center justify-center rounded-[20px] bg-gradient-to-b from-blue-600 to-blue-700 shadow-[0_18px_35px_rgba(37,99,235,0.30)]"
-              >
-                {/* Screen */}
-                <div className="absolute top-4 flex h-9 w-12 items-center justify-center rounded-lg bg-slate-950/90">
-                  <div className="h-1.5 w-6 rounded-full bg-cyan-300" />
+                    <div className="mt-1 flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-[9px] text-slate-400">
+                        DC Fast
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <Zap
-                  size={31}
-                  strokeWidth={2.5}
-                  className="mt-6 text-white"
-                  fill="currentColor"
-                />
-
-                <motion.span
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                  }}
-                  className="absolute bottom-4 h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(52,211,153,.9)]"
-                />
-              </motion.div>
-
-              {/* Label */}
-              <span className="absolute bottom-3 left-3 rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-bold text-blue-600">
-                DC FAST
-              </span>
-            </div>
-
-            {/* FEATURES */}
-            <div className="flex flex-col justify-center gap-3">
-
-              <div className="rounded-xl border border-blue-100 bg-white/80 p-3">
-                <MapPin size={17} className="text-blue-600" />
-
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Nearby
-                </p>
-
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  Find Stations
-                </p>
+                <Link
+                  to="/public-charger"
+                  aria-label="Explore public charging"
+                  className="
+                    flex h-8 w-8 items-center justify-center
+                    rounded-full
+                    border border-slate-200
+                    text-slate-500
+                    transition-all duration-300
+                    hover:border-slate-950
+                    hover:bg-slate-950
+                    hover:text-white
+                  "
+                >
+                  <ArrowUpRight size={14} />
+                </Link>
               </div>
 
-              <div className="rounded-xl border border-blue-100 bg-white/80 p-3">
-                <Zap size={17} className="text-blue-600" />
+              {/* CONTENT */}
+              <div className="mt-6 grid items-center gap-5 sm:grid-cols-[1fr_170px]">
 
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Fast
-                </p>
+                {/* COPY */}
+                <div>
+                  <p className="mb-2 text-[9px] font-medium uppercase tracking-[0.16em] text-blue-600">
+                    On the road
+                  </p>
 
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  DC Charging
-                </p>
-              </div>
+                  <h3 className="text-[21px] font-semibold leading-tight tracking-[-0.03em] text-slate-950">
+                    Charge. Go. Repeat.
+                  </h3>
 
-              <div className="rounded-xl border border-blue-100 bg-white/80 p-3">
-                <BatteryCharging
-                  size={17}
-                  className="text-blue-600"
-                />
+                  <p className="mt-2 max-w-[260px] text-[10px] leading-[1.7] text-slate-500">
+                    Fast, dependable charging wherever your journey takes you.
+                  </p>
 
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Live
-                </p>
+                  {/* MINI FEATURES */}
+                  <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
 
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  Availability
-                </p>
-              </div>
+                    <div className="flex items-center gap-1.5">
+                      <MapPin
+                        size={12}
+                        strokeWidth={1.8}
+                        className="text-slate-400"
+                      />
+                      <span className="text-[9px] text-slate-500">
+                        Nearby
+                      </span>
+                    </div>
 
-            </div>
-          </div>
+                    <div className="flex items-center gap-1.5">
+                      <BatteryCharging
+                        size={12}
+                        strokeWidth={1.8}
+                        className="text-slate-400"
+                      />
+                      <span className="text-[9px] text-slate-500">
+                        Live status
+                      </span>
+                    </div>
 
-          {/* CTA */}
-          <div className="mt-auto pt-5">
-            <Link
-              to="/public-charger"
-              className="group/cta inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-all duration-300 hover:gap-3 hover:text-blue-800"
-            >
-              Explore Public Network
-              <ArrowUpRight
-                size={17}
-                className="transition-transform group-hover/cta:translate-x-0.5"
-              />
-            </Link>
-          </div>
+                  </div>
+                </div>
 
-        </div>
-      </motion.div>
-
-
-      {/* =====================================================
-          HOME AC CHARGER
-      ====================================================== */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        whileHover={{ y: -4 }}
-        className="group relative flex h-full min-h-[620px] overflow-hidden rounded-[24px] border border-purple-200 bg-gradient-to-br from-[#F5F3FF] via-[#EDE9FE] to-[#FCE7F3] p-5 shadow-[0_10px_30px_rgba(124,58,237,0.10)] sm:p-6"
-      >
-
-        {/* Background Glow */}
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-purple-400/20 blur-3xl transition-all duration-500 group-hover:bg-pink-400/25" />
-
-        <div className="relative flex w-full flex-col">
-
-          {/* TOP */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
-
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-purple-100">
-                <House
-                  size={24}
-                  strokeWidth={1.8}
-                  className="text-purple-600"
-                />
-              </div>
-
-              <div className="mt-4 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-purple-600">
-                  Home Charging
-                </span>
-              </div>
-
-            </div>
-
-            <Link
-              to="/home-charger"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 shadow-sm ring-1 ring-purple-100 transition-all duration-300 hover:bg-purple-600 hover:text-white"
-            >
-              <ArrowUpRight size={18} />
-            </Link>
-          </div>
-
-          {/* TITLE */}
-          <div className="mt-4">
-
-            <h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[27px]">
-              Charge at your place.
-            </h3>
-
-            <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
-              Smart AC charging designed for comfortable, reliable everyday charging at home.
-            </p>
-
-          </div>
-
-          {/* CONTENT */}
-          <div className="mt-5 grid grid-cols-[1.2fr_0.8fr] gap-3">
-
-            {/* HOME CHARGER */}
-            <div className="relative flex min-h-[235px] items-center justify-center overflow-hidden rounded-2xl border border-purple-100 bg-white/80">
-
-              {/* Glow */}
-              <div className="absolute h-40 w-40 rounded-full bg-purple-100/70 blur-2xl" />
-
-              {/* Decorative */}
-              <div className="absolute left-4 top-4 h-2 w-2 rounded-full bg-purple-200" />
-              <div className="absolute bottom-5 right-5 h-1.5 w-1.5 rounded-full bg-pink-300" />
-
-              {/* Charger */}
-              <motion.div
-                animate={{ y: [0, -7, 0] }}
-                transition={{
-                  duration: 3.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative z-10 flex h-40 w-[100px] items-center justify-center rounded-[20px] bg-gradient-to-b from-blue-600 to-blue-700 shadow-[0_18px_35px_rgba(37,99,235,0.28)]"
-              >
-
-                {/* Screen */}
-                <div className="absolute top-4 flex h-9 w-12 items-center justify-center rounded-lg bg-white/20">
-                  <Zap
-                    size={21}
-                    className="text-white"
+                {/* PRODUCT VISUAL */}
+                <div
+                  className="
+                    relative h-[190px]
+                    overflow-hidden
+                    rounded-[18px]
+                    bg-[#F6F9FD]
+                  "
+                >
+                  {/* Soft grid */}
+                  <div
+                    className="absolute inset-0 opacity-40"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(#E5EDF7 1px, transparent 1px), linear-gradient(90deg, #E5EDF7 1px, transparent 1px)",
+                      backgroundSize: "26px 26px",
+                    }}
                   />
+
+                  {/* Glow */}
+                  <div
+                    className="
+                      absolute left-1/2 top-1/2
+                      h-32 w-32
+                      -translate-x-1/2 -translate-y-1/2
+                      rounded-full
+                      bg-blue-200/40
+                      blur-3xl
+                    "
+                  />
+
+                  {/* Ground */}
+                  <div
+                    className="
+                      absolute bottom-7 left-1/2
+                      h-3 w-24
+                      -translate-x-1/2
+                      rounded-full
+                      bg-slate-300/30
+                      blur-lg
+                    "
+                  />
+
+                  {/* Charger */}
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="
+                      absolute left-1/2 top-1/2
+                      z-10
+                      h-[125px] w-[68px]
+                      -translate-x-1/2 -translate-y-1/2
+                      rounded-[17px]
+                      bg-[#101827]
+                      p-[3px]
+                      shadow-[0_18px_30px_rgba(15,23,42,0.20)]
+                    "
+                  >
+                    <div
+                      className="
+                        relative h-full w-full
+                        overflow-hidden
+                        rounded-[14px]
+                        bg-gradient-to-b
+                        from-blue-600
+                        to-blue-700
+                      "
+                    >
+                      {/* Display */}
+                      <div
+                        className="
+                          absolute left-1/2 top-4
+                          h-6 w-9
+                          -translate-x-1/2
+                          rounded-[5px]
+                          bg-[#07111F]
+                        "
+                      >
+                        <div
+                          className="
+                            absolute left-1/2 top-1/2
+                            h-1 w-4
+                            -translate-x-1/2 -translate-y-1/2
+                            rounded-full
+                            bg-cyan-300
+                          "
+                        />
+                      </div>
+
+                      {/* Bolt */}
+                      <Zap
+                        size={24}
+                        strokeWidth={2}
+                        fill="currentColor"
+                        className="
+                          absolute left-1/2 top-1/2
+                          -translate-x-1/2 -translate-y-1/2
+                          text-white
+                        "
+                      />
+
+                      {/* Status */}
+                      <motion.span
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                        }}
+                        className="
+                          absolute bottom-4 left-1/2
+                          h-1.5 w-1.5
+                          -translate-x-1/2
+                          rounded-full
+                          bg-emerald-300
+                          shadow-[0_0_8px_rgba(110,231,183,0.8)]
+                        "
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Product tag */}
+                  <div
+                    className="
+                      absolute bottom-3 left-3
+                      rounded-full
+                      border border-white/70
+                      bg-white/85
+                      px-2.5 py-1
+                      backdrop-blur
+                    "
+                  >
+                    <span className="text-[7px] font-semibold tracking-[0.12em] text-slate-500">
+                      DC FAST
+                    </span>
+                  </div>
+
+                  {/* Power */}
+                  <div
+                    className="
+                      absolute right-3 top-3
+                      flex items-center gap-1
+                      rounded-full
+                      bg-white/85
+                      px-2 py-1
+                      backdrop-blur
+                    "
+                  >
+                    <Zap size={9} className="text-blue-600" />
+                    <span className="text-[7px] font-medium text-slate-500">
+                      HIGH POWER
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-5 flex justify-end border-t border-slate-100 pt-4">
+                <Link
+                  to="/public-charger"
+                  className="
+                    inline-flex items-center gap-1.5
+                    rounded-full
+                    bg-slate-950
+                    px-3.5 py-2
+                    text-[8px]
+                    font-semibold
+                    text-white
+                    transition-all duration-300
+                    hover:bg-blue-600
+                  "
+                >
+                  Explore
+                  <ArrowUpRight size={11} />
+                </Link>
+              </div>
+            </div>
+          </motion.article>
+
+          {/* =========================
+              HOME CHARGING
+          ========================== */}
+          <motion.article
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="
+              group relative overflow-hidden
+              rounded-[22px]
+              border border-slate-200
+              bg-white
+              shadow-[0_8px_30px_rgba(15,23,42,0.04)]
+              transition-all duration-500
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]
+            "
+          >
+            {/* Accent */}
+            <div
+              className="
+                pointer-events-none absolute
+                -bottom-20 -right-20
+                h-40 w-40
+                rounded-full
+                bg-violet-100/50
+                blur-3xl
+                transition-all duration-700
+                group-hover:bg-violet-200/60
+              "
+            />
+
+            <div className="relative p-5 sm:p-6">
+
+              {/* TOP ROW */}
+              <div className="flex items-center justify-between">
+
+                <div className="flex items-center gap-3">
+
+                  <div
+                    className="
+                      flex h-9 w-9 shrink-0 items-center justify-center
+                      rounded-xl
+                      bg-violet-50
+                      text-violet-600
+                    "
+                  >
+                    <House size={17} strokeWidth={1.8} />
+                  </div>
+
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-900">
+                      Home Charging
+                    </p>
+
+                    <div className="mt-1 flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-[9px] text-slate-400">
+                        Smart AC
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Cable */}
-                <Cable
-                  size={32}
-                  strokeWidth={2}
-                  className="mt-7 text-white"
-                />
+                <Link
+                  to="/home-charger"
+                  aria-label="Explore home charging"
+                  className="
+                    flex h-8 w-8 items-center justify-center
+                    rounded-full
+                    border border-slate-200
+                    text-slate-500
+                    transition-all duration-300
+                    hover:border-slate-950
+                    hover:bg-slate-950
+                    hover:text-white
+                  "
+                >
+                  <ArrowUpRight size={14} />
+                </Link>
+              </div>
 
-                {/* Status */}
-                <motion.span
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                  }}
-                  className="absolute bottom-4 h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(52,211,153,.8)]"
-                />
+              {/* CONTENT */}
+              <div className="mt-6 grid items-center gap-5 sm:grid-cols-[1fr_170px]">
 
-              </motion.div>
+                {/* COPY */}
+                <div>
+                  <p className="mb-2 text-[9px] font-medium uppercase tracking-[0.16em] text-violet-600">
+                    At your place
+                  </p>
 
-              {/* Label */}
-              <span className="absolute bottom-3 left-3 rounded-full bg-purple-50 px-2.5 py-1 text-[9px] font-bold text-purple-600">
-                AC HOME
-              </span>
+                  <h3 className="text-[21px] font-semibold leading-tight tracking-[-0.03em] text-slate-950">
+                    Charge while you rest.
+                  </h3>
 
+                  <p className="mt-2 max-w-[260px] text-[10px] leading-[1.7] text-slate-500">
+                    Smart, convenient AC charging designed around your everyday
+                    routine.
+                  </p>
+
+                  {/* MINI FEATURES */}
+                  <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+
+                    <div className="flex items-center gap-1.5">
+                      <House
+                        size={12}
+                        strokeWidth={1.8}
+                        className="text-slate-400"
+                      />
+                      <span className="text-[9px] text-slate-500">
+                        Easy install
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5">
+                      <BatteryCharging
+                        size={12}
+                        strokeWidth={1.8}
+                        className="text-slate-400"
+                      />
+                      <span className="text-[9px] text-slate-500">
+                        Smart power
+                      </span>
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* PRODUCT VISUAL */}
+                <div
+                  className="
+                    relative h-[190px]
+                    overflow-hidden
+                    rounded-[18px]
+                    bg-[#FAF8FF]
+                  "
+                >
+                  {/* Grid */}
+                  <div
+                    className="absolute inset-0 opacity-40"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(#EEEAF8 1px, transparent 1px), linear-gradient(90deg, #EEEAF8 1px, transparent 1px)",
+                      backgroundSize: "26px 26px",
+                    }}
+                  />
+
+                  {/* Glow */}
+                  <div
+                    className="
+                      absolute left-1/2 top-1/2
+                      h-32 w-32
+                      -translate-x-1/2 -translate-y-1/2
+                      rounded-full
+                      bg-violet-200/35
+                      blur-3xl
+                    "
+                  />
+
+                  {/* Ground */}
+                  <div
+                    className="
+                      absolute bottom-7 left-1/2
+                      h-3 w-24
+                      -translate-x-1/2
+                      rounded-full
+                      bg-slate-300/25
+                      blur-lg
+                    "
+                  />
+
+                  {/* Charger */}
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{
+                      duration: 3.7,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="
+                      absolute left-1/2 top-1/2
+                      z-10
+                      h-[128px] w-[70px]
+                      -translate-x-1/2 -translate-y-1/2
+                      rounded-[17px]
+                      bg-[#101827]
+                      p-[3px]
+                      shadow-[0_18px_30px_rgba(15,23,42,0.18)]
+                    "
+                  >
+                    <div
+                      className="
+                        relative h-full w-full
+                        overflow-hidden
+                        rounded-[14px]
+                        bg-gradient-to-b
+                        from-violet-600
+                        to-blue-600
+                      "
+                    >
+                      {/* Display */}
+                      <div
+                        className="
+                          absolute left-1/2 top-4
+                          flex h-6 w-9
+                          -translate-x-1/2
+                          items-center justify-center
+                          rounded-[5px]
+                          bg-white/15
+                        "
+                      >
+                        <Zap
+                          size={13}
+                          fill="currentColor"
+                          className="text-white"
+                        />
+                      </div>
+
+                      {/* Cable */}
+                      <Cable
+                        size={26}
+                        strokeWidth={1.8}
+                        className="
+                          absolute left-1/2 top-1/2
+                          -translate-x-1/2 -translate-y-1/2
+                          text-white
+                        "
+                      />
+
+                      {/* Status */}
+                      <motion.span
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                        }}
+                        className="
+                          absolute bottom-4 left-1/2
+                          h-1.5 w-1.5
+                          -translate-x-1/2
+                          rounded-full
+                          bg-emerald-300
+                          shadow-[0_0_8px_rgba(110,231,183,0.8)]
+                        "
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Product tag */}
+                  <div
+                    className="
+                      absolute bottom-3 left-3
+                      rounded-full
+                      border border-white/70
+                      bg-white/85
+                      px-2.5 py-1
+                      backdrop-blur
+                    "
+                  >
+                    <span className="text-[7px] font-semibold tracking-[0.12em] text-slate-500">
+                      SMART AC
+                    </span>
+                  </div>
+
+                  {/* Safety */}
+                  <div
+                    className="
+                      absolute right-3 top-3
+                      flex items-center gap-1
+                      rounded-full
+                      bg-white/85
+                      px-2 py-1
+                      backdrop-blur
+                    "
+                  >
+                    <ShieldCheck
+                      size={9}
+                      className="text-violet-600"
+                    />
+                    <span className="text-[7px] font-medium text-slate-500">
+                      SMART & SAFE
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-5 flex justify-end border-t border-slate-100 pt-4">
+                <Link
+                  to="/home-charger"
+                  className="
+                    inline-flex items-center gap-1.5
+                    rounded-full
+                    bg-slate-950
+                    px-3.5 py-2
+                    text-[8px]
+                    font-semibold
+                    text-white
+                    transition-all duration-300
+                    hover:bg-violet-600
+                  "
+                >
+                  Explore
+                  <ArrowUpRight size={11} />
+                </Link>
+              </div>
             </div>
-
-            {/* FEATURES */}
-            <div className="flex flex-col justify-center gap-3">
-
-              <div className="rounded-xl border border-purple-100 bg-white/80 p-3">
-                <Zap
-                  size={17}
-                  className="text-purple-600"
-                />
-
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Smart
-                </p>
-
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  AC Charging
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-purple-100 bg-white/80 p-3">
-                <House
-                  size={17}
-                  className="text-purple-600"
-                />
-
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Home
-                </p>
-
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  Installation
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-purple-100 bg-white/80 p-3">
-                <BatteryCharging
-                  size={17}
-                  className="text-purple-600"
-                />
-
-                <p className="mt-2 text-xs font-semibold text-slate-800">
-                  Flexible
-                </p>
-
-                <p className="mt-0.5 text-[10px] text-slate-400">
-                  Power Options
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-auto pt-5">
-            <Link
-              to="/home-charger"
-              className="group/cta inline-flex items-center gap-2 text-sm font-semibold text-purple-600 transition-all duration-300 hover:gap-3 hover:text-purple-800"
-            >
-              View Home Chargers
-              <ArrowUpRight
-                size={17}
-                className="transition-transform group-hover/cta:translate-x-0.5"
-              />
-            </Link>
-          </div>
+          </motion.article>
 
         </div>
-      </motion.div>
-
-    </div>
-  </div>
-</section>
-
+      </div>
+    </section>
   );
 };
 
