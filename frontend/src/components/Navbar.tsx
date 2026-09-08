@@ -474,7 +474,7 @@ const Navbar: React.FC = () => {
 
             {/* CONTACT */}
             <Link
-              to="/contact"
+              to="/contact-us"
               className={`rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
                 scrolled
                   ? "text-slate-700 hover:bg-blue-50 hover:text-blue-600"
@@ -491,7 +491,7 @@ const Navbar: React.FC = () => {
 
           <div className="hidden lg:flex">
             <Link
-              to="/contact"
+              to="/contact-us"
               className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/30"
             >
               Get Started
