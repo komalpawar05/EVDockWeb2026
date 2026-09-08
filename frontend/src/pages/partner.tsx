@@ -927,23 +927,14 @@ const Partner: React.FC = () => {
             {/* Left */}
 
             <div className="lg:sticky lg:top-28">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#4B4FAE]">
-                LET'S WORK TOGETHER
-              </span>
-
-              <h2 className="mt-5 text-4xl font-bold tracking-[-0.035em] text-slate-950 md:text-5xl">
-                Ready to become
-                <span className="block bg-gradient-to-r from-[#1E5FA8] to-[#7A3FAF] bg-clip-text text-transparent">
-                  an EV Dock partner?
-                </span>
-              </h2>
-
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Tell us about your opportunity. Our partnership team will
-                connect with you to understand your location, goals and
-                requirements.
-              </p>
-
+              <SectionHeading
+                eyebrow="LET'S WORK TOGETHER"
+                title="Ready to become"
+                highlight="an EV Dock partner?"
+                description="Tell us about your opportunity. Our partnership team will 
+                connect with you to understand your location, goals and requirements."
+              />
+              
               <div className="mt-9 space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50">
@@ -1183,32 +1174,46 @@ const Partner: React.FC = () => {
             }}
           />
 
-          <div className="relative">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
-              <Handshake className="h-7 w-7 text-white" />
-            </div>
+         <div className="relative mx-auto max-w-3xl text-center">
+  {/* Icon */}
+  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06]">
+    <Handshake className="h-5 w-5 text-blue-300" />
+  </div>
 
-            <h2 className="mt-7 text-4xl font-bold tracking-[-0.035em] text-white md:text-6xl">
-              Let's build the EV future
-              <span className="block bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
-                together.
-              </span>
-            </h2>
+  {/* Heading */}
+  <h2 className="mt-6 text-3xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
+    Let's build the EV future{" "}
+    <span className="bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
+      together.
+    </span>
+  </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-400">
-              Have a property, business or investment opportunity?
-              Let's explore what we can build together.
-            </p>
+  {/* Description */}
+  <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+    Have a property, business, or investment opportunity?
+    Let's explore what we can build together.
+  </p>
 
-            <a
-              href="#partner-form"
-              className="group mt-9 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-950 transition hover:bg-blue-50"
-            >
-              Start a conversation
+  {/* CTA */}
+  <div className="mt-7">
+    <a
+      href="#partner-form"
+      className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
+    >
+      Start a conversation
+      <ArrowRight
+        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+      />
+    </a>
+  </div>
 
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
+  {/* Small supporting line */}
+  <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
+    <span className="h-px w-8 bg-white/10" />
+    EV infrastructure • Partnerships • Growth
+    <span className="h-px w-8 bg-white/10" />
+  </div>
+</div>
         </div>
       </section>
 
