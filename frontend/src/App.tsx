@@ -6,6 +6,7 @@ import AboutSection from "./components/AboutSection";
 import Offer from "./components/Offer";
 import Features from "./components/Features";
 import Franchise from "./components/Franchise";
+import PartnersSection from "./components/PartnersSection";
 import Appsection from "./components/AppSection";
 import Footer from "./components/Footer";
 
@@ -28,6 +29,7 @@ import ScrollToTop from "./components/Common/ScrollToTop";
 import BackToTop from "./components/Common/BackToTop";
 
 
+
 function Home() {
   return (
     <div className="min-h-screen bg-white">
@@ -39,6 +41,7 @@ function Home() {
         <Features />
         <Franchise />
         <Appsection />
+        <PartnersSection />
        </main>
       <Footer />
       <BackToTop />

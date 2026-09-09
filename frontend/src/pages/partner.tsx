@@ -19,7 +19,8 @@ import {
   Search,
   PenTool,
 } from "lucide-react";
-import PartnerImge from "../assets/partner-img.png"
+import PartnerImge from "../assets/partner-img.png";
+import PartnerSection from "../components/PartnersSection";
 import SectionHeading from "../components/Common/SectionHeading";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -320,6 +321,7 @@ const Partner: React.FC = () => {
       {/* =====================================================
           PARTNER TYPES
       ====================================================== */}
+      <PartnerSection/>
 
       <section className="relative overflow-hidden bg-[#f8fafc] py-16 md:py-20">
         {/* Background */}
@@ -1175,45 +1177,45 @@ const Partner: React.FC = () => {
           />
 
          <div className="relative mx-auto max-w-3xl text-center">
-  {/* Icon */}
-  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06]">
-    <Handshake className="h-5 w-5 text-blue-300" />
-  </div>
+        {/* Icon */}
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06]">
+          <Handshake className="h-5 w-5 text-blue-300" />
+        </div>
 
-  {/* Heading */}
-  <h2 className="mt-6 text-3xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
-    Let's build the EV future{" "}
-    <span className="bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
-      together.
-    </span>
-  </h2>
+          {/* Heading */}
+          <h2 className="mt-6 text-3xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
+            Let's build the EV future{" "}
+            <span className="bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
+              together.
+            </span>
+          </h2>
 
-  {/* Description */}
-  <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
-    Have a property, business, or investment opportunity?
-    Let's explore what we can build together.
-  </p>
+          {/* Description */}
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+            Have a property, business, or investment opportunity?
+            Let's explore what we can build together.
+          </p>
 
-  {/* CTA */}
-  <div className="mt-7">
-    <a
-      href="#partner-form"
-      className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
-    >
-      Start a conversation
-      <ArrowRight
-        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-      />
-    </a>
-  </div>
+          {/* CTA */}
+          <div className="mt-7">
+            <a
+              href="#partner-form"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
+            >
+              Start a conversation
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
+          </div>
 
-  {/* Small supporting line */}
-  <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
-    <span className="h-px w-8 bg-white/10" />
-    EV infrastructure • Partnerships • Growth
-    <span className="h-px w-8 bg-white/10" />
-  </div>
-</div>
+          {/* Small supporting line */}
+          <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
+            <span className="h-px w-8 bg-white/10" />
+            EV infrastructure • Partnerships • Growth
+            <span className="h-px w-8 bg-white/10" />
+          </div>
+        </div>
         </div>
       </section>
 
