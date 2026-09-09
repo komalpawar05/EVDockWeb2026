@@ -21,8 +21,8 @@ const Offer: React.FC = () => {
         {/* =========================
             SECTION HEADER
         ========================== */}
-        <div className="mx-auto mb-10 max-w-lg text-center sm:mb-12">
-          <SectionHeading
+        <div className="mx-auto mb-10  max-w-lg text-center sm:mb-12">
+          <SectionHeading 
             centered
             eyebrow="WHAT WE OFFER"
             title="Power for"

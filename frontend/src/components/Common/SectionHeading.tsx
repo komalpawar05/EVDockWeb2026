@@ -55,7 +55,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       transition: {
         duration: 0.65,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeInOut" as const,
         staggerChildren: 0.1,
       },
     },
@@ -73,7 +73,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
       transition: {
         duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeInOut" as const,
       },
     },
   };
@@ -139,8 +139,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                 className={
                   highlightClassName ||
                   (dark
-                    ? "bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
-                    : "bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
+                    ? "bg-gradient-to-r from-blue-300 ml-2 via-cyan-300 to-violet-300 bg-clip-text text-transparent"
+                    : "bg-gradient-to-r from-[#1E5FA8] ml-2 via-[#4B4FAE] to-[#7A3FAF] bg-clip-text text-transparent")
                 }
               >
                 {highlight}
