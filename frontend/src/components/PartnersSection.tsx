@@ -1,6 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import SectionHeading from "./Common/SectionHeading";
 
 const partners = [
   {
@@ -101,28 +102,14 @@ const PartnersSection = () => {
         <div className="mb-14 flex flex-col items-center text-center">
 
           <div className="mb-5 inline-flex items-center gap-3">
-            <span className="h-px w-8 bg-blue-500" />
-
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-blue-600">
-              Our Partners
-            </span>
-
-            <span className="h-px w-8 bg-blue-500" />
+            
+             <SectionHeading
+             eyebrow="Our Partners"
+             title="Trusted by leaders "
+             highlight="across the EV ecosystem"
+             description="From charging networks to mobility brands and hospitality, we work with partners shaping the future of electric mobility." 
+             />  
           </div>
-
-          <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl lg:text-6xl">
-            Trusted by leaders
-            <br />
-
-            <span className="text-slate-400">
-              across the EV ecosystem
-            </span>
-          </h2>
-
-          <p className="mt-6 max-w-xl text-sm leading-7 text-slate-500 md:text-base">
-            From charging networks to mobility brands and hospitality,
-            we work with partners shaping the future of electric mobility.
-          </p>
         </div>
       </div>
 
