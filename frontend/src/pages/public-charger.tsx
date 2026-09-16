@@ -6,7 +6,6 @@ import {
   BatteryCharging,
   Building2,
   CheckCircle2,
-  ChevronRight,
   Hotel,
   MapPin,
   PlugZap,
@@ -17,8 +16,7 @@ import {
   ShieldCheck,
   Gauge,
   CircleDollarSign,
-  Network,
-  Section,
+  Network
 } from "lucide-react";
 
 import Navbar from "../components/Navbar";

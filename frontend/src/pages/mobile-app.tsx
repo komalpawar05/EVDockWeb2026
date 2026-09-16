@@ -23,7 +23,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import MobileAppHero from "../assets/app.png";
+import MobileAppHero from "../assets/app.jpg";
 import SectionHeading from "../components/Common/SectionHeading";
 
 const fadeUp: Variants = {

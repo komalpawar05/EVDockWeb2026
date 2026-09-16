@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   Building2,
@@ -8,18 +7,19 @@ import {
   Handshake,
   Headphones,
   Hotel,
+  MapPin,
   Network,
+  PenTool,
+  Search,
   ShieldCheck,
+  Sparkles,
   Store,
   TrendingUp,
   Users,
   Zap,
-  MapPin,
-  Sparkles,
-  Search,
-  PenTool,
 } from "lucide-react";
-import PartnerImge from "../assets/partner-img.png";
+
+import PartnerImge from "../assets/partner-img.jpg";
 import PartnerSection from "../components/PartnersSection";
 import SectionHeading from "../components/Common/SectionHeading";
 import Navbar from "../components/Navbar";
@@ -27,35 +27,8 @@ import Footer from "../components/Footer";
 import BackToTop from "../components/Common/BackToTop";
 
 /* =========================================================
-   DATA
+   PARTNERSHIP TYPES
 ========================================================= */
-
-const partners = [
-  {
-    name: "ChargeZone",
-    logo: "/assets/chargezone.svg",
-  },
-  {
-    name: "Ecosystem Partner",
-    logo: "/assets/partner-02.png",
-  },
-  {
-    name: "Ecosystem Partner",
-    logo: "/assets/partner-03.png",
-  },
-  {
-    name: "Ecosystem Partner",
-    logo: "/assets/partner-04.png",
-  },
-  {
-    name: "Ecosystem Partner",
-    logo: "/assets/partner-05.png",
-  },
-  {
-    name: "Ecosystem Partner",
-    logo: "/assets/partner-06.png",
-  },
-];
 
 const partnerTypes = [
   {
@@ -88,6 +61,10 @@ const partnerTypes = [
   },
 ];
 
+/* =========================================================
+   BENEFITS
+========================================================= */
+
 const benefits = [
   {
     icon: Zap,
@@ -111,6 +88,10 @@ const benefits = [
   },
 ];
 
+/* =========================================================
+   SERVICES
+========================================================= */
+
 const services = [
   "Site assessment",
   "Charging hardware",
@@ -125,7 +106,8 @@ const services = [
 /* =========================================================
    ANIMATION
 ========================================================= */
-const fadeUp = {
+
+const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 30,
@@ -134,8 +116,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      ease: "easeOut",
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -144,7 +126,7 @@ const fadeUp = {
    COMPONENT
 ========================================================= */
 
-const Partner: React.FC = () => {
+const Partner = () => {
   return (
     <main className="overflow-hidden bg-white text-slate-900">
       <Navbar />
@@ -153,185 +135,181 @@ const Partner: React.FC = () => {
           HERO
       ====================================================== */}
 
-    <section className="relative min-h-[680px] overflow-hidden bg-[#071321] md:min-h-[740px]">
+      <section className="relative min-h-[680px] overflow-hidden bg-[#071321] md:min-h-[740px]">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <img
+            src={PartnerImge}
+            alt="EV Dock partnership"
+            className="h-full w-full object-cover object-center"
+          />
 
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={PartnerImge}
-          alt="EV Dock partnership"
-          className="h-full w-full object-cover object-center"
-        />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/95 via-[#071321]/75 to-[#071321]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/80 via-transparent to-transparent" />
+        </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/95 via-[#071321]/75 to-[#071321]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/80 via-transparent to-transparent" />
-      </div>
-
-      {/* Ambient glow */}
-      <motion.div
+        {/* Ambient Glow */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="pointer-events-none absolute -left-32 top-1/3 h-[380px] w-[380px] rounded-full bg-blue-500/20 blur-[120px]"
-      />
-
-      <motion.div
-        animate={{
-          scale: [1, 1.08, 1],
-          opacity: [0.08, 0.16, 0.08],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute right-[-100px] top-[-80px] h-[380px] w-[380px] rounded-full bg-violet-500/20 blur-[110px]"
-      />
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-24 md:min-h-[740px] md:px-10 lg:px-16">
+        />
 
         <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="max-w-[560px]"
-        >
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.08, 0.16, 0.08],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute right-[-100px] top-[-80px] h-[380px] w-[380px] rounded-full bg-violet-500/20 blur-[110px]"
+        />
 
-          {/* Badge */}
+        {/* Content */}
+        <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-24 md:min-h-[740px] md:px-10 lg:px-16">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-md"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="max-w-[560px]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-md"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
 
-            <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/75">
-              Partner With EV Dock
-            </span>
+              <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/75">
+                Partner With EV Dock
+              </span>
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
+            >
+              Power the future
+              <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#F28BB5] bg-clip-text text-transparent">
+                with EV Dock.
+              </span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="mt-5 max-w-md text-sm leading-6 text-white/65"
+            >
+              Bring smart EV charging to your property or business.
+            </motion.p>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-7 flex flex-wrap gap-3"
+            >
+              <a
+                href="#partner-form"
+                className="group inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-[11px] font-semibold text-white shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:bg-blue-500"
+              >
+                Become a Partner
+
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </a>
+
+              <a
+                href="#partnership-models"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[11px] font-semibold text-white backdrop-blur-md transition hover:bg-white/15"
+              >
+                Learn More
+
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </a>
+            </motion.div>
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
-            className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
-          >
-            Power the future
-            <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#F28BB5] bg-clip-text text-transparent">
-              with EV Dock.
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="mt-5 max-w-md text-sm leading-6 text-white/65"
-          >
-            Bring smart EV charging to your property or business.
-          </motion.p>
-
-          {/* CTA */}
+          {/* Small Annotation */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-7 flex flex-wrap gap-3"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="pointer-events-none absolute bottom-12 right-6 hidden xl:block"
           >
-            <a
-              href="#partner-form"
-              className="group inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-[11px] font-semibold text-white shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:bg-blue-500"
-            >
-              Become a Partner
+            <div className="flex items-center gap-3 rounded-2xl border border-white/15 bg-[#071321]/50 px-4 py-3 backdrop-blur-xl">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
+                <Zap size={15} />
+              </div>
 
-              <ArrowRight
-                size={14}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </a>
+              <div>
+                <p className="text-[8px] uppercase tracking-[0.15em] text-white/40">
+                  EV Dock
+                </p>
 
-            <a
-              href="#partnership-models"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[11px] font-semibold text-white backdrop-blur-md transition hover:bg-white/15"
-            >
-              Learn More
-
-              <ArrowRight
-                size={14}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </a>
+                <p className="mt-0.5 text-[10px] font-medium text-white/80">
+                  Smart charging network
+                </p>
+              </div>
+            </div>
           </motion.div>
+        </div>
 
-        </motion.div>
-
-        {/* Small annotation */}
+        {/* Scroll Indicator */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="pointer-events-none absolute bottom-12 right-6 hidden xl:block"
+          animate={{
+            y: [0, 5, 0],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+          className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
         >
-          <div className="flex items-center gap-3 rounded-2xl border border-white/15 bg-[#071321]/50 px-4 py-3 backdrop-blur-xl">
+          <span className="text-[8px] uppercase tracking-[0.2em] text-white/40">
+            Scroll
+          </span>
 
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
-              <Zap size={15} />
-            </div>
-
-            <div>
-              <p className="text-[8px] uppercase tracking-[0.15em] text-white/40">
-                EV Dock
-              </p>
-
-              <p className="mt-0.5 text-[10px] font-medium text-white/80">
-                Smart charging network
-              </p>
-            </div>
-
-          </div>
+          <span className="h-6 w-px bg-gradient-to-b from-blue-400 to-transparent" />
         </motion.div>
-
-      </div>
-
-      {/* Scroll */}
-      <motion.div
-        animate={{
-          y: [0, 5, 0],
-          opacity: [0.3, 0.7, 0.3],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-        }}
-        className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-      >
-        <span className="text-[8px] uppercase tracking-[0.2em] text-white/40">
-          Scroll
-        </span>
-
-        <span className="h-6 w-px bg-gradient-to-b from-blue-400 to-transparent" />
-      </motion.div>
-
-    </section>
+      </section>
 
       {/* =====================================================
-          PARTNER TYPES
+          PARTNERS
       ====================================================== */}
-      <PartnerSection/>
+
+      <PartnerSection />
+
+      {/* =====================================================
+          PARTNERSHIP TYPES
+      ====================================================== */}
 
       <section className="relative overflow-hidden bg-[#f8fafc] py-16 md:py-20">
         {/* Background */}
         <div className="pointer-events-none absolute right-0 top-0 h-[350px] w-[350px] rounded-full bg-blue-100/40 blur-[110px]" />
+
         <div className="pointer-events-none absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-violet-100/30 blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
-
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-
             {/* LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -25 }}
@@ -340,22 +318,20 @@ const Partner: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="lg:sticky lg:top-24 lg:self-start"
             >
-              <div className="mb-4 flex items-center gap-2">
-                <SectionHeading
-                 eyebrow="Partnership"
-                  title="One network."
-                  highlight="Many possibilities."
-                  description="Choose the partnership model that fits your business."
-                />
-              </div>
+              <SectionHeading
+                eyebrow="Partnership"
+                title="One network."
+                highlight="Many possibilities."
+                description="Choose the partnership model that fits your business."
+              />
+
               <a
                 href="/contact-us"
                 className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#1E5FA8] px-5 py-2.5 text-[11px] font-semibold text-white shadow-[0_8px_25px_rgba(30,95,168,0.2)] transition hover:-translate-y-0.5 hover:bg-[#174d8a]"
               >
                 Become a Partner
-                <ArrowRight
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                />
+
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </a>
             </motion.div>
 
@@ -386,7 +362,6 @@ const Partner: React.FC = () => {
                     className="group"
                   >
                     <div className="relative flex items-center gap-4 overflow-hidden rounded-2xl border border-slate-200 bg-white px-4 py-4 transition-all duration-300 hover:-translate-x-1 hover:border-blue-200 hover:shadow-[0_12px_35px_rgba(15,23,42,0.07)] md:px-5">
-
                       {/* Number */}
                       <span className="w-6 shrink-0 text-[10px] font-semibold text-slate-300">
                         {item.number}
@@ -413,14 +388,13 @@ const Partner: React.FC = () => {
                         <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </div>
 
-                      {/* Hover line */}
+                      {/* Hover Line */}
                       <div className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-[#1E5FA8] to-[#7A3FAF] transition-transform duration-500 group-hover:scale-x-100" />
                     </div>
                   </motion.div>
                 );
               })}
             </div>
-
           </div>
         </div>
       </section>
@@ -437,29 +411,27 @@ const Partner: React.FC = () => {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-[0.8fr_1.2fr]">
             {/* Content */}
-
             <div>
               <SectionHeading
                 eyebrow="WHY EV DOCK"
                 title="More than"
-               titleClassName="text-white whitespace-nowrap"
+                titleClassName="whitespace-nowrap text-white"
                 highlight=" charging."
                 stacked={false}
                 description="Connected infrastructure, smart technology and dedicated support for better charging destinations."
-              />  
-              <div>
+              />
+
               <a
                 href="/contact-us"
                 className="group mt-9 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-slate-950 transition hover:bg-blue-50"
               >
                 Talk to our partnership team
+
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              </div>
             </div>
 
             {/* Benefits */}
-
             <div className="grid gap-4 sm:grid-cols-2">
               {benefits.map((item, index) => {
                 const Icon = item.icon;
@@ -513,17 +485,15 @@ const Partner: React.FC = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <SectionHeading
-            eyebrow="PARTNERSHIP MODELS"
-            title="Choose the opportunity"
-            highlight="that fits your business."
-            description="Flexible partnership models designed for different locations,
-              businesses and investment goals."
+              eyebrow="PARTNERSHIP MODELS"
+              title="Choose the opportunity"
+              highlight="that fits your business."
+              description="Flexible partnership models designed for different locations, businesses and investment goals."
             />
-            
           </div>
+
           <div className="mt-14 grid gap-5 lg:grid-cols-12">
             {/* Franchise */}
-
             <div className="relative overflow-hidden rounded-[34px] bg-[#08111F] p-9 text-white lg:col-span-6 md:p-10">
               <div className="absolute right-[-80px] top-[-80px] h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
 
@@ -546,7 +516,8 @@ const Partner: React.FC = () => {
 
                 <p className="mt-4 max-w-xl leading-7 text-slate-400">
                   Launch and operate an EV charging destination with EV
-                  Dock's technology, infrastructure and operational support.
+                  Dock&apos;s technology, infrastructure and operational
+                  support.
                 </p>
 
                 <a
@@ -554,13 +525,13 @@ const Partner: React.FC = () => {
                   className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-blue-50"
                 >
                   Explore franchise
+
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
 
             {/* Property */}
-
             <div className="rounded-[34px] border border-slate-200 bg-white p-9 lg:col-span-3 md:p-10">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-[#1E5FA8]">
                 <Building2 className="h-7 w-7" />
@@ -584,12 +555,12 @@ const Partner: React.FC = () => {
                 className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#1E5FA8]"
               >
                 Partner your property
+
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Investment */}
-
             <div className="rounded-[34px] border border-violet-100 bg-gradient-to-br from-violet-50 to-blue-50 p-9 lg:col-span-3 md:p-10">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-[#7A3FAF] shadow-sm">
                 <TrendingUp className="h-7 w-7" />
@@ -613,6 +584,7 @@ const Partner: React.FC = () => {
                 className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#7A3FAF]"
               >
                 Discuss opportunity
+
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
@@ -624,24 +596,17 @@ const Partner: React.FC = () => {
           HOW IT WORKS
       ====================================================== */}
 
-    <section className="relative overflow-hidden bg-white py-20 md:py-24">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-[-120px] top-[-120px] h-[320px] w-[320px] rounded-full bg-blue-50 blur-[100px]" />
-        <div className="absolute bottom-[-120px] left-[-120px] h-[320px] w-[320px] rounded-full bg-violet-50 blur-[100px]" />
-      </div>
+      <section className="relative overflow-hidden bg-white py-20 md:py-24">
+        {/* Background */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute right-[-120px] top-[-120px] h-[320px] w-[320px] rounded-full bg-blue-50 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
+          <div className="absolute bottom-[-120px] left-[-120px] h-[320px] w-[320px] rounded-full bg-violet-50 blur-[100px]" />
+        </div>
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col justify-between gap-6 md:flex-row md:items-end"
-        >
-           <div className="w-full text-center">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
+          {/* Header */}
+          <div className="w-full text-center">
             <SectionHeading
               eyebrow="HOW IT WORKS"
               title="Your location."
@@ -651,162 +616,159 @@ const Partner: React.FC = () => {
               containerClassName="mx-auto"
             />
           </div>
-        </motion.div>
 
-      {/* Journey Cards */}
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          {
-            number: "01",
-            title: "Discover",
-            text: "Share your location, property or business goals.",
-            icon: Search,
-            gradient: "from-blue-500/10 to-blue-50",
-            iconColor: "text-[#1E5FA8]",
-          },
-          {
-            number: "02",
-            title: "Plan",
-            text: "We assess your requirements and recommend the right solution.",
-            icon: PenTool,
-            gradient: "from-violet-500/10 to-violet-50",
-            iconColor: "text-[#4B4FAE]",
-          },
-          {
-            number: "03",
-            title: "Launch",
-            text: "Bring your charging infrastructure online with EV Dock.",
-            icon: Zap,
-            gradient: "from-cyan-500/10 to-cyan-50",
-            iconColor: "text-cyan-600",
-          },
-          {
-            number: "04",
-            title: "Operate",
-            text: "Monitor performance and keep your network running smoothly.",
-            icon: TrendingUp,
-            gradient: "from-fuchsia-500/10 to-fuchsia-50",
-            iconColor: "text-[#7A3FAF]",
-          },
-        ].map((step, index) => {
-          const Icon = step.icon;
+          {/* Journey Cards */}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                number: "01",
+                title: "Discover",
+                text: "Share your location, property or business goals.",
+                icon: Search,
+                gradient: "from-blue-500/10 to-blue-50",
+                iconColor: "text-[#1E5FA8]",
+              },
+              {
+                number: "02",
+                title: "Plan",
+                text: "We assess your requirements and recommend the right solution.",
+                icon: PenTool,
+                gradient: "from-violet-500/10 to-violet-50",
+                iconColor: "text-[#4B4FAE]",
+              },
+              {
+                number: "03",
+                title: "Launch",
+                text: "Bring your charging infrastructure online with EV Dock.",
+                icon: Zap,
+                gradient: "from-cyan-500/10 to-cyan-50",
+                iconColor: "text-cyan-600",
+              },
+              {
+                number: "04",
+                title: "Operate",
+                text: "Monitor performance and keep your network running smoothly.",
+                icon: TrendingUp,
+                gradient: "from-fuchsia-500/10 to-fuchsia-50",
+                iconColor: "text-[#7A3FAF]",
+              },
+            ].map((step, index) => {
+              const Icon = step.icon;
 
-          return (
-            <motion.div
-              key={step.number}
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.55,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{
-                y: -6,
-              }}
-              className="group relative"
-            >
-              <div className="relative h-full overflow-hidden rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition-all duration-500 group-hover:border-slate-300 group-hover:shadow-[0_20px_50px_rgba(15,23,42,0.09)]">
+              return (
+                <motion.div
+                  key={step.number}
+                  initial={{
+                    opacity: 0,
+                    y: 30,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={{
+                    y: -6,
+                  }}
+                  className="group relative"
+                >
+                  <div className="relative h-full overflow-hidden rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.04)] transition-all duration-500 group-hover:border-slate-300 group-hover:shadow-[0_20px_50px_rgba(15,23,42,0.09)]">
+                    {/* Top Row */}
+                    <div className="flex items-start justify-between">
+                      {/* Icon */}
+                      <motion.div
+                        whileHover={{
+                          scale: 1.08,
+                          rotate: 5,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 15,
+                        }}
+                        className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${step.gradient} ${step.iconColor}`}
+                      >
+                        <Icon
+                          className="h-5 w-5"
+                          strokeWidth={1.8}
+                        />
+                      </motion.div>
 
-                {/* Top row */}
-                <div className="flex items-start justify-between">
+                      {/* Number */}
+                      <span className="text-3xl font-semibold tracking-[-0.05em] text-slate-100 transition-colors duration-300 group-hover:text-slate-200">
+                        {step.number}
+                      </span>
+                    </div>
 
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{
-                      scale: 1.08,
-                      rotate: 5,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 15,
-                    }}
-                    className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${step.gradient} ${step.iconColor}`}
-                  >
-                    <Icon
-                      className="h-5 w-5"
-                      strokeWidth={1.8}
-                    />
-                  </motion.div>
+                    {/* Content */}
+                    <div className="mt-7">
+                      <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-950">
+                        {step.title}
+                      </h3>
 
-                  {/* Number */}
-                  <span className="text-3xl font-semibold tracking-[-0.05em] text-slate-100 transition-colors duration-300 group-hover:text-slate-200">
-                    {step.number}
-                  </span>
-                </div>
+                      <p className="mt-2 text-xs leading-5 text-slate-500">
+                        {step.text}
+                      </p>
+                    </div>
 
-                {/* Content */}
-                <div className="mt-7">
-                  <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-950">
-                    {step.title}
-                  </h3>
+                    {/* Bottom */}
+                    <div className="mt-7 flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-300">
+                        Step {step.number}
+                      </span>
 
-                  <p className="mt-2 text-xs leading-5 text-slate-500">
-                    {step.text}
-                  </p>
-                </div>
+                      <motion.div
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 4 }}
+                        className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 transition-all duration-300 group-hover:border-[#1E5FA8] group-hover:bg-[#1E5FA8] group-hover:text-white"
+                      >
+                        <ArrowRight className="h-3 w-3" />
+                      </motion.div>
+                    </div>
 
-                {/* Bottom */}
-                <div className="mt-7 flex items-center justify-between">
+                    {/* Gradient Hover Line */}
+                    <div className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] transition-transform duration-500 group-hover:scale-x-100" />
 
-                  <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-300">
-                    Step {step.number}
-                  </span>
+                    {/* Glow */}
+                    <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-blue-100/40 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
-                  <motion.div
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 4 }}
-                    className={`flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 transition-all duration-300 group-hover:border-[#1E5FA8] group-hover:bg-[#1E5FA8] group-hover:text-white`}
-                  >
-                    <ArrowRight className="h-3 w-3" />
-                  </motion.div>
-                </div>
-
-                {/* Gradient hover line */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] transition-transform duration-500 group-hover:scale-x-100" />
-
-                {/* Glow */}
-                <div className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-blue-100/40 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
-        >
-          <p className="text-xs text-slate-400">
-            Ready to get started?
-          </p>
-
-          <a
-            href="#partner-form"
-            className="group inline-flex items-center gap-2 text-xs font-semibold text-[#1E5FA8]"
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
           >
-            Talk to our team
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-          </a>
-        </motion.div>
+            <p className="text-xs text-slate-400">
+              Ready to get started?
+            </p>
 
-      </div>
-    </section>
+            <a
+              href="#partner-form"
+              className="group inline-flex items-center gap-2 text-xs font-semibold text-[#1E5FA8]"
+            >
+              Talk to our team
+
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* =====================================================
           PRODUCTS & SERVICES
       ====================================================== */}
@@ -816,20 +778,19 @@ const Partner: React.FC = () => {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <SectionHeading
-              eyebrow="PRODUCTS & SERVICES"
-              title="Everything you need to"
-              highlight="build your EV destination."
-              description="From hardware and installation to software and ongoing support,
-               EV Dock brings your charging network together."
-               />
-               <a
+                eyebrow="PRODUCTS & SERVICES"
+                title="Everything you need to"
+                highlight="build your EV destination."
+                description="From hardware and installation to software and ongoing support, EV Dock brings your charging network together."
+              />
+
+              <a
                 href="/contact-us"
                 className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#1E5FA8] px-5 py-2.5 text-[11px] font-semibold text-white shadow-[0_8px_25px_rgba(30,95,168,0.2)] transition hover:-translate-y-0.5 hover:bg-[#174d8a]"
               >
                 Talk to our team
-                <ArrowRight
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                />
+
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
@@ -868,51 +829,6 @@ const Partner: React.FC = () => {
       </section>
 
       {/* =====================================================
-          PARTNERS
-      ====================================================== */}
-
-      <section className="bg-white py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <SectionHeading
-            eyebrow="OUR PARTNERS"
-            title="Growing together with"
-            highlight="the EV ecosystem."
-            description="Connecting businesses, technology and mobility partners to support EV adoption."
-            />
-          </div>
-          <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{
-                  opacity: 0,
-                  y: 15,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: index * 0.06,
-                }}
-                className="group flex h-28 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 p-6 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl"
-              >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  className="max-h-12 max-w-[130px] object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
           PARTNER FORM
       ====================================================== */}
 
@@ -927,17 +843,16 @@ const Partner: React.FC = () => {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-start gap-14 lg:grid-cols-[0.8fr_1.2fr]">
             {/* Left */}
-
             <div className="lg:sticky lg:top-28">
               <SectionHeading
                 eyebrow="LET'S WORK TOGETHER"
                 title="Ready to become"
                 highlight="an EV Dock partner?"
-                description="Tell us about your opportunity. Our partnership team will 
-                connect with you to understand your location, goals and requirements."
+                description="Tell us about your opportunity. Our partnership team will connect with you to understand your location, goals and requirements."
               />
-              
+
               <div className="mt-9 space-y-5">
+                {/* Support */}
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50">
                     <ShieldCheck className="h-5 w-5 text-emerald-500" />
@@ -955,6 +870,7 @@ const Partner: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Team */}
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50">
                     <Headphones className="h-5 w-5 text-[#1E5FA8]" />
@@ -972,6 +888,7 @@ const Partner: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Future */}
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50">
                     <Sparkles className="h-5 w-5 text-[#7A3FAF]" />
@@ -992,7 +909,6 @@ const Partner: React.FC = () => {
             </div>
 
             {/* Form */}
-
             <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white p-7 shadow-[0_30px_100px_rgba(15,23,42,0.10)] md:p-10">
               <div className="absolute right-[-100px] top-[-100px] h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
 
@@ -1011,7 +927,7 @@ const Partner: React.FC = () => {
                       </h3>
 
                       <p className="mt-1 text-sm text-slate-500">
-                        Talk to our team with our team.
+                        Talk to our team.
                       </p>
                     </div>
                   </div>
@@ -1019,7 +935,6 @@ const Partner: React.FC = () => {
 
                 <form className="space-y-5">
                   {/* Name / Company */}
-
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
                       <label className="text-sm font-semibold text-slate-700">
@@ -1047,7 +962,6 @@ const Partner: React.FC = () => {
                   </div>
 
                   {/* Phone / Email */}
-
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
                       <label className="text-sm font-semibold text-slate-700">
@@ -1075,7 +989,6 @@ const Partner: React.FC = () => {
                   </div>
 
                   {/* Partnership */}
-
                   <div>
                     <label className="text-sm font-semibold text-slate-700">
                       Partnership Type
@@ -1099,7 +1012,6 @@ const Partner: React.FC = () => {
                   </div>
 
                   {/* Location */}
-
                   <div>
                     <label className="text-sm font-semibold text-slate-700">
                       Location
@@ -1117,7 +1029,6 @@ const Partner: React.FC = () => {
                   </div>
 
                   {/* Message */}
-
                   <div>
                     <label className="text-sm font-semibold text-slate-700">
                       Tell us about your opportunity
@@ -1131,7 +1042,6 @@ const Partner: React.FC = () => {
                   </div>
 
                   {/* Button */}
-
                   <button
                     type="submit"
                     className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] py-4 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/20"
@@ -1160,13 +1070,11 @@ const Partner: React.FC = () => {
       <section className="px-6 pb-24">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[40px] bg-[#07111F] px-7 py-20 text-center md:px-16">
           {/* Glow */}
-
           <div className="absolute right-[-100px] top-[-150px] h-96 w-96 rounded-full bg-blue-600/20 blur-[100px]" />
 
           <div className="absolute bottom-[-150px] left-[-100px] h-96 w-96 rounded-full bg-violet-600/20 blur-[100px]" />
 
           {/* Grid */}
-
           <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
@@ -1176,46 +1084,47 @@ const Partner: React.FC = () => {
             }}
           />
 
-         <div className="relative mx-auto max-w-3xl text-center">
-        {/* Icon */}
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06]">
-          <Handshake className="h-5 w-5 text-blue-300" />
-        </div>
+          <div className="relative mx-auto max-w-3xl text-center">
+            {/* Icon */}
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06]">
+              <Handshake className="h-5 w-5 text-blue-300" />
+            </div>
 
-          {/* Heading */}
-          <h2 className="mt-6 text-3xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
-            Let's build the EV future{" "}
-            <span className="bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
-              together.
-            </span>
-          </h2>
+            {/* Heading */}
+            <h2 className="mt-6 text-3xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl md:text-5xl">
+              Let&apos;s build the EV future{" "}
+              <span className="bg-gradient-to-r from-blue-300 to-violet-300 bg-clip-text text-transparent">
+                together.
+              </span>
+            </h2>
 
-          {/* Description */}
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
-            Have a property, business, or investment opportunity?
-            Let's explore what we can build together.
-          </p>
+            {/* Description */}
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+              Have a property, business, or investment opportunity? Let&apos;s
+              explore what we can build together.
+            </p>
 
-          {/* CTA */}
-          <div className="mt-7">
-            <a
-              href="#partner-form"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
-            >
-              Start a conversation
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </a>
+            {/* CTA */}
+            <div className="mt-7">
+              <a
+                href="#partner-form"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50"
+              >
+                Start a conversation
+
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
+
+            {/* Supporting Line */}
+            <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
+              <span className="h-px w-8 bg-white/10" />
+
+              EV infrastructure • Partnerships • Growth
+
+              <span className="h-px w-8 bg-white/10" />
+            </div>
           </div>
-
-          {/* Small supporting line */}
-          <div className="mx-auto mt-7 flex items-center justify-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
-            <span className="h-px w-8 bg-white/10" />
-            EV infrastructure • Partnerships • Growth
-            <span className="h-px w-8 bg-white/10" />
-          </div>
-        </div>
         </div>
       </section>
 

@@ -474,7 +474,7 @@ const About = () => {
 
                 <div className="mt-9 flex flex-wrap items-center gap-5">
                   <a
-                    href="/contact"
+                    href="/contact-us"
                     className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-xs font-bold text-[#07111F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#6FA8FF] hover:text-white"
                   >
                     Connect with EV Dock
@@ -1046,7 +1046,7 @@ const About = () => {
               />
 
               <a
-                href="/contact"
+                href="/contact-us"
                 className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-xs font-bold text-[#07111F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#6FA8FF] hover:text-white"
               >
                 Connect with EV Dock

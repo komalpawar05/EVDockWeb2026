@@ -1,13 +1,11 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   BatteryCharging,
-  CheckCircle2,
   ChevronDown,
   Circle,
   Gauge,
   Globe2,
-  IndianRupee,
   Layers3,
   PlugZap,
   Search,
