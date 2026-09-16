@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   BatteryCharging,
-  Check,
   CheckCircle2,
   Gauge,
   Home,

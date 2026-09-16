@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   Activity,
@@ -269,7 +268,7 @@ const Franchise = () => {
                           ["Revenue", false],
                         ].map(([label, active]) => (
                           <div
-                            key={label}
+                            key={String(label)}
                             className={`flex items-center gap-2 rounded-md px-2 py-1.5 ${
                               active
                                 ? "bg-gradient-to-r from-[#1E5FA8]/10 to-[#C93C8F]/10 text-[#4B4FAE]"

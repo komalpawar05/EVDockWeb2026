@@ -1,11 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Play,
 } from "lucide-react";
 
-import Herobg from "../assets/Hero_img PM.png";
+import Herobg from "../assets/Hero_img PM.jpg";
 
 const Hero = () => {
   return (

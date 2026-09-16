@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   AlertTriangle,
@@ -12,7 +11,6 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-
 const sidebarItems = [
   {
     icon: LayoutDashboard,
