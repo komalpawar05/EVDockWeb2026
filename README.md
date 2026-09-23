@@ -35,7 +35,8 @@ The website presents EV Dock's charging solutions through an interactive and tec
 - **CSS3** – Custom styling and visual effects
 - 
  -Screenshort:
-  <img width="1483" height="825" alt="image" src="https://github.com/user-attachments/assets/539d39a8-ef79-4d6d-83fa-362647f4f275" />
+  <img width="1067" height="761" alt="image" src="https://github.com/user-attachments/assets/6bc35ecb-0528-440c-ac9d-17cc0c3d58a9" />
+
 
 
 ## ✨ Key Features
