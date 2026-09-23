@@ -51,7 +51,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
     <ScrollToTop />
       <Routes>
         {/* Home */}
