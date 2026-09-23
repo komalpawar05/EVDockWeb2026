@@ -33,8 +33,10 @@ The website presents EV Dock's charging solutions through an interactive and tec
 - **Lucide React** – Modern icon library
 - **HTML5** – Web structure
 - **CSS3** – Custom styling and visual effects
+- 
+ -Screenshort:
+  <img width="1483" height="825" alt="image" src="https://github.com/user-attachments/assets/539d39a8-ef79-4d6d-83fa-362647f4f275" />
 
----
 
 ## ✨ Key Features
 
