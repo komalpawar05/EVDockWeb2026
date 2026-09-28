@@ -112,18 +112,18 @@ const Navbar: React.FC = () => {
       href: "/mobile-app",
       icon: Smartphone,
     },
-    {
-      title: "EV Dock Network",
-      description: "Connect multiple charging networks",
-      href: "/evnetwork",
-      icon: Network,
-    },
-    {
-      title: "Hardware + Software",
-      description: "One connected charging ecosystem",
-      href: "/#platform",
-      icon: Cpu,
-    },
+    // {
+    //   title: "EV Dock Network",
+    //   description: "Connect multiple charging networks",
+    //   href: "/evnetwork",
+    //   icon: Network,
+    // },
+    // {
+    //   title: "Hardware + Software",
+    //   description: "One connected charging ecosystem",
+    //   href: "/#platform",
+    //   icon: Cpu,
+    // },
   ];
 
   /* =========================================================
@@ -137,24 +137,24 @@ const Navbar: React.FC = () => {
       href: "/white-label",
       icon: Users,
     },
-    {
-      title: "Businesses",
-      description: "Charging solutions for workplaces",
-      href: "/#business",
-      icon: Building2,
-    },
-    {
-      title: "Fleet Operators",
-      description: "Smart charging for electric fleets",
-      href: "/#fleet",
-      icon: Factory,
-    },
-    {
-      title: "Charging Operators",
-      description: "Manage and grow your charging network",
-      href: "/#operators",
-      icon: Gauge,
-    },
+    // {
+    //   title: "Businesses",
+    //   description: "Charging solutions for workplaces",
+    //   href: "/#business",
+    //   icon: Building2,
+    // },
+    // {
+    //   title: "Fleet Operators",
+    //   description: "Smart charging for electric fleets",
+    //   href: "/#fleet",
+    //   icon: Factory,
+    // },
+    // {
+    //   title: "Charging Operators",
+    //   description: "Manage and grow your charging network",
+    //   href: "/#operators",
+    //   icon: Gauge,
+    // },
   ];
 
   /* =========================================================
@@ -168,18 +168,18 @@ const Navbar: React.FC = () => {
       href: "/partner",
       icon: Users,
     },
-    {
-      title: "Partner Network",
-      description: "Grow with the EV Dock ecosystem",
-      href: "/#network",
-      icon: Network,
-    },
-    {
-      title: "Franchise",
-      description: "Build your own EV charging business",
-      href: "/#franchise",
-      icon: Building2,
-    },
+    // {
+    //   title: "Partner Network",
+    //   description: "Grow with the EV Dock ecosystem",
+    //   href: "/#network",
+    //   icon: Network,
+    // },
+    // {
+    //   title: "Franchise",
+    //   description: "Build your own EV charging business",
+    //   href: "/#franchise",
+    //   icon: Building2,
+    // },
   ];
 
   /* =========================================================

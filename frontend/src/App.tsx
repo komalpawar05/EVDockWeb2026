@@ -7,6 +7,7 @@ import Offer from "./components/Offer";
 import Features from "./components/Features";
 import Franchise from "./components/Franchise";
 import PartnersSection from "./components/PartnersSection";
+import VideoSection from "./components/VideoSection";
 import Appsection from "./components/AppSection";
 import Footer from "./components/Footer";
 
@@ -38,6 +39,7 @@ function Home() {
         <Hero />
         <AboutSection />
         <Offer />
+        <VideoSection/>
         <Features />
         <Franchise />
         <Appsection />
