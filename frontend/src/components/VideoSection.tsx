@@ -77,39 +77,6 @@ const VideoSection = () => {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-10">
 
-        {/* =======================================================
-            HEADER
-        ======================================================== */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14 flex items-center justify-between"
-        >
-
-          <div className="flex items-center gap-3">
-
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/[0.07]">
-              <Zap
-                size={13}
-                className="text-cyan-400"
-                fill="currentColor"
-              />
-            </span>
-
-            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-500 sm:text-xs">
-              The EV Dock Experience
-            </span>
-
-          </div>
-
-          <span className="hidden text-[10px] uppercase tracking-[0.25em] text-slate-700 sm:block">
-            01 — Experience
-          </span>
-
-        </motion.div>
 
         {/* =======================================================
             MAIN EXPERIENCE

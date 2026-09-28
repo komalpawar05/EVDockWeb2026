@@ -10,8 +10,10 @@ import {
 FaFacebookF,
 FaInstagram,
 FaLinkedinIn,
+ FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Logo from "../assets/logo_evdock.png"
 
 const Footer = () => {
 const exploreLinks = [
@@ -104,54 +106,70 @@ return ( <footer className="relative overflow-hidden bg-[#071321] text-white">
       {/* ================= BRAND ================= */}
 
       <div className="lg:pr-10">
-        <Link
-          to="/"
-          aria-label="EV Dock Home"
-          className="inline-block"
+      <Link
+        to="/"
+        aria-label="EV Dock Home"
+        className="inline-block"
+      >
+        <img
+          src={Logo}
+          alt="EV Dock"
+          className="h-20 w-auto object-contain"
+        />
+      </Link>
+
+      <p className="mt-3 max-w-xs text-sm leading-6 text-slate-400">
+        Smart EV charging solutions for connected, scalable and
+        future-ready mobility.
+      </p>
+
+      {/* Social */}
+      <div className="mt-5 flex gap-2">
+        {/* Facebook */}
+        <a
+          href="https://www.facebook.com/people/EV-Dock/61591772826693/#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="EV Dock on Facebook"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#6FA8FF]/40 hover:bg-[#1E5FA8] hover:text-white"
         >
-          <span className="bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#F28BB5] bg-clip-text text-2xl font-black tracking-tight text-transparent">
-            EV Dock
-          </span>
-        </Link>
+          <FaFacebookF size={13} />
+        </a>
 
-        <p className="mt-3 max-w-xs text-sm leading-6 text-slate-400">
-          Smart EV charging solutions for connected, scalable and
-          future-ready mobility.
-        </p>
+        {/* Instagram */}
+        <a
+          href="https://www.instagram.com/ev.dock"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="EV Dock on Instagram"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#E04578]/40 hover:bg-[#E04578] hover:text-white"
+        >
+          <FaInstagram size={14} />
+        </a>
 
-        {/* Social */}
-        <div className="mt-5 flex gap-2">
-          <a
-            href="https://www.facebook.com/people/EV-Dock/61591772826693/#"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="EV Dock on Facebook"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#6FA8FF]/40 hover:bg-[#1E5FA8] hover:text-white"
-          >
-            <FaFacebookF size={13} />
-          </a>
+        {/* LinkedIn */}
+        <a
+          href="https://in.linkedin.com/company/-evdock"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="EV Dock on LinkedIn"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#6FA8FF]/40 hover:bg-[#1E5FA8] hover:text-white"
+        >
+          <FaLinkedinIn size={14} />
+        </a>
 
-          <a
-            href="https://www.instagram.com/ev.dock"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="EV Dock on Instagram"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#E04578]/40 hover:bg-[#E04578] hover:text-white"
-          >
-            <FaInstagram size={14} />
-          </a>
-
-          <a
-            href="https://in.linkedin.com/company/-evdock"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="EV Dock on LinkedIn"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-[#7A3FAF]/40 hover:bg-[#7A3FAF] hover:text-white"
-          >
-            <FaLinkedinIn size={14} />
-          </a>
-        </div>
+        {/* YouTube */}
+        <a
+          href="https://www.youtube.com/@tritanevdock"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="EV Dock on YouTube"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-red-500/40 hover:bg-red-600 hover:text-white"
+        >
+          <FaYoutube size={14} />
+        </a>
       </div>
+    </div>
 
       {/* ================= EXPLORE ================= */}
 

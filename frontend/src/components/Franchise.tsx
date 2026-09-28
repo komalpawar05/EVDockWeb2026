@@ -10,6 +10,7 @@ import {
   Smartphone,
   Zap,
 } from "lucide-react";
+import Logo from "../assets/logo_evdock.png"
 import SectionHeading from "./Common/SectionHeading";
 const Franchise = () => {
   const features = [
@@ -229,9 +230,9 @@ const Franchise = () => {
                   <div className="flex h-9 items-center justify-between border-b border-slate-100 px-3.5">
 
                     <div className="flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-200" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-200" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-green-200" />
                     </div>
 
                     <div className="hidden rounded-md bg-slate-50 px-3 py-1 sm:block">
@@ -240,7 +241,9 @@ const Franchise = () => {
                       </span>
                     </div>
 
-                    <div className="h-5 w-5 rounded-full bg-gradient-to-br from-[#1E5FA8] to-[#C93C8F]" />
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-[#1E5FA8] to-[#C93C8F]">
+                      <span className="text-xs font-semibold text-white">EV</span>
+                    </div>
                   </div>
 
                   {/* CMS body */}
@@ -250,13 +253,13 @@ const Franchise = () => {
                     <aside className="hidden w-[115px] shrink-0 border-r border-slate-100 bg-[#FBFCFE] p-2.5 sm:block">
 
                       <div className="mb-6 flex items-center gap-1.5 px-1.5">
-                        <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-[#1E5FA8] via-[#4B4FAE] to-[#C93C8F]">
-                          <Zap size={8} className="text-white" />
-                        </div>
-
-                        <span className="text-[8px] font-bold text-slate-900">
-                          EV Dock
-                        </span>
+                        <div className="mb-6 flex items-center px-1.5">
+                        <img
+                          src={Logo}
+                          alt="EV Dock"
+                          className="h-7 w-auto object-contain"
+                        />
+                      </div>
                       </div>
 
                       <div className="space-y-0.5">
@@ -323,7 +326,7 @@ const Franchise = () => {
                           </p>
 
                           <h4 className="mt-1 text-[11px] font-semibold tracking-tight text-slate-900">
-                            Good morning, Admin
+                            Dashboard
                           </h4>
                         </div>
 
@@ -643,12 +646,9 @@ const Franchise = () => {
                         </p>
                       </div>
 
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-[#1E5FA8] to-[#C93C8F]">
-                        <Zap
-                          size={9}
-                          className="text-white"
-                        />
-                      </div>
+                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#1E5FA8] to-[#C93C8F]">
+                      <span className="text-xs font-semibold text-white">EV</span>
+                    </div>
                     </div>
                   </div>
 
