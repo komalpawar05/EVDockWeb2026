@@ -6,7 +6,7 @@ import HeroVideo from "../assets/Vedio-2.mp4";
 import SectionHeading from "./Common/SectionHeading";
 
 const VideoSection = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleVideo = () => {
