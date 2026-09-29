@@ -385,10 +385,10 @@ const Navbar: React.FC = () => {
   ========================================================= */
 
   return (
-    <header
-      ref={navRef}
-      className="fixed left-0 top-0 z-50 w-full"
-    >
+      <header
+        ref={navRef}
+        className="absolute left-0 top-0 z-50 w-full"
+      >
       <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
 
         {/* ===================================================

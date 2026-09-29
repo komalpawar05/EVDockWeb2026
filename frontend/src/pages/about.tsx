@@ -463,6 +463,7 @@ const About = () => {
                 variants={revealLeft}
                 className="relative z-10"
               >
+                
                 <SectionHeading
                   eyebrow="About EV Dock"
                   title="Powering"
@@ -471,6 +472,7 @@ const About = () => {
                   dark
                   stacked
                 />
+                
 
                 <div className="mt-9 flex flex-wrap items-center gap-5">
                   <a
