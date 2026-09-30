@@ -1,33 +1,37 @@
+
 import { motion, type Variants } from "framer-motion";
 import {
-  BatteryCharging,
-  MapPin,
-  ShieldCheck,
-  Zap,
   ArrowUpRight,
-  Navigation,
-  Gauge,
-  ArrowRight,
+  Building2,
+  CarFront,
+  Check,
+  Hotel,
+  MapPin,
+  PlugZap,
+  TrendingUp,
+  Users,
+  Zap,
 } from "lucide-react";
 
 import SectionHeading from "./Common/SectionHeading";
 
 const About = () => {
-  const features = [
+  const businessTypes = [
     {
-      icon: BatteryCharging,
-      title: "Fast & Convenient Charging",
-      text: "Find charging solutions designed to keep every journey moving.",
+      icon: Hotel,
+      title: "Hotels & Resorts",
+    },
+    {
+      icon: Building2,
+      title: "Commercial Spaces",
     },
     {
       icon: MapPin,
-      title: "Smart Station Discovery",
-      text: "Discover nearby chargers with real-time availability and station information.",
+      title: "Highways & Fuel Stations",
     },
     {
-      icon: ShieldCheck,
-      title: "Connected & Reliable Network",
-      text: "A connected ecosystem built for a seamless EV charging experience.",
+      icon: CarFront,
+      title: "Fleet & Mobility",
     },
   ];
 
@@ -40,420 +44,303 @@ const About = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
-  const stagger = {
+  const stagger: Variants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
 
+  const benefits = [
+    "Charging Management",
+    "Mobile App Integration",
+    "Real-time Monitoring",
+    "Technical Support",
+  ];
+
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
     >
-      {/* Background */}
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-blue-100/50 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-emerald-100/40 blur-3xl" />
+        <div className="absolute right-[-180px] top-[-180px] h-[420px] w-[420px] rounded-full bg-blue-100/50 blur-[120px]" />
+
+        <div className="absolute bottom-[-200px] left-[-150px] h-[400px] w-[400px] rounded-full bg-slate-100 blur-[100px]" />
+
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#07111F 1px, transparent 1px), linear-gradient(90deg, #07111F 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
-      {/* Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          {/* LEFT CONTENT */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            className="max-w-xl"
-          >
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="grid items-end gap-8 lg:grid-cols-[1.1fr_0.9fr]"
+        >
+          {/* LEFT HEADER */}
+          <motion.div variants={fadeUp}>
+
+            {/* Heading */}
             <SectionHeading
-              eyebrow="ABOUT EV DOCK"
-              title="A smarter way to"
-              highlight="charge, connect, and move."
-              description="EV Dock brings EV drivers, charging stations, and businesses together in one intelligent ecosystem. From discovering nearby chargers to accessing real-time station information, EV Dock makes charging simpler, faster, and more convenient."
-              titleClassName="text-3xl sm:text-4xl lg:text-[42px] leading-[1.08]"
-              descriptionClassName="mt-5 max-w-lg text-sm sm:text-[15px] leading-6 text-slate-500"
+              eyebrow="EV Dock Business"
+              title="Turn your space into"
+              highlight="an EV destination."
+              description=""
+              titleClassName="text-3xl leading-[1.08] tracking-[-0.04em] sm:text-4xl lg:text-[48px]"
+              descriptionClassName="hidden"
             />
-
-            {/* Read More */}
-            <motion.div variants={fadeUp} className="mt-6">
-              <a
-                href="/about"
-                className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-[#07111F] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#1E5FA8] hover:bg-[#1E5FA8] hover:text-white hover:shadow-md"
-              >
-                Explore EV Dock
-                <ArrowRight
-                  size={15}
-                  strokeWidth={2}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
-            </motion.div>
-
-            {/* STATS */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-8 grid max-w-lg grid-cols-3 border-y border-slate-200 py-5"
-            >
-              <div className="border-r border-slate-200 pr-4">
-                <p className="text-lg font-bold tracking-tight text-[#07111F]">
-                  Smart
-                </p>
-                <p className="mt-1 text-[11px] text-slate-400">
-                  EV ecosystem
-                </p>
-              </div>
-
-              <div className="border-r border-slate-200 px-4">
-                <p className="text-lg font-bold tracking-tight text-[#07111F]">
-                  Live
-                </p>
-                <p className="mt-1 text-[11px] text-slate-400">
-                  Station data
-                </p>
-              </div>
-
-              <div className="pl-4">
-                <p className="text-lg font-bold tracking-tight text-[#07111F]">
-                  Connected
-                </p>
-                <p className="mt-1 text-[11px] text-slate-400">
-                  EV experience
-                </p>
-              </div>
-            </motion.div>
-
-            {/* FEATURES */}
-            <motion.div
-              variants={stagger}
-              className="mt-8 space-y-5"
-            >
-              {features.map((feature) => {
-                const Icon = feature.icon;
-
-                return (
-                  <motion.div
-                    key={feature.title}
-                    variants={fadeUp}
-                    className="group flex items-start gap-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F6FC] text-[#1E5FA8] transition-all duration-300 group-hover:bg-[#1E5FA8] group-hover:text-white">
-                      <Icon size={18} strokeWidth={2} />
-                    </div>
-
-                    <div>
-                      <h3 className="text-sm font-semibold text-[#07111F]">
-                        {feature.title}
-                      </h3>
-
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
-                        {feature.text}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
           </motion.div>
 
-          {/* RIGHT VISUAL */}
+          {/* RIGHT DESCRIPTION */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.7,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="relative"
+            variants={fadeUp}
+            className="max-w-md lg:ml-auto lg:pb-1"
           >
-            {/* MAIN DASHBOARD CARD */}
-            <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-[#F7FAFD] p-5 shadow-[0_20px_60px_rgba(7,17,31,0.08)] sm:p-6">
-              {/* Decorative Glow */}
-              <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl" />
+            <p className="text-sm leading-7 text-slate-500 sm:text-[15px]">
+              EV Dock helps businesses build, operate, and grow EV charging
+              infrastructure — connecting your property with EV drivers and
+              creating a smarter mobility experience.
+            </p>
 
-              <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-emerald-100/40 blur-3xl" />
+            <a
+              href="/about"
+              className="group mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#07111F]"
+            >
+              Learn more about EV Dock
 
-              {/* CARD HEADER */}
-              <div className="relative z-10 flex items-center justify-between">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    EV DOCK
-                  </p>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07111F] text-white transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#1E5FA8]">
+                <ArrowUpRight size={13} />
+              </span>
+            </a>
+          </motion.div>
+        </motion.div>
 
-                  <p className="mt-1 text-sm font-semibold text-[#07111F]">
-                    Smart charging ecosystem
-                  </p>
-                </div>
+        {/* =====================================================
+            MAIN BUSINESS PANEL
+        ===================================================== */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.65,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mt-12 overflow-hidden rounded-[30px] bg-[#07111F] shadow-[0_25px_70px_rgba(7,17,31,0.12)]"
+        >
+          <div className="grid lg:grid-cols-[1fr_0.95fr]">
+            {/* =================================================
+                LEFT — BUSINESS CONTENT
+            ================================================= */}
+            <div className="relative p-7 sm:p-9 lg:p-11">
+              {/* Glow */}
+              <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-[300px] w-[300px] rounded-full bg-[#1E5FA8]/25 blur-[90px]" />
 
-                {/* Live Badge */}
-                <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-3 py-1.5 shadow-sm">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                    <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  </span>
+              <div className="pointer-events-none absolute bottom-[-150px] left-[-100px] h-[250px] w-[250px] rounded-full bg-emerald-500/10 blur-[90px]" />
 
-                  <span className="text-[10px] font-semibold text-emerald-600">
-                    LIVE
-                  </span>
-                </div>
-              </div>
-
-              {/* OVERVIEW GRID */}
-              <div className="relative z-10 mt-6 grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
-                {/* CHARGING STATUS */}
-                <div className="relative min-h-[260px] overflow-hidden rounded-2xl bg-[#07111F] p-5">
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.12, 1],
-                      opacity: [0.2, 0.35, 0.2],
-                    }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute -right-12 -top-12 h-44 w-44 rounded-full bg-[#1E5FA8]/30 blur-3xl"
-                  />
-
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-                        <Zap
-                          size={17}
-                          className="text-[#6FA8FF]"
-                          fill="currentColor"
-                        />
-                      </div>
-
-                      <span className="text-[10px] text-slate-500">
-                        Station #024
-                      </span>
-                    </div>
-
-                    <p className="mt-7 text-[11px] font-medium text-slate-400">
-                      Charging status
-                    </p>
-
-                    <div className="mt-1 flex items-end gap-2">
-                      <span className="text-3xl font-bold tracking-tight text-white">
-                        82%
-                      </span>
-
-                      <span className="mb-1 text-[11px] text-emerald-400">
-                        charging
-                      </span>
-                    </div>
-
-                    {/* Progress */}
-                    <div className="mt-5 h-2 overflow-hidden rounded-full bg-white/10">
-                      <motion.div
-                        initial={{
-                          width: 0,
-                        }}
-                        whileInView={{
-                          width: "82%",
-                        }}
-                        viewport={{
-                          once: true,
-                        }}
-                        transition={{
-                          duration: 1.2,
-                          delay: 0.3,
-                          ease: "easeOut",
-                        }}
-                        className="h-full rounded-full bg-gradient-to-r from-[#6FA8FF] to-emerald-400"
-                      />
-                    </div>
-
-                    <div className="mt-3 flex justify-between text-[10px] text-slate-500">
-                      <span>Started 18 min ago</span>
-                      <span>32 kW</span>
-                    </div>
-                  </div>
-
-                  {/* Bottom Info */}
-                  <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between border-t border-white/10 pt-3">
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10">
-                        <BatteryCharging
-                          size={14}
-                          className="text-slate-300"
-                        />
-                      </div>
-
-                      <span className="text-[10px] text-slate-400">
-                        DC Fast Charger
-                      </span>
-                    </div>
-
-                    <ArrowUpRight
+              <div className="relative z-10">
+                {/* Small Heading */}
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
+                    <PlugZap
                       size={15}
-                      className="text-slate-500"
+                      className="text-blue-300"
                     />
                   </div>
+
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Built for businesses
+                  </span>
                 </div>
 
-                {/* RIGHT MINI CARDS */}
-                <div className="grid gap-4">
-                  {/* Nearby Stations */}
-                  <motion.div
-                    whileHover={{
-                      y: -3,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#1E5FA8]">
-                        <Navigation size={17} />
+                {/* Main Heading */}
+                <h3 className="mt-7 max-w-lg text-2xl font-bold leading-tight tracking-[-0.03em] text-white sm:text-3xl lg:text-[36px]">
+                  More than a charger.
+                  <br />
+
+                  <span className="text-blue-400">
+                    A complete EV ecosystem.
+                  </span>
+                </h3>
+
+                {/* Description */}
+                <p className="mt-4 max-w-md text-xs leading-6 text-slate-400 sm:text-[13px]">
+                  From installation to charging management, EV Dock gives
+                  businesses the technology and support needed to create a
+                  connected charging experience.
+                </p>
+
+                {/* Benefits */}
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {benefits.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-2.5"
+                    >
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-400/10">
+                        <Check
+                          size={12}
+                          className="text-emerald-400"
+                          strokeWidth={2.5}
+                        />
                       </div>
 
-                      <span className="text-[10px] font-medium text-emerald-500">
-                        Available
+                      <span className="text-[10px] font-medium text-slate-300">
+                        {item}
                       </span>
                     </div>
+                  ))}
+                </div>
 
-                    <p className="mt-5 text-2xl font-bold tracking-tight text-[#07111F]">
-                      12
-                    </p>
+                {/* CTA */}
+                <a
+                  href="/contact"
+                  className="group mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[10px] font-bold text-[#07111F] transition-all duration-300 hover:bg-[#1E5FA8] hover:text-white"
+                >
+                  Partner with EV Dock
 
-                    <p className="mt-1 text-[11px] text-slate-400">
-                      Nearby stations
-                    </p>
-                  </motion.div>
+                  <ArrowUpRight
+                    size={13}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </a>
+              </div>
+            </div>
 
-                  {/* Network Reliability */}
-                  <motion.div
-                    whileHover={{
-                      y: -3,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                        <Gauge size={17} />
-                      </div>
+            {/* =================================================
+                RIGHT — BUSINESS NETWORK
+            ================================================= */}
+            <div className="relative border-t border-white/10 bg-[#0B1726] p-6 sm:p-8 lg:border-l lg:border-t-0">
+              {/* Header */}
+              <div className="mb-5 flex items-center justify-between">
+                <div>
+                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                    Built for
+                  </p>
 
-                      <span className="text-[10px] text-slate-400">
-                        Network
-                      </span>
-                    </div>
+                  <p className="mt-1 text-sm font-semibold text-white">
+                    Multiple business spaces
+                  </p>
+                </div>
 
-                    <p className="mt-5 text-2xl font-bold tracking-tight text-[#07111F]">
-                      98%
-                    </p>
-
-                    <p className="mt-1 text-[11px] text-slate-400">
-                      Network reliability
-                    </p>
-                  </motion.div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/10">
+                  <TrendingUp
+                    size={15}
+                    className="text-blue-400"
+                  />
                 </div>
               </div>
 
-              {/* LOCATION / DISCOVERY */}
-              <motion.div
-                whileHover={{
-                  y: -2,
-                }}
-                transition={{
-                  duration: 0.25,
-                }}
-                className="relative z-10 mt-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3"
-              >
+              {/* Business Cards */}
+              <div className="grid grid-cols-2 gap-3">
+                {businessTypes.map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={item.title}
+                      initial={{
+                        opacity: 0,
+                        y: 10,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      transition={{
+                        delay: index * 0.08,
+                        duration: 0.4,
+                      }}
+                      whileHover={{
+                        y: -3,
+                      }}
+                      className="group rounded-2xl border border-white/[0.07] bg-white/[0.035] p-4 transition-all duration-300 hover:border-blue-400/30 hover:bg-white/[0.06]"
+                    >
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] transition-colors duration-300 group-hover:bg-[#1E5FA8]">
+                        <Icon
+                          size={16}
+                          className="text-blue-300 transition-colors duration-300 group-hover:text-white"
+                        />
+                      </div>
+
+                      <p className="mt-4 text-[10px] font-semibold leading-4 text-slate-300">
+                        {item.title}
+                      </p>
+
+                      <div className="mt-3 h-px w-0 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Status */}
+              <div className="mt-4 flex items-center justify-between rounded-2xl border border-white/[0.07] bg-white/[0.035] px-4 py-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F1F6FC] text-[#1E5FA8]">
-                    <MapPin size={15} />
+                  <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10">
+                    <span className="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400 opacity-60" />
+                    <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
                   </div>
 
                   <div>
-                    <p className="text-[11px] font-semibold text-[#07111F]">
-                      Smart station discovery
+                    <p className="text-[9px] text-slate-500">
+                      Network status
                     </p>
 
-                    <p className="mt-0.5 text-[10px] text-slate-400">
-                      Real-time charging information
+                    <p className="text-[10px] font-semibold text-white">
+                      Connected & monitored
                     </p>
                   </div>
                 </div>
 
-                <div className="hidden h-8 w-8 items-center justify-center rounded-full border border-slate-200 sm:flex">
-                  <ArrowUpRight
-                    size={14}
-                    className="text-slate-400"
-                  />
-                </div>
-              </motion.div>
-            </div>
-
-            {/* FLOATING BADGE */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 15,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.5,
-                duration: 0.5,
-              }}
-              className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-[0_15px_40px_rgba(7,17,31,0.1)] sm:block"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-semibold text-[#07111F]">
-                    Connected
-                  </p>
-
-                  <p className="text-[9px] text-slate-400">
-                    Infrastructure online
-                  </p>
-                </div>
+                <ArrowUpRight
+                  size={15}
+                  className="text-slate-500"
+                />
               </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        </motion.div>     
       </div>
 
-      {/* Read More Target */}
+      {/* Existing Anchor */}
       <div
         id="about-details"
         className="pointer-events-none absolute bottom-0 h-px w-full"
