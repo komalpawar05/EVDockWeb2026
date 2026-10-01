@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 
+import PartnerSection from "../components/PartnersSection";
 import SectionHeading from "../components/Common/SectionHeading";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -463,7 +464,6 @@ const About = () => {
                 variants={revealLeft}
                 className="relative z-10"
               >
-                
                 <SectionHeading
                   eyebrow="About EV Dock"
                   title="Powering"
@@ -472,7 +472,6 @@ const About = () => {
                   dark
                   stacked
                 />
-                
 
                 <div className="mt-9 flex flex-wrap items-center gap-5">
                   <a
@@ -618,9 +617,7 @@ const About = () => {
                     <div
                       key={label}
                       className={`group relative p-7 transition-all duration-300 hover:bg-[#F8FAFD] ${
-                        index < 3
-                          ? "border-b border-slate-200"
-                          : ""
+                        index < 3 ? "border-b border-slate-200" : ""
                       } ${
                         index % 3 !== 2
                           ? "lg:border-r lg:border-slate-200"
@@ -966,17 +963,26 @@ const About = () => {
             VALUES
         ====================================================== */}
 
-        <section className="bg-[#F6F9FC] px-5 py-24 md:px-10 md:py-32 lg:px-16">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
+        <section className="relative overflow-hidden bg-[#07111F] px-5 py-24 md:px-10 md:py-32 lg:px-16">
+          {/* Background glow */}
+          <div className="pointer-events-none absolute -left-40 top-0 h-80 w-80 rounded-full bg-[#1E5FA8]/20 blur-[120px]" />
+
+          <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[#7A3FAF]/15 blur-[130px]" />
+
+          <div className="relative mx-auto max-w-7xl">
+            <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+
+              {/* Heading */}
               <SectionHeading
                 eyebrow="What drives us"
                 title="Built with"
                 highlight="purpose."
                 description="Every part of the EV Dock ecosystem is designed around reliability, simplicity and long-term electric mobility."
+                dark
               />
 
-              <div className="grid gap-3 sm:grid-cols-2">
+              {/* Values */}
+              <div className="grid gap-4 sm:grid-cols-2">
                 {values.map((value, index) => (
                   <motion.div
                     key={value}
@@ -990,18 +996,26 @@ const About = () => {
                     }}
                     viewport={{
                       once: true,
+                      amount: 0.2,
                     }}
                     transition={{
-                      duration: 0.6,
+                      duration: 0.5,
                       delay: index * 0.08,
                     }}
-                    className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                    className="group flex min-h-[120px] items-center gap-5 rounded-[24px] border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#6FA8FF]/30 hover:bg-white/[0.09] hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
                   >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EAF2FB] text-[#1E5FA8] transition-colors group-hover:bg-[#1E5FA8] group-hover:text-white">
-                      <Check size={14} />
+                    {/* Number */}
+                    <span className="self-start pt-1 text-[10px] font-bold tracking-[0.2em] text-slate-600">
+                      0{index + 1}
                     </span>
 
-                    <span className="text-xs font-bold text-[#07111F]">
+                    {/* Icon */}
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1E5FA8]/20 text-[#6FA8FF] transition-all duration-300 group-hover:bg-[#1E5FA8] group-hover:text-white">
+                      <Check size={15} strokeWidth={2.5} />
+                    </span>
+
+                    {/* Value */}
+                    <span className="text-sm font-semibold leading-6 text-white">
                       {value}
                     </span>
                   </motion.div>
@@ -1011,15 +1025,17 @@ const About = () => {
           </div>
         </section>
 
+        <PartnerSection />
+
         {/* =====================================================
             FINAL CTA
         ====================================================== */}
 
-        <section className="px-5 py-24 md:px-10 md:py-32 lg:px-16">
+        <section className="px-5 py-16 md:px-10 md:py-20 lg:px-16">
           <motion.div
             initial={{
               opacity: 0,
-              y: 30,
+              y: 20,
             }}
             whileInView={{
               opacity: 1,
@@ -1028,33 +1044,52 @@ const About = () => {
             viewport={{
               once: true,
             }}
-            className="relative mx-auto max-w-7xl overflow-hidden rounded-[38px] bg-[#07111F] px-7 py-16 md:px-14 md:py-20 lg:px-20"
+            className="relative mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-[#07111F] px-6 py-9 md:px-10 md:py-11 lg:px-12"
           >
-            <div className="pointer-events-none absolute right-10 top-10 opacity-20">
-              <Network size={180} strokeWidth={0.6} />
+            {/* Background glow */}
+            <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#1E5FA8]/25 blur-[90px]" />
+
+            <div className="pointer-events-none absolute -bottom-32 left-1/2 h-64 w-64 rounded-full bg-[#7A3FAF]/20 blur-[100px]" />
+
+            {/* Decorative network */}
+            <div className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 opacity-[0.08] md:block">
+              <Network size={120} strokeWidth={0.7} />
             </div>
 
-            <div className="pointer-events-none absolute -right-28 -top-28 h-96 w-96 rounded-full bg-[#1E5FA8]/35 blur-[110px]" />
+            <div className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+              
+              {/* Content */}
+              <div className="max-w-2xl">
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="h-px w-6 bg-[#6FA8FF]" />
 
-            <div className="pointer-events-none absolute bottom-[-180px] left-1/3 h-96 w-96 rounded-full bg-[#7A3FAF]/30 blur-[120px]" />
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#6FA8FF]">
+                    The road ahead
+                  </span>
+                </div>
 
-            <div className="relative grid gap-12 md:grid-cols-[1fr_auto] md:items-end">
-              <SectionHeading
-                eyebrow="The road ahead"
-                title="Let's build a better"
-                highlight="electric future."
-                description="Whether you're an EV driver, business or potential partner, there's a place for you in the EV Dock network."
-                dark
-              />
+                <h2 className="text-2xl font-semibold leading-tight tracking-[-0.03em] text-white md:text-3xl">
+                  Let&apos;s build a better{" "}
+                  <span className="text-[#6FA8FF]">
+                    electric future.
+                  </span>
+                </h2>
 
+                <p className="mt-3 max-w-xl text-xs leading-5 text-slate-400 md:text-sm">
+                  Whether you&apos;re an EV driver, business or potential partner,
+                  there&apos;s a place for you in the EV Dock network.
+                </p>
+              </div>
+
+              {/* CTA */}
               <a
                 href="/contact-us"
-                className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-xs font-bold text-[#07111F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#6FA8FF] hover:text-white"
+                className="group inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-5 py-3 text-[11px] font-bold text-[#07111F] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#6FA8FF] hover:text-white md:self-center"
               >
                 Connect with EV Dock
 
                 <ArrowRight
-                  size={15}
+                  size={14}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
               </a>
