@@ -147,7 +147,12 @@ const Hero = () => {
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="text-[2.6rem] font-medium leading-[1.02] py-2 tracking-[-0.035em] sm:text-[3.05rem] lg:text-[3.5rem]"
+              className="max-w-full
+              text-4xl
+              font-black
+              leading-[1.08]
+              tracking-[-0.04em]
+              md:text-5xl"
             >
               Fast & Reliable EV
               <br />
