@@ -29,7 +29,6 @@ import BackToTop from "../components/Common/BackToTop";
 /* =========================================================
    PARTNERSHIP TYPES
 ========================================================= */
-
 const partnerTypes = [
   {
     icon: Building2,
