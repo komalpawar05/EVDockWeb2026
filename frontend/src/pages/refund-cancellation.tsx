@@ -304,7 +304,7 @@ const RefundPolicy = () => {
                 </p>
 
                 <a
-                  href="/contact"
+                  href="contact-us"
                   className="group mt-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-xs font-bold text-[#071321] transition hover:bg-[#6FA8FF] hover:text-white"
                 >
                   Contact support

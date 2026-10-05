@@ -253,10 +253,10 @@ const TermsConditions = () => {
                   In case of any unauthorized use of Your Account please
                   immediately reach us at{" "}
                   <a
-                    href="mailto:customercare@evdock.app"
+                    href="mailto:evdockin@gamil.com"
                     className="font-medium text-blue-600 hover:underline"
                   >
-                    customercare@evdock.app
+                    evdockin@gamil.com
                   </a>
                   .
                 </p>
@@ -376,10 +376,10 @@ const TermsConditions = () => {
                     In case you are unable to access Your Account, please
                     inform us at{" "}
                     <a
-                      href="mailto:customercare@evdock.app"
+                      href="mailto:evdockin@gamil.com"
                       className="font-medium text-blue-600 hover:underline"
                     >
-                      customercare@evdock.app
+                      evdockin@gamil.com
                     </a>{" "}
                     and make a written request for blocking Your Account.
                   </p>

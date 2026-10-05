@@ -147,12 +147,7 @@ const Hero = () => {
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="max-w-full
-              text-4xl
-              font-black
-              leading-[1.08]
-              tracking-[-0.04em]
-              md:text-5xl"
+              className="max-w-full text-4xl font-black leading-[1.08] tracking-[-0.04em] md:text-5xl"
             >
               Fast & Reliable EV
               <br />
@@ -164,12 +159,11 @@ const Hero = () => {
                   delay: 0.55,
                   duration: 0.8,
                 }}
-                className="inline-block bg-gradient-to-r  py-5 from-white via-blue-100 to-blue-400 bg-clip-text text-transparent"
+                className="inline-block bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-500 bg-clip-text py-5 text-transparent"
               >
                 Charging Across India
               </motion.span>
             </motion.h1>
-
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}

@@ -489,20 +489,21 @@ const Navbar: React.FC = () => {
               DESKTOP CTA
           ================================================== */}
 
-          <div className="hidden lg:flex">
-            <Link
-              to="/contact-us"
-              className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/30"
-            >
-              Get Started
+          <div className="hidden lg:flex items-center gap-3">
+              <a
+                href="https://prod.tritanev.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/30"
+              >
+                CMS Login
 
-              <ArrowRight
-                size={17}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </a>
           </div>
-
           {/* =================================================
               MOBILE BUTTON
           ================================================== */}
