@@ -43,7 +43,7 @@ const Hero = () => {
       {/* Bottom cinematic fade */}
       <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#05070a] via-[#05070a]/80 to-transparent" />
 
-      {/* =====================================================
+      {/* ====================================================
           AMBIENT LIGHT
       ====================================================== */}
 
