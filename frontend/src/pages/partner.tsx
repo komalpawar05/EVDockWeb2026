@@ -1,6 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Building2,
   Check,
   ChevronRight,
@@ -134,162 +135,395 @@ const Partner = () => {
           HERO
       ====================================================== */}
 
-      <section className="relative min-h-[680px] overflow-hidden bg-[#071321] md:min-h-[740px]">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={PartnerImge}
-            alt="EV Dock partnership"
-            className="h-full w-full object-cover object-center"
-          />
+      <section className="relative isolate min-h-[620px] overflow-hidden bg-[#06111f] sm:min-h-[660px] lg:min-h-[700px]">
+  {/* ================= BACKGROUND IMAGE ================= */}
+  <div className="absolute inset-0 -z-20">
+    <img
+      src={PartnerImge}
+      alt="EV Dock partnership"
+      className="
+        h-full
+        w-full
+        object-cover
+        object-center
+        scale-[1.02]
+        sm:object-center
+        lg:object-[58%_center]
+      "
+    />
+  </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/95 via-[#071321]/75 to-[#071321]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/80 via-transparent to-transparent" />
-        </div>
+  {/* Main dark overlay */}
+  <div className="absolute inset-0 -z-10 bg-[#06111f]/35" />
 
-        {/* Ambient Glow */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="pointer-events-none absolute -left-32 top-1/3 h-[380px] w-[380px] rounded-full bg-blue-500/20 blur-[120px]"
-        />
+  {/* Left content protection */}
+  <div
+    className="
+      absolute inset-0 -z-10
+      bg-gradient-to-r
+      from-[#06111f]/95
+      via-[#06111f]/65
+      to-[#06111f]/10
+    "
+  />
 
-        <motion.div
-          animate={{
-            scale: [1, 1.08, 1],
-            opacity: [0.08, 0.16, 0.08],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute right-[-100px] top-[-80px] h-[380px] w-[380px] rounded-full bg-violet-500/20 blur-[110px]"
-        />
+  {/* Bottom fade */}
+  <div
+    className="
+      absolute inset-x-0 bottom-0 -z-10 h-48
+      bg-gradient-to-t
+      from-[#06111f]
+      to-transparent
+    "
+  />
 
-        {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-24 md:min-h-[740px] md:px-10 lg:px-16">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="max-w-[560px]"
+  {/* Subtle top fade */}
+  <div
+    className="
+      absolute inset-x-0 top-0 -z-10 h-32
+      bg-gradient-to-b
+      from-[#06111f]/45
+      to-transparent
+    "
+  />
+
+  {/* ================= AMBIENT LIGHT ================= */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1.2 }}
+    className="
+      pointer-events-none
+      absolute
+      -left-32
+      top-1/3
+      h-[320px]
+      w-[320px]
+      rounded-full
+      bg-blue-500/15
+      blur-[110px]
+    "
+  />
+
+  <motion.div
+    animate={{
+      scale: [1, 1.08, 1],
+      opacity: [0.05, 0.12, 0.05],
+    }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="
+      pointer-events-none
+      absolute
+      -right-24
+      -top-24
+      h-[360px]
+      w-[360px]
+      rounded-full
+      bg-violet-500/15
+      blur-[120px]
+    "
+  />
+
+  {/* ================= CONTENT ================= */}
+  <div
+    className="
+      relative
+      z-10
+      mx-auto
+      flex
+      min-h-[620px]
+      max-w-7xl
+      items-center
+      px-5
+      py-20
+      sm:min-h-[660px]
+      sm:px-8
+      lg:min-h-[700px]
+      lg:px-12
+      xl:px-16
+    "
+  >
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+      className="max-w-xl"
+    >
+      {/* Badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15, duration: 0.5 }}
+        className="
+          mb-6
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-white/15
+          bg-white/[0.08]
+          px-3.5
+          py-2
+          backdrop-blur-xl
+        "
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
+        </span>
+
+        <span className="text-[9px] font-medium uppercase tracking-[0.22em] text-white/75">
+          Partner With EV Dock
+        </span>
+      </motion.div>
+
+      {/* Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 22 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25, duration: 0.65 }}
+        className="
+          max-w-[620px]
+          text-[42px]
+          font-semibold
+          leading-[1.02]
+          tracking-[-0.045em]
+          text-white
+          sm:text-5xl
+          lg:text-[64px]
+          xl:text-[70px]
+        "
+      >
+        Build the future
+        <span className="block">
+          of{" "}
+          <span
+            className="
+              bg-gradient-to-r
+              from-[#6FA8FF]
+              via-[#A78BFA]
+              to-[#F29AC2]
+              bg-clip-text
+              text-transparent
+            "
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-md"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-
-              <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/75">
-                Partner With EV Dock
-              </span>
-            </motion.div>
-
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.6 }}
-              className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
-            >
-              Power the future
-              <span className="block bg-gradient-to-r from-[#6FA8FF] via-[#B57EDC] to-[#F28BB5] bg-clip-text text-transparent">
-                with EV Dock.
-              </span>
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="mt-5 max-w-md text-sm leading-6 text-white/65"
-            >
-              Bring smart EV charging to your property or business.
-            </motion.p>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-7 flex flex-wrap gap-3"
-            >
-              <a
-                href="#partner-form"
-                className="group inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-[11px] font-semibold text-white shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition hover:-translate-y-0.5 hover:bg-blue-500"
-              >
-                Become a Partner
-
-                <ArrowRight
-                  size={14}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </a>
-
-              <a
-                href="#partnership-models"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[11px] font-semibold text-white backdrop-blur-md transition hover:bg-white/15"
-              >
-                Learn More
-
-                <ArrowRight
-                  size={14}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Small Annotation */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="pointer-events-none absolute bottom-12 right-6 hidden xl:block"
-          >
-            <div className="flex items-center gap-3 rounded-2xl border border-white/15 bg-[#071321]/50 px-4 py-3 backdrop-blur-xl">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400">
-                <Zap size={15} />
-              </div>
-
-              <div>
-                <p className="text-[8px] uppercase tracking-[0.15em] text-white/40">
-                  EV Dock
-                </p>
-
-                <p className="mt-0.5 text-[10px] font-medium text-white/80">
-                  Smart charging network
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{
-            y: [0, 5, 0],
-            opacity: [0.3, 0.7, 0.3],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-          }}
-          className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-        >
-          <span className="text-[8px] uppercase tracking-[0.2em] text-white/40">
-            Scroll
+            EV charging.
           </span>
+        </span>
+      </motion.h1>
 
-          <span className="h-6 w-px bg-gradient-to-b from-blue-400 to-transparent" />
-        </motion.div>
-      </section>
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        className="
+          mt-6
+          max-w-[470px]
+          text-sm
+          leading-6
+          text-white/65
+          sm:text-[15px]
+          sm:leading-7
+        "
+      >
+        Turn your property into a smart charging destination with
+        EV Dock's complete charging network, technology, and support.
+      </motion.p>
+
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+        className="mt-8 flex flex-wrap items-center gap-3"
+      >
+        <a
+          href="#partner-form"
+          className="
+            group
+            inline-flex
+            items-center
+            gap-2
+            rounded-full
+            bg-white
+            px-5
+            py-3
+            text-[11px]
+            font-semibold
+            text-[#06111f]
+            shadow-[0_12px_35px_rgba(255,255,255,0.12)]
+            transition-all
+            duration-300
+            hover:-translate-y-0.5
+            hover:bg-blue-50
+          "
+        >
+          Become a Partner
+
+          <ArrowRight
+            size={14}
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+          />
+        </a>
+
+        <a
+          href="#partnership-models"
+          className="
+            group
+            inline-flex
+            items-center
+            gap-2
+            rounded-full
+            border
+            border-white/20
+            bg-white/[0.07]
+            px-5
+            py-3
+            text-[11px]
+            font-semibold
+            text-white
+            backdrop-blur-xl
+            transition-all
+            duration-300
+            hover:border-white/30
+            hover:bg-white/[0.12]
+          "
+        >
+          Explore Partnership
+
+          <ArrowUpRight
+            size={14}
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-0.5
+              group-hover:-translate-y-0.5
+            "
+          />
+        </a>
+      </motion.div>
+
+      {/* Small trust line */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.75, duration: 0.6 }}
+        className="mt-8 flex items-center gap-3"
+      >
+        <div className="flex -space-x-1.5">
+          <span className="h-2 w-2 rounded-full bg-blue-400" />
+          <span className="h-2 w-2 rounded-full bg-purple-400" />
+          <span className="h-2 w-2 rounded-full bg-pink-400" />
+        </div>
+
+        <span className="text-[10px] tracking-wide text-white/45">
+          Smart charging infrastructure for modern businesses
+        </span>
+      </motion.div>
+    </motion.div>
+
+    {/* ================= RIGHT FLOATING CARD ================= */}
+    <motion.div
+      initial={{ opacity: 0, x: 25 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.8, duration: 0.7 }}
+      className="
+        absolute
+        bottom-12
+        right-8
+        hidden
+        lg:block
+        xl:right-16
+      "
+    >
+      <div
+        className="
+          flex
+          items-center
+          gap-4
+          rounded-2xl
+          border
+          border-white/15
+          bg-[#071321]/45
+          px-4
+          py-3.5
+          shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+          backdrop-blur-2xl
+        "
+      >
+        <div
+          className="
+            flex
+            h-10
+            w-10
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-blue-400/15
+            bg-blue-500/10
+            text-blue-400
+          "
+        >
+          <Zap size={17} />
+        </div>
+
+        <div>
+          <p className="text-[8px] uppercase tracking-[0.18em] text-white/35">
+            EV Dock
+          </p>
+
+          <p className="mt-1 text-[11px] font-medium text-white/80">
+            Smart Charging Network
+          </p>
+        </div>
+
+        <div className="ml-2 h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.7)]" />
+      </div>
+    </motion.div>
+  </div>
+
+  {/* ================= SCROLL INDICATOR ================= */}
+  <motion.div
+    animate={{
+      y: [0, 5, 0],
+      opacity: [0.25, 0.65, 0.25],
+    }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="
+      absolute
+      bottom-5
+      left-1/2
+      z-20
+      hidden
+      -translate-x-1/2
+      flex-col
+      items-center
+      gap-2
+      md:flex
+    "
+  >
+    <span className="text-[8px] uppercase tracking-[0.25em] text-white/35">
+      Scroll
+    </span>
+
+    <span className="h-7 w-px bg-gradient-to-b from-white/40 to-transparent" />
+  </motion.div>
+</section>
 
       {/* =====================================================
           PARTNERS

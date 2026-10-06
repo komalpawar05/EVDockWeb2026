@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Pause, Play, Zap, ArrowUpRight } from "lucide-react";
+import { Pause, Play,  ArrowUpRight } from "lucide-react";
 
 import HeroVideo from "../assets/Vedio-2.mp4";
 import SectionHeading from "./Common/SectionHeading";

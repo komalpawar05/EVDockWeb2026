@@ -25,7 +25,6 @@ const exploreLinks = [
 const platformLinks = [
 { label: "CMS Dashboard", path: "/cms" },
 { label: "Mobile Application", path: "/mobile-app" },
-{ label: "Payment Solutions", path: "/payment-solutions" },
 { label: "White Label Solutions", path: "/white-label" },
 { label: "Become a Partner", path: "/partner" },
 ];
@@ -229,7 +228,7 @@ return ( <footer className="relative overflow-hidden bg-[#071321] text-white">
 
       <div>
         <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white">
-          Contact
+          Contact Us
         </h3>
 
         <div className="space-y-4 text-sm text-slate-400">
