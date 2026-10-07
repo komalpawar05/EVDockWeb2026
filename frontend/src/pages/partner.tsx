@@ -157,15 +157,14 @@ const Partner = () => {
   <div className="absolute inset-0 -z-10 bg-[#06111f]/35" />
 
   {/* Left content protection */}
-  <div
-    className="
+   <div
+      className="
       absolute inset-0 -z-10
       bg-gradient-to-r
       from-[#06111f]/95
       via-[#06111f]/65
-      to-[#06111f]/10
-    "
-  />
+      to-[#06111f]/10 "
+    />
 
   {/* Bottom fade */}
   <div
@@ -187,7 +186,7 @@ const Partner = () => {
     "
   />
 
-  {/* ================= AMBIENT LIGHT ================= */}
+  {/* ================= AMBIENT LIGHT =============== */}
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
