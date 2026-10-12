@@ -8,9 +8,7 @@ import {
   Hotel,
   MapPin,
   PlugZap,
-  TrendingUp,
-  Users,
-  Zap,
+  TrendingUp
 } from "lucide-react";
 
 import SectionHeading from "./Common/SectionHeading";

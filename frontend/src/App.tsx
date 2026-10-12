@@ -44,16 +44,16 @@ function Home() {
         <Franchise />
         <Appsection />
         <PartnersSection />
-       </main>
-      <Footer />
-      <BackToTop />
+        </main>
+        <Footer />
+        <BackToTop />
     </div>
   );
 }
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/new/">
     <ScrollToTop />
       <Routes>
         {/* Home */}
@@ -90,7 +90,7 @@ function App() {
         {/* ChargerPage */}
         <Route path="/chargerpage" element={<ChargerPage/>}
         />
-
+        
         {/* Privacy-Policy */}
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}
         />

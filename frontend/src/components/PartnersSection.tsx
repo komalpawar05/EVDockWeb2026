@@ -1,82 +1,84 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./Common/SectionHeading";
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 const partners = [
   {
     name: "Exicom",
-    logo: "/partners/exicom_logo.svg",
+    logo: asset("partners/exicom_logo.svg"),
   },
   {
     name: "Quench",
-    logo: "/partners/quench.png",
+    logo: asset("partners/quench.png"),
   },
   {
     name: "ElectreeFi",
-    logo: "/partners/electreefi_logo.webp",
+    logo: asset("partners/electreefi_logo.webp"),
   },
   {
     name: "ChargeMOD",
-    logo: "/partners/chargemod.jpeg",
+    logo: asset("partners/chargemod.jpeg"),
   },
   {
     name: "Lubi",
-    logo: "/partners/lubi_logo.avif",
+    logo: asset("partners/lubi_logo.avif"),
   },
   {
     name: "Key Select by Lemon Tree",
-    logo: "/partners/keyselect_logo.png",
+    logo: asset("partners/keyselect_logo.png"),
   },
   {
     name: "Lemon Tree Hotels",
-    logo: "/partners/lemon_tree_logo.webp",
+    logo: asset("partners/lemon_tree_logo.webp"),
   },
   {
     name: "S.Charge",
-    logo: "/partners/scharge.png",
+    logo: asset("partners/scharge.png"),
   },
   {
     name: "EVnnovator",
-    logo: "/partners/evnnovator_logo.avif",
+    logo: asset("partners/evnnovator_logo.avif"),
   },
   {
     name: "ChargeZone",
-    logo: "/partners/chargezone_logo.png",
+    logo: asset("partners/chargezone_logo.png"),
   },
   {
     name: "Ionage",
-    logo: "/partners/ionage_logo.webp",
+    logo: asset("partners/ionage_logo.webp"),
   },
   {
     name: "Siemens",
-    logo: "/partners/siemens.png",
+    logo: asset("partners/siemens.png"),
   },
   {
     name: "Nikol EV",
-    logo: "/partners/nikol_logo.webp",
+    logo: asset("partners/nikol_logo.webp"),
   },
   {
     name: "KIA",
-    logo: "/partners/kia.png",
+    logo: asset("partners/kia.png"),
   },
   {
     name: "MG",
-    logo: "/partners/mg_logo.webp",
+    logo: asset("partners/mg_logo.webp"),
   },
   {
     name: "Pulse Energy",
-    logo: "/partners/pulse_energy_logo.png",
+    logo: asset("partners/pulse_energy_logo.png"),
   },
   {
     name: "Aurika",
-    logo: "/partners/aurika_logo.png",
+    logo: asset("partners/aurika_logo.png"),
   },
   {
     name: "Grand Continent",
-    logo: "/partners/grand_continent_logo.png",
+    logo: asset("partners/grand_continent_logo.png"),
   },
   {
     name: "Radisson Blu Kharadi",
-    logo: "/partners/radisson_blu.jpeg",
+    logo: asset("partners/radisson_blu.jpeg"),
   },
 ];
 

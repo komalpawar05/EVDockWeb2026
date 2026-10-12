@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   MapPin,
-  Play,
   Zap,
   ShieldCheck,
   BatteryCharging,
