@@ -3,15 +3,10 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   BatteryCharging,
-  Building2,
   ChevronDown,
   CircleGauge,
-  Cpu,
-  Factory,
-  Gauge,
   Home,
   Menu,
-  Network,
   Smartphone,
   Users,
   X,
@@ -471,18 +466,6 @@ const Navbar: React.FC = () => {
               name="Partners"
               items={partners}
             />
-
-            {/* CONTACT */}
-            <Link
-              to="/contact-us"
-              className={`rounded-xl px-3.5 py-2.5 text-sm font-semibold transition ${
-                scrolled
-                  ? "text-slate-700 hover:bg-blue-50 hover:text-blue-600"
-                  : "text-white hover:bg-white/10 hover:text-cyan-300"
-              }`}
-            >
-              Contact
-            </Link>
           </nav>
 
           {/* =================================================
@@ -490,19 +473,19 @@ const Navbar: React.FC = () => {
           ================================================== */}
 
           <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="https://prod.tritanev.com/"
+              <Link
+                to="/contact-us"
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1E5FA8] via-[#4B4FAE] to-[#7A3FAF] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/30"
               >
-                CMS Login
+                Contact Us
 
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </Link>
           </div>
           {/* =================================================
               MOBILE BUTTON
@@ -583,22 +566,13 @@ const Navbar: React.FC = () => {
                 items={partners}
               />
 
-              {/* CONTACT */}
-              <Link
-                to="/contact"
-                onClick={closeAll}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
-              >
-                Contact
-              </Link>
-
               {/* CTA */}
               <Link
-                to="/contact"
+                to="/contact-us"
                 onClick={closeAll}
                 className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20"
               >
-                Get Started
+                Contact Us
 
                 <ArrowRight size={17} />
               </Link>
